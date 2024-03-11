@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../css/sidebar.css";
 import "../css/home.css"
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
  
@@ -40,6 +41,7 @@ export default function Sidebar() {
                 </a>
               </li>
 
+               <Link to="/addusers" style={{ textDecoration: 'none', color: 'inherit' }}>
               <li className="home mb-4">
                 <div>
                   <div className="d-inline-flex align-items-center d-flex p-2">
@@ -51,8 +53,9 @@ export default function Sidebar() {
                   </div>
                 </div>
               </li>
+              </Link>
 
-
+             <Link to="/addmarks" style={{textDecoration:"none" , color:"inherit"}}>
               <li className="home mb-4">
                 <div>
                   <div className="d-inline-flex align-items-center d-flex p-2">
@@ -63,6 +66,7 @@ export default function Sidebar() {
                   </div>
                 </div>
               </li>
+              </Link>
 
               
 
