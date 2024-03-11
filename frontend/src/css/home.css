@@ -1,0 +1,61 @@
+/* CSS in home.css */
+
+.home {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative; 
+}
+
+/* home.css */
+
+/* Common styles */
+.main-content {
+  margin-top: 50px; /* Adjust as needed */
+  padding: 0 20px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  width: 100%; /* Initially takes full width */
+  max-width: 600px; /* Maximum width of the card */
+  height: 500px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Media queries for responsiveness */
+@media only screen and (min-width: 768px) {
+  /* Adjustments for tablets */
+  .main-content {
+    margin-left: 200px;
+  }
+
+  .card {
+    width: calc(50% - 20px); /* Each card takes half of the available space */
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  /* Adjustments for desktops */
+  .card {
+    width: calc(33.33% - 20px); /* Each card takes one-third of the available space */
+  }
+}
+
+
+
+
+
+
+
+
+
+
