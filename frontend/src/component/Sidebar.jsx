@@ -120,6 +120,20 @@ export default function Sidebar() {
                 </a>
               </li>
 
+              <Link to="/addusers2" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <li className="home mb-4">
+                <div>
+                  <div className="d-inline-flex align-items-center d-flex p-2">
+                   <i class='bx bxs-user-plus ' style={{marginLeft:"-38px"}}></i>   
+                    <div className="text-truncate ml-3 mx-2" data-i18n="Employee" style={{paddingLeft:"12px"}}>
+                      Examinar
+                      <i />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              </Link>
+
 
             </ul>
           </div>
