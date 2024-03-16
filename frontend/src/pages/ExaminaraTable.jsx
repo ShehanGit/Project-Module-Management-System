@@ -10,88 +10,116 @@ export default function examinarTable() {
         </div>
 
         <div className="mt-4 mx-5" style={{ marginBottom: "-40px" }}>
-          <h2>Add Users Page 2</h2>
+          <h2>Examinar Table</h2>
         </div>
 
-        <div
-          className="shadow-sm p-3 mb-5 bg-white rounded"
-          style={{
-            marginLeft: "450px",
-            width: "900px",
-            height: "500px",
-            marginTop: "90px",
-          }}
-        >
-          <div>
-            <form className="p-4">
-              <div className="form-group">
-                <input
-                  type="email"
-                  className="form-control mb-4"
-                  placeholder="enter name"
-                />
-              </div>
+        <div>
+          {/* CSS within a style block */}
+          <style>
+          {`
+              .custom-table {
+                width: 80%; 
+                border-collapse: collapse; 
+                font-family: 'Times New Roman', serif;
+                background-color: white; /* White background */
+                border-radius: 10px;   /* Rounded corners */
+                margin-top: 100px;      /* Top margin */
+                margin-left: 260px; 
+              }
 
-              <div className="form-group">
-                <input
-                  type="password"
-                  className="form-control mb-4"
-                  placeholder="enter username"
-                />
-              </div>
+              .custom-table th,
+              .custom-table td {
+                border: 2px solid #ddd;
+                text-align: left;
+                padding: 12px;
+              }
 
-              <div className="form-group mb-4">
-                <select className="form-control">
-                  <option>examiner</option>
-                  <option>project member</option>
-                  <option>supervisor</option>
-                  <option>co-supervisor</option>
-                </select>
-              </div>
+                    .custom-table th {
+                        font-weight: bold; 
+                    }
 
-              <div className="form-group mb-4">
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="enter email"
-                />
-              </div>
+                    /* Style for all buttons in the table */
+                    button {
+                    border: none;
+                    color: red;
+                    padding: 8px 46px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    border-radius: 4px; /* Slightly rounded corners */
+                    cursor: pointer;  /* Change the cursor to a hand on hover */
+                    }
 
-              <div className="form-group mb-4">
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="enter mobile"
-                />
-              </div>
+                    /* Style for buttons on hover */
+                    table button:hover {
+                    background-color: #3e8e41; /* Darker green on hover */
+                    }
+            `}
+          </style>
 
-              <div className="form-group">
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="Password"
-                />
-              </div>
-
-              <div className="d-flex justify-content-between">
-                <button
-                  type="submit"
-                  className="btn btn-outline-info mt-5  "
-                >
-                  Submit
-                </button>
-
-                <button
-                  type="submit"
-                  className="btn btn-outline-danger mt-5 d-flex "
-                >
-                  cancle
-                </button>
-              </div>
-            </form>
-          </div>
+          <table className="table table-sm custom-table">
+          <tr>
+    <th>ID</th>
+    <th>name</th>
+    <th>proposal</th>
+    <th>progress 1</th>
+    <th>progress 2</th>
+    <th>action</th>
+  </tr>
+  <tr>
+    <td>001</td>
+    <td>20</td>
+    <td>50</td>
+    <td>40</td>
+    <td>25</td>
+    <td><button>Add</button></td>
+  </tr>
+  <tr>
+    <td>002</td>
+    <td>50</td>
+    <td>45</td>
+    <td>78</td>
+    <td>45</td>
+    <td><button>Add</button></td>
+  </tr>
+  <tr>
+    <td>003</td>
+    <td>80</td>
+    <td>50</td>
+    <td>90</td>
+    <td>90</td>
+    <td><button>Add</button></td>
+  </tr>
+  <tr>
+    <td>004</td>
+    <td>50</td>
+    <td>26</td>
+    <td>50</td>
+    <td>80</td>
+    <td><button>Add</button></td>
+  </tr>
+          </table>
         </div>
       </div>
+
+      <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px', marginRight: '80px' }}>
+                <button
+
+                  
+                  type="submit"
+                  className="btn btn-outline-info mt-5"
+                >
+                  Add
+                </button>
+
+                <button
+                  type="submit"
+                  className="btn btn-outline-danger mt-5"
+                >
+                  Delete
+                </button>
+              </div>
     </div>
   );
 }
