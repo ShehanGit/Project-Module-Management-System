@@ -69,7 +69,7 @@ export default function Sidebar() {
               </Link>
 
               
-
+           <Link to="/add-presentation" style={{textDecoration:"none" , color:"inherit"}}>
               <li className="home mb-4">
                 <div>
                   <div className="d-inline-flex align-items-center d-flex p-2">
@@ -80,6 +80,7 @@ export default function Sidebar() {
                   </div>
                 </div>
               </li>
+              </Link>
 
              
 
@@ -92,6 +93,7 @@ export default function Sidebar() {
                 </a>
               </li>
 
+             <Link to="/add-permission" style={{textDecoration:"none" , color:"inherit"}}>
               <li className="home mb-4">
                 <a className="d-inline-flex align-items-center rounded border-0 collapsed d-flex p-2 ">
                 <i className='bx bxs-shield-plus' style={{marginLeft:"-20px"}}></i>  
@@ -100,6 +102,7 @@ export default function Sidebar() {
                   </div>
                 </a>
               </li>
+              </Link>
 
               
               <li className="home mb-4">
@@ -111,6 +114,7 @@ export default function Sidebar() {
                 </a>
               </li>
 
+               <Link to="/groups" style={{textDecoration:"none" , color:"inherit"}}>
               <li className="home">
                 <a className="d-inline-flex align-items-center rounded border-0 collapsed d-flex p-2 ">
                 <i className='bx bxs-group ' style={{marginLeft:"-55px"}}></i>
@@ -119,6 +123,7 @@ export default function Sidebar() {
                   </div>
                 </a>
               </li>
+              </Link>
 
 
             </ul>
