@@ -7,6 +7,8 @@ import CordinatorAddMarks from './pages/CordinatorAddMarks';
 import CordinatorPermission from './pages/CordinatorPermission';
 import CordinatorPresentation from './pages/CordinatorPresentation';
 import CordinatorGroupSearch from './pages/CordinatorGroupSearch';
+import CordinatorAssesment from './pages/CordinatorAssesment';
+import CordinatorRubrics from './pages/CordinatorRubrics';
 
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
           <Route exact path="/add-permission" element={<CordinatorPermission/>} />
           <Route exact path="/add-presentation" element={<CordinatorPresentation/>} />
           <Route exact path="/groups" element={<CordinatorGroupSearch/>} />
+          <Route exact path="/assesment" element={<CordinatorAssesment/>} />
+          <Route exact path="/rubrics" element={<CordinatorRubrics/>} />
 
 
 
