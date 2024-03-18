@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../component/Sidebar";
 
 export default function AddUser() {
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -18,7 +19,7 @@ export default function AddUser() {
           style={{
             marginLeft: "450px",
             width: "900px",
-            height: "500px",
+            height: "auto",
             marginTop: "90px",
           }}
         >
@@ -65,12 +66,18 @@ export default function AddUser() {
                 />
               </div>
 
-              <div className="form-group">
+              <div className="form-group mb-4">
                 <input
                   type="password"
                   className="form-control"
                   placeholder="Password"
                 />
+              </div>
+
+              <div className="form-group mb-4">
+                <div class="mb-3">
+                  <input class="form-control" type="file" id="formFile" />
+                </div>
               </div>
 
               <div className="d-flex justify-content-between">
