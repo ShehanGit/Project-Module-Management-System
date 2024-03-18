@@ -27,11 +27,6 @@ function App() {
           <Route exact path="/assesment" element={<CordinatorAssesment/>} />
           <Route exact path="/rubrics" element={<CordinatorRubrics/>} />
 
-
-
- 
- 
-
         </Routes>
       </Router>
     </div>
