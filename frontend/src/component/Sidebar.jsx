@@ -83,7 +83,7 @@ export default function Sidebar() {
               </Link>
 
              
-
+            <Link to="/rubrics" style={{textDecoration:"none" , color:"inherit"}}>
               <li className="home mb-4">
                 <a className="d-inline-flex align-items-center rounded border-0 collapsed d-flex p-2 ">
                 <i className='bx bx-edit ' style={{marginLeft:"10px"}}></i>         
@@ -92,6 +92,7 @@ export default function Sidebar() {
                   </div>
                 </a>
               </li>
+              </Link>
 
              <Link to="/add-permission" style={{textDecoration:"none" , color:"inherit"}}>
               <li className="home mb-4">
@@ -104,7 +105,7 @@ export default function Sidebar() {
               </li>
               </Link>
 
-              
+              <Link to="/assesment" style={{textDecoration:"none" , color:"inherit"}}>
               <li className="home mb-4">
                 <a className="d-inline-flex align-items-center rounded border-0 collapsed d-flex p-2 ">
                 <i className='bx bx-edit-alt' style={{marginLeft:"-20px"}}></i>                 
@@ -113,6 +114,7 @@ export default function Sidebar() {
                   </div>
                 </a>
               </li>
+              </Link>
 
                <Link to="/groups" style={{textDecoration:"none" , color:"inherit"}}>
               <li className="home">

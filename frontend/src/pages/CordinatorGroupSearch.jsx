@@ -136,7 +136,7 @@ export default function CordinatorGroupSearch() {
             className="shadow-sm p-5 mb-5 bg-white rounded mt-5"
             style={{
               marginLeft: "300px",
-              width: "1300px",
+              width: "600px",
               height: "auto",
             }}
           >
@@ -146,9 +146,21 @@ export default function CordinatorGroupSearch() {
             <div className="form-group col-6 p-2" style={{ marginRight: "300px" }}>
               <select className="form-control" id="yearSelect">
                 <option value="">Project Type</option>
-                <option value="">1</option>
-                <option value="">2</option>
+                <option value="">Proposal</option>
+                <option value="">Progress 1</option>
+                <option value="">Progress 2</option>
+                <option value="">Final Presentation</option>
+                <option value="">Status Document</option>
+                <option value="">Log Book</option>
+                <option value="">Proposal Document</option>
+                <option value="">Status Document 2</option>
+                <option value="">Final Thesis</option>
               </select>
+
+              <div>
+            <textarea class="form-control mt-5"  rows="3" style={{width:"500px" , height:"300px"}}></textarea>
+
+            </div>
             </div>
           </div>
 
@@ -156,7 +168,7 @@ export default function CordinatorGroupSearch() {
             className="shadow-sm p-5 mb-5 bg-white rounded mt-5 "
             style={{
               marginLeft: "100px",
-              width: "1300px",
+              width: "600px",
               height: "500px",
             }}
           >
@@ -169,9 +181,22 @@ export default function CordinatorGroupSearch() {
             >
               <select className="form-control" id="yearSelect">
                 <option value="">Project Type</option>
-                <option value="">1</option>
-                <option value="">2</option>
+                <option value="">Proposal</option>
+                <option value="">Progress 1</option>
+                <option value="">Progress 2</option>
+                <option value="">Final Presentation</option>
+                <option value="">Status Document</option>
+                <option value="">Log Book</option>
+                <option value="">Proposal Document</option>
+                <option value="">Status Document 2</option>
+                <option value="">Final Thesis</option>
               </select>
+
+            <div>
+            <textarea class="form-control mt-5"  rows="3" style={{width:"500px" , height:"300px"}}></textarea>
+
+            </div>
+
             </div>
           </div>
         </div>
