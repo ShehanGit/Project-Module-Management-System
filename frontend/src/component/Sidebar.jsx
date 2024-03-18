@@ -55,6 +55,20 @@ export default function Sidebar() {
               </li>
               </Link>
 
+              <Link to="/viewuser" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <li className="home mb-4">
+                <div>
+                  <div className="d-inline-flex align-items-center d-flex p-2">
+                   <i class='bx bxs-group' style={{marginLeft:"-20px"}}></i>   
+                    <div className="text-truncate ml-3 mx-2" data-i18n="Employee" style={{paddingLeft:"12px"}}>
+                      View Users
+                      <i />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              </Link>
+
              <Link to="/addmarks" style={{textDecoration:"none" , color:"inherit"}}>
               <li className="home mb-4">
                 <div>

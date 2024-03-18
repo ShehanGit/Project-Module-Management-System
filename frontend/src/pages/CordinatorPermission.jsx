@@ -10,7 +10,7 @@ export default function CordinatorPermission() {
         className="main-content"
         style={{ marginBottom: "-60px", marginLeft: "200px" }}
       >
-        <h1>Project Coordinator's Dashboard</h1>
+        <h1>Permissions</h1>
       </div>
 
       <div
@@ -33,7 +33,7 @@ export default function CordinatorPermission() {
             <div className=" mt-4">
             <div className="dgbody d-flex align-items-center   mb-3  ">
               <div className=" dgname" >
-                <h3>Information Technology</h3>
+                <p>Information Technology</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -51,7 +51,7 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex  align-items-center mb-3">
               <div className=" dgname" style={{marginRight:"40px"}}>
-                <h3>Software Enginerring</h3>
+                <p>Software Enginerring</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -69,7 +69,7 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex  align-items-center mb-3">
               <div className=" dgname" style={{marginRight:"50px"}} >
-                <h3>Information System</h3>
+                <p>Information System</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -87,7 +87,7 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex  align-items-center mb-3">
               <div className=" dgname" style={{marginRight:"120px"}}>
-                <h3>Cyber Security</h3>
+                <p>Cyber Security</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -105,7 +105,7 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex align-items-center mb-3">
               <div className=" dgname" style={{marginRight:"130px"}} >
-                <h3>Data Science</h3>
+                <p>Data Science</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -123,7 +123,7 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex  align-items-center mb-3">
               <div className=" dgname" >
-                <h3>Computer Science and Network Enginerring</h3>
+                <p>Computer Science and Network Enginerring</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -160,7 +160,7 @@ export default function CordinatorPermission() {
            <div className=" mt-4">
             <div className="dgbody d-flex align-items-center   mb-3  ">
               <div className=" dgname" >
-                <h3>Information Technology</h3>
+                <p>Information Technology</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -178,7 +178,7 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex  align-items-center mb-3">
               <div className=" dgname" style={{marginRight:"40px"}}>
-                <h3>Software Enginerring</h3>
+                <p>Software Enginerring</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -196,7 +196,7 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex  align-items-center mb-3">
               <div className=" dgname" style={{marginRight:"50px"}} >
-                <h3>Information System</h3>
+                <p>Information System</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -214,7 +214,7 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex  align-items-center mb-3">
               <div className=" dgname" style={{marginRight:"120px"}}>
-                <h3>Cyber Security</h3>
+                <p>Cyber Security</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -232,7 +232,7 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex align-items-center mb-3">
               <div className=" dgname" style={{marginRight:"130px"}} >
-                <h3>Data Science</h3>
+                <p>Data Science</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -250,7 +250,7 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex  align-items-center mb-3">
               <div className=" dgname" >
-                <h3>Computer Science and Network Enginerring</h3>
+                <p>Computer Science and Network Enginerring</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
