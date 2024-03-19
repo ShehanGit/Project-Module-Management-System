@@ -6,6 +6,10 @@ import AddUser from './pages/AddUser';
 import CordinatorAddMarks from './pages/CordinatorAddMarks';
 import MemberPresentation from './pages/MemberPresentation';
 import ProjectMember from './pages/ProjectMember';
+import CreateRubricsforPres from './pages/CreateRubricsforPres';
+import CreateRubricsReportMem from './pages/CreateRubricsReportMem';
+import MemberAssessment from './pages/MemberAssessment';
+
 
 
 function App() {
@@ -20,8 +24,9 @@ function App() {
           <Route exact path="/addmarks" element={<CordinatorAddMarks/>} />
           <Route exact path="/mem-presentation" element={<MemberPresentation/>} />
           <Route exact path="/member-dashboard" element={<ProjectMember/>} />
-
-
+          <Route exact path="/member-rubrics" element={<CreateRubricsforPres/>} />
+          <Route exact path="/member-reportrubrics" element={<CreateRubricsReportMem/>} />
+          <Route exact path="/member-assessment" element={<MemberAssessment/>} />
 
 
  

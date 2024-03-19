@@ -1,25 +1,30 @@
+
 import React, { useState } from 'react';
 import Sidebar2 from '../component/Sidebar2';
-import "../css/marking rubrics.css";
 
-export default function CreateRubricsforPres() {
-  const [selectedAcademicYear, setSelectedAcademicYear] = useState('');
+export default function CreateRubricsReportMem() {
+  
+ const [selectedAcademicYear, setSelectedAcademicYear] = useState('');
   const [selectedSemester, setSelectedSemester] = useState('');
-  const [selectedAssessmentType, setSelectedAssessmentType] = useState('');
+  const [selectedReportType, setSelectedReportType] = useState('');
   const [error, setError] = useState('');
 
   const assessmentTypeToExcelUrl = {
-    'Presentation 1': 'presentation1-excel-sheet-url',
-    'Proposal': 'https://docs.google.com/spreadsheets/d/1161hKdUMuWSzkjFqdyFi99iJm50IWGOD9jgXE9qKxcE/edit?usp=sharing',
-    'Final Progress': 'final-progress-excel-sheet-url',
+    ' topic assessment form,': 'presentation1-excel-sheet-url',
+    'projectchater': 'https://docs.google.com/spreadsheets/d/1161hKdUMuWSzkjFqdyFi99iJm50IWGOD9jgXE9qKxcE/edit?usp=sharing',
+    'status document 1': 'final-progress-excel-sheet-url',
+    'status document 2': 'final-progress-excel-sheet-url2',
+    'logbook': 'final-progress-excel-sheet-url',
+    'proposal document': 'final-progress-excel-sheet-url',
+    'final thesis': 'final-progress-excel-sheet-url'
   };
 
   const handleCreate = () => {
-    if (!selectedAcademicYear || !selectedSemester || !selectedAssessmentType) {
+    if (!selectedAcademicYear || !selectedSemester || !selectedReportType) {
       setError('Please fill out all fields');
       return;
     }
-    const excelSheetUrl = assessmentTypeToExcelUrl[selectedAssessmentType];
+    const excelSheetUrl = assessmentTypeToExcelUrl[selectedReportType];
     if (excelSheetUrl) {
       window.location.href = excelSheetUrl;
     }
@@ -61,15 +66,19 @@ export default function CreateRubricsforPres() {
           <div className="form-group">
             <select
               className="form-control"
-              value={selectedAssessmentType}
-              onChange={(e) => setSelectedAssessmentType(e.target.value)}
+              value={selectedReportType}
+              onChange={(e) => setSelectedReportType(e.target.value)}
             >
               <option disabled value="">
-                Select Assessment Type
+                Select Report Type
               </option>
-              <option>Presentation 1</option>
-              <option>Proposal</option>
-              <option>Final Progress</option>
+              <option>topic assessment form</option>
+              <option>projectchater</option>
+              <option>status document 1</option>
+              <option>status document 2</option>
+              <option>logbook</option>
+              <option>Proposal document</option>
+              <option>Final thesis</option>
             </select>
           </div>
           <div className="d-flex justify-content-between">
@@ -87,5 +96,5 @@ export default function CreateRubricsforPres() {
         </form>
       </div>
     </div>
-  );
+  )
 }
