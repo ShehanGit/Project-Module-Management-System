@@ -1,7 +1,31 @@
 import React, { useState } from "react";
 import Sidebar from "../component/Sidebar";
+import axios from 'axios'
 
 export default function AddUser() {
+
+
+  const [user, setUser] = useState({
+    name:"",
+    userName:"",
+    userType:"",
+    email:"",
+    contactNumber:"",
+    password:"",
+    profilePicture:""
+  })
+
+  const {name,userName, userType,email,contactNumber,password, profilePicture } = user;
+
+  const onInputChange=(e)=>{
+    setUser({...user, [e.target.name]: e.target.value});
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault(); // Fix typo here
+    await axios.post("http://localhost:8080/users", user);
+};
+
 
   return (
     <div className="container-fluid">
@@ -24,25 +48,37 @@ export default function AddUser() {
           }}
         >
           <div>
-            <form className="p-4">
+            <form className="p-4" onSubmit={(e)=>onSubmit(e)}>
               <div className="form-group">
                 <input
-                  type="email"
+                  type="text"
                   className="form-control mb-4"
                   placeholder="enter name"
+                  value={name}
+                  name='name'
+                  onChange={(e)=>onInputChange(e)}
                 />
               </div>
 
               <div className="form-group">
                 <input
-                  type="password"
+                  type="name"
                   className="form-control mb-4"
                   placeholder="enter username"
+                  value={userName}
+                  name='userName'
+                  onChange={(e)=>onInputChange(e)}
                 />
               </div>
 
               <div className="form-group mb-4">
-                <select className="form-control">
+                <select className="form-control" 
+                
+                value={userType}
+                name='userType'
+                onChange={(e)=>onInputChange(e)}
+                
+                >
                   <option>examiner</option>
                   <option>project member</option>
                   <option>supervisor</option>
@@ -52,17 +88,23 @@ export default function AddUser() {
 
               <div className="form-group mb-4">
                 <input
-                  type="password"
+                  type="email"
                   className="form-control"
                   placeholder="enter email"
+                  value={email}
+                  name='email'
+                  onChange={(e)=>onInputChange(e)}
                 />
               </div>
 
               <div className="form-group mb-4">
                 <input
-                  type="password"
+                  type="number"
                   className="form-control"
                   placeholder="enter mobile"
+                  value={contactNumber}
+                  name='contactNumber'
+                  onChange={(e)=>onInputChange(e)}
                 />
               </div>
 
@@ -71,12 +113,19 @@ export default function AddUser() {
                   type="password"
                   className="form-control"
                   placeholder="Password"
+                  value={password}
+                  name='password'
+                  onChange={(e)=>onInputChange(e)}
                 />
               </div>
 
               <div className="form-group mb-4">
                 <div class="mb-3">
-                  <input class="form-control" type="file" id="formFile" />
+                  <input class="form-control" type="file" id="formFile" 
+                     value={ profilePicture}
+                     name=' profilePicture'
+                     onChange={(e)=>onInputChange(e)}
+                  />
                 </div>
               </div>
 
@@ -91,6 +140,7 @@ export default function AddUser() {
                 <button
                   type="submit"
                   className="btn btn-outline-danger mt-5 d-flex "
+
                 >
                   cancle
                 </button>
