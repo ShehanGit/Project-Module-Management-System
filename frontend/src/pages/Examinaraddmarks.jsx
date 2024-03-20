@@ -35,27 +35,36 @@ export default function Examinarmarkadd() {
               </div>
 
               <div className="form-group mb-4">
-              <label htmlFor="studentID">Student ID :</label> 
+              <label htmlFor="studentID">Name :</label> 
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Enter Student ID"
+                  placeholder="Enter Name"
                 />
               </div>
 
               <div className="form-group mb-4">
-              <label htmlFor="studentID">Student ID :</label> 
+              <label htmlFor="studentID">proposal :</label> 
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Enter Student ID"
+                  placeholder="Enter proposal marks"
                 />
               </div><div className="form-group mb-4">
-              <label htmlFor="studentID">Student ID :</label> 
+              <label htmlFor="studentID">progress1 :</label> 
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Enter Student ID"
+                  placeholder="Enter progress 1 Marks"
+                />
+              </div>
+
+              <div className="form-group mb-4">
+              <label htmlFor="studentID">progress2 :</label> 
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter progress 2 Marks"
                 />
               </div>
 

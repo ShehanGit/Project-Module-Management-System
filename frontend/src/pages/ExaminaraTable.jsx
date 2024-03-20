@@ -109,7 +109,7 @@ function ExaminarTable() {
                     <td>{exam.name}</td> 
                     <td>{exam.proposal}</td>
                     <td>{exam.progress1}</td> 
-                    <td>{exam.progress2}</td>                    
+                    <td>{exam.progress2}</td>  
                     <td>
                       <button>Edit</button> 
                     </td> 
