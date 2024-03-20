@@ -23,7 +23,7 @@ export default function CordinatorPermission() {
             className="card shadow p-3 mb-5 bg-white rounded"
             style={{
               borderRadius: "20px 20px 0 0",
-              height: "540px",
+              height: "auto",
               width: "600px",
             }}
           >
@@ -33,7 +33,7 @@ export default function CordinatorPermission() {
             <div className=" mt-4">
             <div className="dgbody d-flex align-items-center   mb-3  ">
               <div className=" dgname" >
-                <p>Information Technology</p>
+                <p>Proposal</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -51,7 +51,7 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex  align-items-center mb-3">
               <div className=" dgname" style={{marginRight:"40px"}}>
-                <p>Software Enginerring</p>
+                <p>Progress 1</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -69,7 +69,7 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex  align-items-center mb-3">
               <div className=" dgname" style={{marginRight:"50px"}} >
-                <p>Information System</p>
+                <p>Progress 2</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -87,7 +87,7 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex  align-items-center mb-3">
               <div className=" dgname" style={{marginRight:"120px"}}>
-                <p>Cyber Security</p>
+                <p>Final Presentation</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -105,7 +105,7 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex align-items-center mb-3">
               <div className=" dgname" style={{marginRight:"130px"}} >
-                <p>Data Science</p>
+                <p>Status Document 1</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -123,7 +123,64 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex  align-items-center mb-3">
               <div className=" dgname" >
-                <p>Computer Science and Network Enginerring</p>
+                <p>Log Book</p>
+              </div>
+              <div className="swbtn">
+                <div className="form-check form-switch">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="flexSwitchCheckDefault"
+                  />
+                  <label
+                    className="form-check-label"
+                    htmlFor="flexSwitchCheckDefault"
+                  ></label>
+                </div>
+              </div>
+            </div>
+
+            <div className="dgbody d-flex  align-items-center mb-3">
+              <div className=" dgname" >
+                <p>Proposal Document</p>
+              </div>
+              <div className="swbtn">
+                <div className="form-check form-switch">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="flexSwitchCheckDefault"
+                  />
+                  <label
+                    className="form-check-label"
+                    htmlFor="flexSwitchCheckDefault"
+                  ></label>
+                </div>
+              </div>
+            </div>
+
+            <div className="dgbody d-flex  align-items-center mb-3">
+              <div className=" dgname" >
+                <p>Status Document 2</p>
+              </div>
+              <div className="swbtn">
+                <div className="form-check form-switch">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="flexSwitchCheckDefault"
+                  />
+                  <label
+                    className="form-check-label"
+                    htmlFor="flexSwitchCheckDefault"
+                  ></label>
+                </div>
+              </div>
+            </div>
+
+            <div className="dgbody d-flex  align-items-center mb-3">
+              <div className=" dgname" >
+                <p>Final Thesis</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -151,16 +208,16 @@ export default function CordinatorPermission() {
             className="card shadow p-3 mb-5 bg-white rounded"
             style={{
               borderRadius: "20px 20px 0 0",
-              height: "540px",
+              height: "auto",
               width: "600px",
               marginLeft: "100px",
             }}
           >
             <h2>Semester 2</h2>
-           <div className=" mt-4">
+            <div className=" mt-4">
             <div className="dgbody d-flex align-items-center   mb-3  ">
               <div className=" dgname" >
-                <p>Information Technology</p>
+                <p>Proposal</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -178,7 +235,7 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex  align-items-center mb-3">
               <div className=" dgname" style={{marginRight:"40px"}}>
-                <p>Software Enginerring</p>
+                <p>Progress 1</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -196,7 +253,7 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex  align-items-center mb-3">
               <div className=" dgname" style={{marginRight:"50px"}} >
-                <p>Information System</p>
+                <p>Progress 2</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -214,7 +271,7 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex  align-items-center mb-3">
               <div className=" dgname" style={{marginRight:"120px"}}>
-                <p>Cyber Security</p>
+                <p>Final Presentation</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -232,7 +289,7 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex align-items-center mb-3">
               <div className=" dgname" style={{marginRight:"130px"}} >
-                <p>Data Science</p>
+                <p>Status Document 1</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
@@ -250,7 +307,64 @@ export default function CordinatorPermission() {
             </div>
             <div className="dgbody d-flex  align-items-center mb-3">
               <div className=" dgname" >
-                <p>Computer Science and Network Enginerring</p>
+                <p>Log Book</p>
+              </div>
+              <div className="swbtn">
+                <div className="form-check form-switch">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="flexSwitchCheckDefault"
+                  />
+                  <label
+                    className="form-check-label"
+                    htmlFor="flexSwitchCheckDefault"
+                  ></label>
+                </div>
+              </div>
+            </div>
+
+            <div className="dgbody d-flex  align-items-center mb-3">
+              <div className=" dgname" >
+                <p>Proposal Document</p>
+              </div>
+              <div className="swbtn">
+                <div className="form-check form-switch">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="flexSwitchCheckDefault"
+                  />
+                  <label
+                    className="form-check-label"
+                    htmlFor="flexSwitchCheckDefault"
+                  ></label>
+                </div>
+              </div>
+            </div>
+
+            <div className="dgbody d-flex  align-items-center mb-3">
+              <div className=" dgname" >
+                <p>Status Document 2</p>
+              </div>
+              <div className="swbtn">
+                <div className="form-check form-switch">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="flexSwitchCheckDefault"
+                  />
+                  <label
+                    className="form-check-label"
+                    htmlFor="flexSwitchCheckDefault"
+                  ></label>
+                </div>
+              </div>
+            </div>
+
+            <div className="dgbody d-flex  align-items-center mb-3">
+              <div className=" dgname" >
+                <p>Final Thesis</p>
               </div>
               <div className="swbtn">
                 <div className="form-check form-switch">
