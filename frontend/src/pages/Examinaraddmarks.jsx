@@ -14,7 +14,7 @@ export default function Examinarmarkadd() {
         </div>
 
         <div
-          className="shadow-sm p-10 mb-5 bg-white rounded"
+          className="shadow-sm p-3 mb-5 bg-white rounded"
           style={{
             marginLeft: "450px",
             width: "900px",
@@ -35,32 +35,6 @@ export default function Examinarmarkadd() {
               </div>
 
               <div className="form-group mb-4">
-              <label htmlFor="studentID">Student ID :</label> 
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter Student ID"
-                />
-              </div>
-
-              <div className="form-group mb-4">
-              <label htmlFor="studentID">Student ID :</label> 
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter Student ID"
-                />
-              </div><div className="form-group mb-4">
-              <label htmlFor="studentID">Student ID :</label> 
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter Student ID"
-                />
-              </div>
-
-
-              {/* <div className="form-group mb-4">
               <label htmlFor="assessmentType">Assessment Type :</label>
               <select className="form-control">
                   <option>Proposal</option>
@@ -68,12 +42,24 @@ export default function Examinarmarkadd() {
                   <option>Progress 2</option>
                 </select>
               </div>
-            */}
+              
+
+              <div className="form-group mb-4">
+              <label htmlFor="studentID">Feedback :</label> 
+                <input
+                  type="text"
+                  className="form-control"
+
+                  style={{ height: "140px" }}
+                />
+              </div>
+
+              
 
               <div className="d-flex justify-content-between">
                 <button
                   type="submit"
-                  className="btn btn-outline-info mt-3  "
+                  className="btn btn-outline-info mt-6  "
                 >
                   Add Marks
                 </button>
