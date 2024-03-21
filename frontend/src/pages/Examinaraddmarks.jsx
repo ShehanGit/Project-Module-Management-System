@@ -50,6 +50,52 @@ export default function Examinarmarkadd() {
 
               {/* ... Other input fields ... */}
 
+              <div className="form-group mb-4">
+                <label htmlFor="studentID">Name :</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter Student Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+
+              <div className="form-group mb-4">
+                <label htmlFor="studentID">Proposal :</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter Proposal Marks"
+                  value={proposal}
+                  onChange={(e) => setProposal(e.target.value)}
+                />
+              </div>
+
+              <div className="form-group mb-4">
+                <label htmlFor="studentID">progress 1 :</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter progress 1 Marks"
+                  value={progress1}
+                  onChange={(e) => setProgress1(e.target.value)}
+                />
+              </div>
+
+              <div className="form-group mb-4">
+                <label htmlFor="studentID">progress 2 :</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter progress 2 Marks"
+                  value={progress2}
+                  onChange={(e) => setProgress2(e.target.value)}
+                />
+              </div>
+
+            
+
               <div className="d-flex justify-content-between">
                 <button type="submit" className="btn btn-outline-info mt-3">
                   Add Marks
