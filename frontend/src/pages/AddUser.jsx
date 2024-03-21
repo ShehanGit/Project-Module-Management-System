@@ -3,7 +3,8 @@ import Sidebar from "../component/Sidebar";
 import axios from 'axios'
 
 export default function AddUser() {
-
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
 
   const [user, setUser] = useState({
     name:"",
@@ -15,17 +16,32 @@ export default function AddUser() {
     profilePicture:""
   })
 
-  const {name,userName, userType,email,contactNumber,password, profilePicture } = user;
+  const { name, userName, userType, email, contactNumber, password } = user;
 
-  const onInputChange=(e)=>{
+  const onInputChange = (e) => {
     setUser({...user, [e.target.name]: e.target.value});
   };
 
   const onSubmit = async (e) => {
-    e.preventDefault(); // Fix typo here
-    await axios.post("http://localhost:8080/users", user);
-};
+    e.preventDefault(); 
 
+    // Basic input validations
+    if (name === "" || userName === "" || userType === "" || email === "" || contactNumber === "" || password === "") {
+      setError("Please fill in all required fields.");
+      return;
+    }
+
+    // Additional validations (e.g., email format, password strength) can be added here
+
+    try {
+      await axios.post("http://localhost:8080/users", user);
+      setSuccess(true); 
+      setError("");
+    } catch (err) {
+      console.error("Error adding user:", err);
+      setError("Error adding user. Please try again later.");
+    }
+  };
 
   return (
     <div className="container-fluid">
@@ -48,41 +64,52 @@ export default function AddUser() {
           }}
         >
           <div>
-            <form className="p-4" onSubmit={(e)=>onSubmit(e)}>
+            {success && (
+              <div className="alert alert-success mt-3" role="alert">
+                User added successfully!
+              </div>
+            )}
+
+            {error && (
+              <div className="alert alert-danger mt-3" role="alert">
+                {error}
+              </div>
+            )}
+
+            <form className="p-4" onSubmit={(e) => onSubmit(e)}>
               <div className="form-group">
                 <input
                   type="text"
                   className="form-control mb-4"
                   placeholder="enter name"
                   value={name}
-                  name='name'
-                  onChange={(e)=>onInputChange(e)}
+                  name="name"
+                  onChange={(e) => onInputChange(e)}
                 />
               </div>
 
               <div className="form-group">
                 <input
-                  type="name"
+                  type="text"
                   className="form-control mb-4"
                   placeholder="enter username"
                   value={userName}
-                  name='userName'
-                  onChange={(e)=>onInputChange(e)}
+                  name="userName"
+                  onChange={(e) => onInputChange(e)}
                 />
               </div>
 
               <div className="form-group mb-4">
                 <select className="form-control" 
-                
-                value={userType}
-                name='userType'
-                onChange={(e)=>onInputChange(e)}
-                
+                  value={userType}
+                  name="userType"
+                  onChange={(e) => onInputChange(e)}
                 >
-                  <option>examiner</option>
-                  <option>project member</option>
-                  <option>supervisor</option>
-                  <option>co-supervisor</option>
+                  <option value="">Select user type</option>
+                  <option value="examiner">Examiner</option>
+                  <option value="project member">Project Member</option>
+                  <option value="supervisor">Supervisor</option>
+                  <option value="co-supervisor">Co-Supervisor</option>
                 </select>
               </div>
 
@@ -92,8 +119,8 @@ export default function AddUser() {
                   className="form-control"
                   placeholder="enter email"
                   value={email}
-                  name='email'
-                  onChange={(e)=>onInputChange(e)}
+                  name="email"
+                  onChange={(e) => onInputChange(e)}
                 />
               </div>
 
@@ -103,8 +130,8 @@ export default function AddUser() {
                   className="form-control"
                   placeholder="enter mobile"
                   value={contactNumber}
-                  name='contactNumber'
-                  onChange={(e)=>onInputChange(e)}
+                  name="contactNumber"
+                  onChange={(e) => onInputChange(e)}
                 />
               </div>
 
@@ -114,18 +141,14 @@ export default function AddUser() {
                   className="form-control"
                   placeholder="Password"
                   value={password}
-                  name='password'
-                  onChange={(e)=>onInputChange(e)}
+                  name="password"
+                  onChange={(e) => onInputChange(e)}
                 />
               </div>
 
               <div className="form-group mb-4">
                 <div class="mb-3">
-                  <input class="form-control" type="file" id="formFile" 
-                     value={ profilePicture}
-                     name=' profilePicture'
-                     onChange={(e)=>onInputChange(e)}
-                  />
+                  <input class="form-control" type="file" id="formFile" />
                 </div>
               </div>
 
@@ -138,11 +161,10 @@ export default function AddUser() {
                 </button>
 
                 <button
-                  type="submit"
+                  type="reset"
                   className="btn btn-outline-danger mt-5 d-flex "
-
                 >
-                  cancle
+                  Cancel
                 </button>
               </div>
             </form>
