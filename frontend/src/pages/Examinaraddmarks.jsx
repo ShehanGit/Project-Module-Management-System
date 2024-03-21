@@ -2,6 +2,7 @@ import React from "react";
 import Sidebar from "../component/Sidebar";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default function ExaminarMarkAdd() {
   const [ID, setID] = useState('');
   const [name, setName] = useState('');
