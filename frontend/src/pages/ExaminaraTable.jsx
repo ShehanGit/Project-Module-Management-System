@@ -105,7 +105,7 @@ function ExaminarTable() {
               <tbody>
                 {exams.map((exam) => (
                   <tr key={exam.ID}>
-                    <td>{exam.ID}</td>
+                    <td>{exam.id}</td>
                     <td>{exam.name}</td> 
                     <td>{exam.proposal}</td>
                     <td>{exam.progress1}</td> 

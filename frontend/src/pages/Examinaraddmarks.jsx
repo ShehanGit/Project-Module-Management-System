@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Sidebar from "../component/Sidebar";
+import { createExam } from "../services/ExamService";
+import { useNavigate } from "react-router-dom";
 
 export default function Examinarmarkadd() {
   const [ID, setID] = useState('');
@@ -8,11 +10,19 @@ export default function Examinarmarkadd() {
   const [progress1, setProgress1] = useState('');
   const [progress2, setProgress2] = useState('');
 
+  const navigater =  useNavigate();
+
   function saveExamDetail(e) {
     e.preventDefault();
 
-    const exam = { ID, name, proposal, progress1, progress2 };
+    const exam = { name, proposal, progress1, progress2 };
     console.log(exam);
+
+    createExam(exam).then((Response) => {
+      console.log(Response.data);
+      navigater('/examinartable');
+    })
+
   }
 
   return (
