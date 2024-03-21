@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../component/Sidebar";
 
 export default function Examinarmarkadd() {
+
+  const [ID ,setID] = useState('')
+  const [name ,setName] = useState('')
+  const [proposal ,setProposal] = useState('')
+  const [progress1 ,setProgress1] = useState('')
+  const [progress2 ,setProgress2] = useState('')
+
+
+  function saveExamDetail(e){
+    e.preventDefault();
+
+    const exam = {ID, name, proposal, progress1, progress2}
+    console.log(exam)
+  }
+
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -31,6 +47,8 @@ export default function Examinarmarkadd() {
                   type="text"
                   className="form-control"
                   placeholder="Enter Student ID"
+                  value={ID}
+                  onChange={(e) => setID(e.target.value)}
                 />
               </div>
 
@@ -40,6 +58,8 @@ export default function Examinarmarkadd() {
                   type="text"
                   className="form-control"
                   placeholder="Enter Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
 
@@ -49,6 +69,8 @@ export default function Examinarmarkadd() {
                   type="text"
                   className="form-control"
                   placeholder="Enter proposal marks"
+                  value={proposal}
+                  onChange={(e) => setProposal(e.target.value)}
                 />
               </div><div className="form-group mb-4">
               <label htmlFor="studentID">progress1 :</label> 
@@ -56,6 +78,8 @@ export default function Examinarmarkadd() {
                   type="text"
                   className="form-control"
                   placeholder="Enter progress 1 Marks"
+                  value={progress1}
+                  onChange={(e) => setProgress1(e.target.value)}
                 />
               </div>
 
@@ -65,6 +89,8 @@ export default function Examinarmarkadd() {
                   type="text"
                   className="form-control"
                   placeholder="Enter progress 2 Marks"
+                  value={progress2}
+                  onChange={(e) => setProgress2(e.target.value)}
                 />
               </div>
 
@@ -82,7 +108,8 @@ export default function Examinarmarkadd() {
               <div className="d-flex justify-content-between">
                 <button
                   type="submit"
-                  className="btn btn-outline-info mt-3  "
+                  className="btn btn-outline-info mt-3 "
+                  onChange={saveExamDetail}
                 >
                   Add Marks
                 </button>
