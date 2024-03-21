@@ -21,6 +21,9 @@ export default function ExaminarMarkAdd() {
 =======
 export default function Examinarmarkadd() {
 >>>>>>> parent of 5502d3a (add for test)
+=======
+export default function Examinarmarkadd() {
+>>>>>>> parent of 5502d3a (add for test)
   return (
     <div className="container-fluid">
       <div className="row">
