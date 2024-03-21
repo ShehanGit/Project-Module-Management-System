@@ -62,7 +62,7 @@ export default function Examinarmarkadd() {
   }
 
   return (
-    <div className="container-fluid">
+    <div >
       {/* ... Sidebar & Other Components ... */}
       <h2>Add Exam Marks</h2>
 
@@ -80,7 +80,7 @@ export default function Examinarmarkadd() {
             {/* ... Other input fields */}
 
             <div className="form-group mb-4">
-              <label htmlFor="studentID">Name :</label>
+              <label htmlFor="studentID" >Name :</label>
               <input
                 type="text"
                 className="form-control"

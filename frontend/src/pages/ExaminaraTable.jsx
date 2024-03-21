@@ -54,61 +54,7 @@ function ExaminarTable() {
 
   return (
     <div className="container-fluid">
-      <style jsx>{`
-        .container-fluid {
-          /* Styles for the main container */
-        }
-
-        .exam-table-container {
-          width: 80%; 
-          margin: 100px auto; /* Center the table */
-        }
-
-        .exam-table {
-          width: 80%; 
-          border-collapse: collapse; 
-          font-family: 'Times New Roman', serif;
-          background-color: white; 
-          border-radius: 10px; 
-          margin-top: 20px;   
-          margin-left: auto;
-          margin-right: auto;  
-        }
-
-        .exam-table th,
-        .exam-table td {
-          border: 2px solid #ddd;
-          text-align: left;
-          padding: 12px;
-        }
-
-        .exam-table th {
-          font-weight: bold; 
-        }
-
-        .button-container {
-          display: flex; 
-          justify-content: flex-end; 
-          margin-top: 20px;
-        }
-
-        button {
-          border: none;
-          color: red;
-          padding: 8px 46px;
-          text-align: center;
-          text-decoration: none;
-          display: inline-block;
-          font-size: 16px;
-          border-radius: 4px; 
-          cursor: pointer;
-        }
-
-        button:hover {
-          background-color: #3e8e41; 
-        }
-      `}</style>
-
+      
       <div className="row">
        <div className="col-md-3">
           <Sidebar />
@@ -120,10 +66,10 @@ function ExaminarTable() {
           </div>
 
           <div className="exam-table-container">
-            <table className="exam-table"> 
+          <table class="table table-bordered"  style={{ backgroundColor: 'white', marginTop: '200px',marginLeft: '-40px', borderRadius: '10px' }}> 
               <thead>
-                <tr>
-                  <th>ID</th>
+                <tr style={{ backgroundColor: '#ACE2E1' }}>
+                  <th >ID</th>
                   <th>Name</th>
                   <th>Proposal</th>
                   <th>Progress 1</th>
@@ -149,10 +95,9 @@ function ExaminarTable() {
             </table>
           </div>
 
-          <div className="button-container">
-            <button className="btn btn-outline-info mt-5">Add</button>
-            <button className="btn btn-outline-danger mt-5">Delete</button>
-          </div>
+                    
+
+
         </div>
       </div>
     </div>
