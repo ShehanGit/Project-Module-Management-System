@@ -9,69 +9,90 @@ export default function Examinarmarkadd() {
   const [proposal, setProposal] = useState('');
   const [progress1, setProgress1] = useState('');
   const [progress2, setProgress2] = useState('');
+  const [errors, setErrors] = useState({ // State to manage errors
+    name: '',
+    proposal: '', 
+    progress1: '',
+    progress2: ''
+  });
 
-  const navigater =  useNavigate();
+  const navigater = useNavigate();
 
   function saveExamDetail(e) {
     e.preventDefault();
 
-    const exam = { name, proposal, progress1, progress2 };
-    console.log(exam);
+    // Reset errors before validation
+    setErrors({ name: '', proposal: '', progress1: '', progress2: '' });
 
-    createExam(exam).then((Response) => {
-      console.log(Response.data);
-      navigater('/examinartable');
-    })
+    // Validation logic
+    let isValid = true;
+    const newErrors = {...errors}; // Duplicate errors object
 
+    if (!name) {
+      newErrors.name = 'Name is required';
+      isValid = false;
+    }
+
+    if (isNaN(proposal) || proposal < 0 || proposal > 100) {
+      newErrors.proposal = 'Proposal marks must be a number between 0 and 100';
+      isValid = false;
+    }
+
+    if (isNaN(progress1) || progress1 < 0 || progress1 > 100) {
+      newErrors.progress1 = 'Progress 1 marks must be a number between 0 and 100';
+      isValid = false;
+    }
+
+    if (isNaN(progress2) || progress2 < 0 || progress2 > 100) {
+      newErrors.progress2 = 'Progress 2 marks must be a number between 0 and 100';
+      isValid = false;
+    }
+
+    setErrors(newErrors); // Update errors state
+
+    if (isValid) {
+      const exam = { name, proposal, progress1, progress2 };
+      console.log(exam);
+
+      createExam(exam).then((Response) => {
+        console.log(Response.data);
+        navigater('/examinartable');
+      });
+    }
   }
 
   return (
     <div className="container-fluid">
-      <div className="row">
-        <div className="col-md-3">
-          <Sidebar />
-        </div>
+      {/* ... Sidebar & Other Components ... */}
 
-        <div className="mt-4 mx-5" style={{ marginBottom: "-40px" }}>
-          <h2>Add Marks</h2>
-        </div>
+      <div 
+        className="shadow-sm p-10 mb-5 bg-white rounded"
+        style={{
+          marginLeft: "450px",
+          width: "900px",
+          height: "500px",
+          marginTop: "90px",
+        }}
+      >
+        <div>
+          <form className="p-4" onSubmit={saveExamDetail}>
+            {/* ... Other input fields */}
 
-        <div
-          className="shadow-sm p-10 mb-5 bg-white rounded"
-          style={{
-            marginLeft: "450px",
-            width: "900px",
-            height: "500px",
-            marginTop: "90px",
-          }}
-        >
-          <div>
-            <form className="p-4" onSubmit={saveExamDetail}> {/* Add onSubmit */}
-              <div className="form-group mb-4">
-                <label htmlFor="studentID">Student ID :</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter Student ID"
-                  value={ID}
-                  onChange={(e) => setID(e.target.value)}
-                />
-              </div>
+            <div className="form-group mb-4">
+              <label htmlFor="studentID">Name :</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter Student Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              {errors.name && <div className="text-danger">{errors.name}</div>} {/* Error message display */}
+            </div>
 
-              {/* ... Other input fields ... */}
+             {/* ... Similar changes to proposal, progress1, progress2 */}
 
-              <div className="form-group mb-4">
-                <label htmlFor="studentID">Name :</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter Student Name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </div>
-
-              <div className="form-group mb-4">
+             <div className="form-group mb-4">
                 <label htmlFor="studentID">Proposal :</label>
                 <input
                   type="text"
@@ -80,6 +101,8 @@ export default function Examinarmarkadd() {
                   value={proposal}
                   onChange={(e) => setProposal(e.target.value)}
                 />
+                {errors.proposal && <div className="text-danger">{errors.proposal}</div>} 
+
               </div>
 
               <div className="form-group mb-4">
@@ -91,6 +114,7 @@ export default function Examinarmarkadd() {
                   value={progress1}
                   onChange={(e) => setProgress1(e.target.value)}
                 />
+                {errors.progress1 && <div className="text-danger">{errors.progress1}</div>} 
               </div>
 
               <div className="form-group mb-4">
@@ -102,17 +126,16 @@ export default function Examinarmarkadd() {
                   value={progress2}
                   onChange={(e) => setProgress2(e.target.value)}
                 />
+                {errors.progress2 && <div className="text-danger">{errors.progress2}</div>} 
               </div>
-
             
 
-              <div className="d-flex justify-content-between">
-                <button type="submit" className="btn btn-outline-info mt-3">
-                  Add Marks
-                </button>
-              </div>
-            </form>
-          </div>
+            <div className="d-flex justify-content-between">
+              <button type="submit" className="btn btn-outline-info mt-3">
+                Add Marks
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -121,28 +144,32 @@ export default function Examinarmarkadd() {
 
 
 
-
-
-
 // import React, { useState } from "react";
 // import Sidebar from "../component/Sidebar";
+// import { createExam } from "../services/ExamService";
+// import { useNavigate } from "react-router-dom";
 
 // export default function Examinarmarkadd() {
+//   const [ID, setID] = useState('');
+//   const [name, setName] = useState('');
+//   const [proposal, setProposal] = useState('');
+//   const [progress1, setProgress1] = useState('');
+//   const [progress2, setProgress2] = useState('');
 
-//   const [ID ,setID] = useState('')
-//   const [name ,setName] = useState('')
-//   const [proposal ,setProposal] = useState('')
-//   const [progress1 ,setProgress1] = useState('')
-//   const [progress2 ,setProgress2] = useState('')
+//   const navigater =  useNavigate();
 
-
-//   function saveExamDetail(e){
+//   function saveExamDetail(e) {
 //     e.preventDefault();
 
-//     const exam = {ID, name, proposal, progress1, progress2}
-//     console.log(exam)
-//   }
+//     const exam = { name, proposal, progress1, progress2 };
+//     console.log(exam);
 
+//     createExam(exam).then((Response) => {
+//       console.log(Response.data);
+//       navigater('/examinartable');
+//     })
+
+//   }
 
 //   return (
 //     <div className="container-fluid">
@@ -165,10 +192,9 @@ export default function Examinarmarkadd() {
 //           }}
 //         >
 //           <div>
-//             <form className="p-4">
-
+//             <form className="p-4" onSubmit={saveExamDetail}> {/* Add onSubmit */}
 //               <div className="form-group mb-4">
-//               <label htmlFor="studentID">Student ID :</label> 
+//                 <label htmlFor="studentID">Student ID :</label>
 //                 <input
 //                   type="text"
 //                   className="form-control"
@@ -178,69 +204,58 @@ export default function Examinarmarkadd() {
 //                 />
 //               </div>
 
+//               {/* ... Other input fields ... */}
+
 //               <div className="form-group mb-4">
-//               <label htmlFor="studentID">Name :</label> 
+//                 <label htmlFor="studentID">Name :</label>
 //                 <input
 //                   type="text"
 //                   className="form-control"
-//                   placeholder="Enter Name"
+//                   placeholder="Enter Student Name"
 //                   value={name}
 //                   onChange={(e) => setName(e.target.value)}
 //                 />
 //               </div>
 
-//               <div className="form-group mb-4">
-//               <label htmlFor="studentID">proposal :</label> 
-//                 <input
-//                   type="text"
-//                   className="form-control"
-//                   placeholder="Enter proposal marks"
-//                   value={proposal}
-//                   onChange={(e) => setProposal(e.target.value)}
-//                 />
-//               </div><div className="form-group mb-4">
-//               <label htmlFor="studentID">progress1 :</label> 
-//                 <input
-//                   type="text"
-//                   className="form-control"
-//                   placeholder="Enter progress 1 Marks"
-//                   value={progress1}
-//                   onChange={(e) => setProgress1(e.target.value)}
-//                 />
-//               </div>
+              // <div className="form-group mb-4">
+              //   <label htmlFor="studentID">Proposal :</label>
+              //   <input
+              //     type="text"
+              //     className="form-control"
+              //     placeholder="Enter Proposal Marks"
+              //     value={proposal}
+              //     onChange={(e) => setProposal(e.target.value)}
+              //   />
+              // </div>
 
-//               <div className="form-group mb-4">
-//               <label htmlFor="studentID">progress2 :</label> 
-//                 <input
-//                   type="text"
-//                   className="form-control"
-//                   placeholder="Enter progress 2 Marks"
-//                   value={progress2}
-//                   onChange={(e) => setProgress2(e.target.value)}
-//                 />
-//               </div>
+              // <div className="form-group mb-4">
+              //   <label htmlFor="studentID">progress 1 :</label>
+              //   <input
+              //     type="text"
+              //     className="form-control"
+              //     placeholder="Enter progress 1 Marks"
+              //     value={progress1}
+              //     onChange={(e) => setProgress1(e.target.value)}
+              //   />
+              // </div>
 
+              // <div className="form-group mb-4">
+              //   <label htmlFor="studentID">progress 2 :</label>
+              //   <input
+              //     type="text"
+              //     className="form-control"
+              //     placeholder="Enter progress 2 Marks"
+              //     value={progress2}
+              //     onChange={(e) => setProgress2(e.target.value)}
+              //   />
+              // </div>
 
-//               {/* <div className="form-group mb-4">
-//               <label htmlFor="assessmentType">Assessment Type :</label>
-//               <select className="form-control">
-//                   <option>Proposal</option>
-//                   <option>Progress 1</option>
-//                   <option>Progress 2</option>
-//                 </select>
-//               </div>
-//             */}
+            
 
 //               <div className="d-flex justify-content-between">
-//                 <button
-//                   type="submit"
-//                   className="btn btn-outline-info mt-3 "
-//                   onChange={saveExamDetail}
-//                 >
+//                 <button type="submit" className="btn btn-outline-info mt-3">
 //                   Add Marks
 //                 </button>
-
-
 //               </div>
 //             </form>
 //           </div>
@@ -249,3 +264,7 @@ export default function Examinarmarkadd() {
 //     </div>
 //   );
 // }
+
+
+
+
