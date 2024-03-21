@@ -6,6 +6,7 @@ import AddUser from './pages/AddUser';
 import AddUser2 from './pages/ExaminaraTable';
 import Examinarmarkadd from './pages/Examinaraddmarks';
 import CordinatorAddMarks from './pages/CordinatorAddMarks';
+import ExaminarmarkUpdate from './pages/ExaminarUpdate';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/addmarks" element={<CordinatorAddMarks/>} />
           <Route exact path="/examinartable" element={<AddUser2/>} />
           <Route exact path="/examinaraddmark" element={<Examinarmarkadd/>} />
+          <Route exact path="/examinarupdatemark/:id" element={<ExaminarmarkUpdate/>} />
           
  
 

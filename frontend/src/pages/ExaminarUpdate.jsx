@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../component/Sidebar";
 import { createExam } from "../services/ExamService";
 import { useNavigate, useParams } from "react-router-dom";
+import { getExamById } from "../services/ExamService";
 
-export default function Examinarmarkadd() {
+
+export default function ExaminarmarkUpdate() {
   const [ID, setID] = useState('');
   const [name, setName] = useState('');
   const [proposal, setProposal] = useState('');
@@ -17,6 +19,19 @@ export default function Examinarmarkadd() {
   });
 
   const navigater = useNavigate();
+
+  useEffect(() => {
+        if(id){
+            getExamById(id).then(Response =>{
+                setName(Response.data.name);
+                setProposal(Response.data.proposal);
+                setProgress1(Response.data.progress1);
+                setProgress2(Response.data.progress2);
+            }).catch(error => {
+                console.error(error);
+            })
+        }
+  },[id])
 
   function saveExamDetail(e) {
     e.preventDefault();
@@ -59,13 +74,22 @@ export default function Examinarmarkadd() {
         navigater('/examinartable');
       });
     }
+
   }
+
+
+
+  const { id } = useParams(); // Get ID outside the event handler
+
+    function pageTitlre(id){
+
+    }
 
   return (
     <div className="container-fluid">
       {/* ... Sidebar & Other Components ... */}
-      <h2>Add Exam Marks</h2>
 
+    <h2>Update Exam Marks</h2>
       <div 
         className="shadow-sm p-10 mb-5 bg-white rounded"
         style={{
@@ -142,130 +166,4 @@ export default function Examinarmarkadd() {
     </div>
   );
 }
-
-
-
-// import React, { useState } from "react";
-// import Sidebar from "../component/Sidebar";
-// import { createExam } from "../services/ExamService";
-// import { useNavigate } from "react-router-dom";
-
-// export default function Examinarmarkadd() {
-//   const [ID, setID] = useState('');
-//   const [name, setName] = useState('');
-//   const [proposal, setProposal] = useState('');
-//   const [progress1, setProgress1] = useState('');
-//   const [progress2, setProgress2] = useState('');
-
-//   const navigater =  useNavigate();
-
-//   function saveExamDetail(e) {
-//     e.preventDefault();
-
-//     const exam = { name, proposal, progress1, progress2 };
-//     console.log(exam);
-
-//     createExam(exam).then((Response) => {
-//       console.log(Response.data);
-//       navigater('/examinartable');
-//     })
-
-//   }
-
-//   return (
-//     <div className="container-fluid">
-//       <div className="row">
-//         <div className="col-md-3">
-//           <Sidebar />
-//         </div>
-
-//         <div className="mt-4 mx-5" style={{ marginBottom: "-40px" }}>
-//           <h2>Add Marks</h2>
-//         </div>
-
-//         <div
-//           className="shadow-sm p-10 mb-5 bg-white rounded"
-//           style={{
-//             marginLeft: "450px",
-//             width: "900px",
-//             height: "500px",
-//             marginTop: "90px",
-//           }}
-//         >
-//           <div>
-//             <form className="p-4" onSubmit={saveExamDetail}> {/* Add onSubmit */}
-//               <div className="form-group mb-4">
-//                 <label htmlFor="studentID">Student ID :</label>
-//                 <input
-//                   type="text"
-//                   className="form-control"
-//                   placeholder="Enter Student ID"
-//                   value={ID}
-//                   onChange={(e) => setID(e.target.value)}
-//                 />
-//               </div>
-
-//               {/* ... Other input fields ... */}
-
-//               <div className="form-group mb-4">
-//                 <label htmlFor="studentID">Name :</label>
-//                 <input
-//                   type="text"
-//                   className="form-control"
-//                   placeholder="Enter Student Name"
-//                   value={name}
-//                   onChange={(e) => setName(e.target.value)}
-//                 />
-//               </div>
-
-              // <div className="form-group mb-4">
-              //   <label htmlFor="studentID">Proposal :</label>
-              //   <input
-              //     type="text"
-              //     className="form-control"
-              //     placeholder="Enter Proposal Marks"
-              //     value={proposal}
-              //     onChange={(e) => setProposal(e.target.value)}
-              //   />
-              // </div>
-
-              // <div className="form-group mb-4">
-              //   <label htmlFor="studentID">progress 1 :</label>
-              //   <input
-              //     type="text"
-              //     className="form-control"
-              //     placeholder="Enter progress 1 Marks"
-              //     value={progress1}
-              //     onChange={(e) => setProgress1(e.target.value)}
-              //   />
-              // </div>
-
-              // <div className="form-group mb-4">
-              //   <label htmlFor="studentID">progress 2 :</label>
-              //   <input
-              //     type="text"
-              //     className="form-control"
-              //     placeholder="Enter progress 2 Marks"
-              //     value={progress2}
-              //     onChange={(e) => setProgress2(e.target.value)}
-              //   />
-              // </div>
-
-            
-
-//               <div className="d-flex justify-content-between">
-//                 <button type="submit" className="btn btn-outline-info mt-3">
-//                   Add Marks
-//                 </button>
-//               </div>
-//             </form>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-
-
 

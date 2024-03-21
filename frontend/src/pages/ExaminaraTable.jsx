@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../component/Sidebar";
-import { listExamDetails } from "../services/ExamService";
+import { deleteExamData, listExamDetails } from "../services/ExamService";
+import { useNavigate } from 'react-router-dom';
+
 
 function ExaminarTable() {
   const [exams, setExams] = useState([]);
+
 
   useEffect(() => {
     const fetchExamDetails = async () => {
@@ -22,6 +25,32 @@ function ExaminarTable() {
     fetchExamDetails();
   }, []); // Empty dependency array ensures useEffect runs only once
   
+  const navigater = useNavigate();
+
+
+  function updateExam(id){
+    navigater(`/examinarupdatemark/${id}`)
+  }
+
+  async function deleteExamDetails(id) {
+    console.log(id);
+  
+    try {
+      await deleteExamData(id);  // Call your delete API endpoint
+      
+      // Refetch updated data
+      const response = await listExamDetails(); 
+      if (response.status === 200) {   
+        setExams(response.data);  // Update the exams state
+      } else {
+        console.error('Error refetching exams after deletion', response.status);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
+
 
   return (
     <div className="container-fluid">
@@ -111,7 +140,8 @@ function ExaminarTable() {
                     <td>{exam.progress1}</td> 
                     <td>{exam.progress2}</td>  
                     <td>
-                      <button>Edit</button> 
+                    <button className="btn btn-outline-info" onClick={()=>updateExam(exam.id)}>Update</button>
+                    <button className="btn btn-outline-danger" onClick={()=>deleteExamDetails(exam.id)}>Delete</button>
                     </td> 
                   </tr>
                 ))}
