@@ -11,7 +11,7 @@ export default function Sidebar() {
     <div className="">
 
     
-    <nav className="sidebar  shadow p-3 mb-5 bg-white rounded" style={{width:"270px"}}>
+    <nav className="sidebar  shadow p-3 mb-5 bg-dark rounded" style={{width:"270px"}}>
    
       <div>
         <header className="">
@@ -20,7 +20,7 @@ export default function Sidebar() {
            
             </span>
             <div className="text logo-text ">
-              <span className="sidebar-title text-uppercase text-truncate app-brand-text demo menu-text fw-bold ms-2 fs-1 ">
+              <span className="sidebar-title text-uppercase text-truncate app-brand-text demo menu-text fw-bold ms-2 fs-1 " style={{color:"white"}}>
                 PMS
               </span>
             </div>
@@ -34,8 +34,8 @@ export default function Sidebar() {
 
               <li className="home mb-4 mt-4 " >
                 <a className="d-inline-flex align-items-center rounded border-0 collapsed d-flex p-2">
-                  <i className="menu-icon tf-icons bx bx-home-circle " style={{marginLeft:"-60px"}} />
-                  <div className=" " data-i18n="Dashboard" style={{paddingLeft:"20px"}} >
+                  <i className="menu-icon tf-icons bx bx-home-circle " style={{marginLeft:"-60px",color:"white"}} />
+                  <div className=" " data-i18n="Dashboard" style={{paddingLeft:"20px",color:"white"}} >
                     Home
                   </div>
                 </a>
@@ -45,8 +45,8 @@ export default function Sidebar() {
               <li className="home mb-4">
                 <div>
                   <div className="d-inline-flex align-items-center d-flex p-2">
-                   <i class='bx bxs-user-plus ' style={{marginLeft:"-20px"}}></i>   
-                    <div className="text-truncate ml-3 mx-2" data-i18n="Employee" style={{paddingLeft:"12px"}}>
+                   <i class='bx bxs-user-plus ' style={{marginLeft:"-20px",color:"white"}}></i>   
+                    <div className="text-truncate ml-3 mx-2" data-i18n="Employee" style={{paddingLeft:"12px",color:"white"}}>
                       Add Users
                       <i />
                     </div>
@@ -59,8 +59,8 @@ export default function Sidebar() {
               <li className="home mb-4">
                 <div>
                   <div className="d-inline-flex align-items-center d-flex p-2">
-                   <i class='bx bxs-group' style={{marginLeft:"-20px"}}></i>   
-                    <div className="text-truncate ml-3 mx-2" data-i18n="Employee" style={{paddingLeft:"12px"}}>
+                   <i class='bx bxs-group' style={{marginLeft:"-20px",color:"white"}}></i>   
+                    <div className="text-truncate ml-3 mx-2" data-i18n="Employee" style={{paddingLeft:"12px",color:"white"}}>
                       View Users
                       <i />
                     </div>
@@ -73,8 +73,8 @@ export default function Sidebar() {
               <li className="home mb-4">
                 <div>
                   <div className="d-inline-flex align-items-center d-flex p-2">
-                    <i className="menu-icon tf-icons bx bx-book" style={{marginLeft:"-70px"}}></i>
-                    <div className="text-truncate ml-3" data-i18n="Employee" style={{paddingLeft:"12px"}}>
+                    <i className="menu-icon tf-icons bx bx-book" style={{marginLeft:"-70px",color:"white"}}></i>
+                    <div className="text-truncate ml-3" data-i18n="Employee" style={{paddingLeft:"12px",color:"white"}}>
                      Marks
                     </div>
                   </div>
@@ -87,8 +87,8 @@ export default function Sidebar() {
               <li className="home mb-4">
                 <div>
                   <div className="d-inline-flex align-items-center d-flex p-2">
-                  <i className='bx bx-slideshow' style={{marginLeft:"-10px"}}></i>   
-                 <div className="text-truncate ml-3  mx-2" data-i18n="Employee" style={{paddingLeft:"12px"}}>
+                  <i className='bx bx-slideshow' style={{marginLeft:"-10px",color:"white"}}></i>   
+                 <div className="text-truncate ml-3  mx-2" data-i18n="Employee" style={{paddingLeft:"12px",color:"white"}}>
                       Presentation
                     </div>
                   </div>
@@ -100,8 +100,8 @@ export default function Sidebar() {
             <Link to="/rubrics" style={{textDecoration:"none" , color:"inherit"}}>
               <li className="home mb-4">
                 <a className="d-inline-flex align-items-center rounded border-0 collapsed d-flex p-2 ">
-                <i className='bx bx-edit ' style={{marginLeft:"10px"}}></i>         
-                 <div className="text-truncate ml-3 mx-2" data-i18n="Dashboard" style={{paddingLeft:"12px"}}>
+                <i className='bx bx-edit ' style={{marginLeft:"10px",color:"white"}}></i>         
+                 <div className="text-truncate ml-3 mx-2" data-i18n="Dashboard" style={{paddingLeft:"12px",color:"white"}}>
                     Create Rubrics
                   </div>
                 </a>
@@ -111,8 +111,8 @@ export default function Sidebar() {
              <Link to="/add-permission" style={{textDecoration:"none" , color:"inherit"}}>
               <li className="home mb-4">
                 <a className="d-inline-flex align-items-center rounded border-0 collapsed d-flex p-2 ">
-                <i className='bx bxs-shield-plus' style={{marginLeft:"-20px"}}></i>  
-                    <div className="text-truncate ml-3 mx-2" data-i18n="Dashboard" style={{paddingLeft:"12px"}}>
+                <i className='bx bxs-shield-plus' style={{marginLeft:"-20px",color:"white"}}></i>  
+                    <div className="text-truncate ml-3 mx-2" data-i18n="Dashboard" style={{paddingLeft:"12px",color:"white"}}>
                     Permissions
                   </div>
                 </a>
@@ -122,8 +122,8 @@ export default function Sidebar() {
               <Link to="/assesment" style={{textDecoration:"none" , color:"inherit"}}>
               <li className="home mb-4">
                 <a className="d-inline-flex align-items-center rounded border-0 collapsed d-flex p-2 ">
-                <i className='bx bx-edit-alt' style={{marginLeft:"-20px"}}></i>                 
-                 <div className="text-truncate ml-3  mx-2 " data-i18n="Dashboard" style={{paddingLeft:"12px"}}>
+                <i className='bx bx-edit-alt' style={{marginLeft:"-20px",color:"white"}}></i>                 
+                 <div className="text-truncate ml-3  mx-2 " data-i18n="Dashboard" style={{paddingLeft:"12px",color:"white"}}>
                     Assesments
                   </div>
                 </a>
@@ -133,8 +133,8 @@ export default function Sidebar() {
                <Link to="/groups" style={{textDecoration:"none" , color:"inherit"}}>
               <li className="home">
                 <a className="d-inline-flex align-items-center rounded border-0 collapsed d-flex p-2 ">
-                <i className='bx bxs-group ' style={{marginLeft:"-55px"}}></i>
-                  <div className="text-truncate ml-3  mx-2" data-i18n="Dashboard" style={{paddingLeft:"12px"}}>
+                <i className='bx bxs-group ' style={{marginLeft:"-55px",color:"white"}}></i>
+                  <div className="text-truncate ml-3  mx-2" data-i18n="Dashboard" style={{paddingLeft:"12px",color:"white"}}>
                     Groups
                   </div>
                 </a>

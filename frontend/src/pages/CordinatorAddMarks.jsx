@@ -26,12 +26,12 @@ export default function CordinatorAddMarks() {
             </div>
 
             <div
-              className="shadow-sm p-3 mb-5 bg-white rounded"
+              className="shadow-sm  p-5 mb-5 bg-white rounded"
               style={{
                 marginLeft: "350px",
                 width: "1200px",
                 height: "auto",
-                marginTop: "50px",
+                marginTop: "70px",
               }}
             >
               <div>

@@ -38,7 +38,7 @@ export default function CordinatorGroupSearch() {
         <div
           className="shadow-sm p-5 mb-5 bg-white rounded mt-5"
           style={{
-            marginLeft: "300px",
+            marginLeft: "320px",
             width: "1300px",
             height: "auto",
           }}
