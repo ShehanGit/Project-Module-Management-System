@@ -79,11 +79,11 @@ export default function ExaminarmarkUpdate() {
 
 
 
-  // const { id } = useParams(); // Get ID outside the event handler
+  const { id } = useParams(); // Get ID outside the event handler
 
-  //   function pageTitlre(id){
+    function pageTitlre(id){
 
-  //   }
+    }
 
   return (
     <div className="container-fluid">
@@ -101,7 +101,6 @@ export default function ExaminarmarkUpdate() {
       >
         <div>
           <form className="p-4" onSubmit={saveExamDetail}>
-            {/* ... Other input fields */}
 
             <div className="form-group mb-4">
               <label htmlFor="studentID">Name :</label>

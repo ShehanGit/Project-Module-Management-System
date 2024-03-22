@@ -106,8 +106,6 @@ export default function Examinarmarkadd() {
             </div>
 
 
-
-
             <div className="form-group mb-4">
               <label htmlFor="studentID" >Student ID :</label>
               <input
@@ -119,12 +117,6 @@ export default function Examinarmarkadd() {
               />
               {errors.studentId && <div className="text-danger">{errors.studentId}</div>} 
             </div>
-
-
-
-
-
-
 
 
              <div className="form-group mb-4">
@@ -163,10 +155,6 @@ export default function Examinarmarkadd() {
                 />
                 {errors.progress2 && <div className="text-danger">{errors.progress2}</div>} 
               </div>
-
-
-
-
 
 
               <div className="form-group mb-4">
