@@ -141,7 +141,7 @@ export default function Examinarmarkadd() {
               </div>
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">progress 1 :</label>
+                <label htmlFor="studentID">Progress 1 :</label>
                 <input
                   type="text"
                   className="form-control"
@@ -153,7 +153,7 @@ export default function Examinarmarkadd() {
               </div>
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">progress 2 :</label>
+                <label htmlFor="studentID">Progress 2 :</label>
                 <input
                   type="text"
                   className="form-control"
@@ -170,7 +170,7 @@ export default function Examinarmarkadd() {
 
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">Final Presentations :</label>
+                <label htmlFor="studentID">Final Presentation :</label>
                 <input
                   type="text"
                   className="form-control"
