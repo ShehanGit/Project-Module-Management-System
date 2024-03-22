@@ -33,12 +33,12 @@ export default function Examinarmarkadd() {
     const newErrors = {...errors}; // Duplicate errors object
 
     if (!name) {
-      newErrors.name = 'Name is required';
+      newErrors.name = 'Student ID is required';
       isValid = false;
     }
 
     if (!studentId) {
-      newErrors.studentId = 'Student ID is required';
+      newErrors.studentId = 'Group ID is required';
       isValid = false;
     }
 
@@ -94,11 +94,11 @@ export default function Examinarmarkadd() {
             {/* ... Other input fields */}
 
             <div className="form-group mb-4">
-              <label htmlFor="studentID" >Name :</label>
+              <label htmlFor="studentID" >Student ID :</label>
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter Student Name"
+                placeholder="Enter Student ID"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -107,11 +107,11 @@ export default function Examinarmarkadd() {
 
 
             <div className="form-group mb-4">
-              <label htmlFor="studentID" >Student ID :</label>
+              <label htmlFor="studentID" >Group ID :</label>
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter Student ID"
+                placeholder="Enter Group ID"
                 value={studentId}
                 onChange={(e) => setStudentId(e.target.value)}
               />

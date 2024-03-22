@@ -74,7 +74,7 @@ function ExaminarTable() {
                 <tr style={{ backgroundColor: '#ACE2E1' }}>
                   <th >ID</th>
                   <th>Sdudent ID</th>
-                  <th>Name</th>
+                  <th>Group ID</th>
                   <th>Proposal</th>
                   <th>Progress 1</th>
                   <th>Progress 2</th>
@@ -86,8 +86,8 @@ function ExaminarTable() {
                 {exams.map((exam) => (
                   <tr key={exam.ID}>
                     <td>{exam.id}</td>
-                    <td>{exam.studentId}</td>
                     <td>{exam.name}</td> 
+                    <td>{exam.studentId}</td>
                     <td>{exam.proposal}</td>
                     <td>{exam.progress1}</td> 
                     <td>{exam.progress2}</td> 
