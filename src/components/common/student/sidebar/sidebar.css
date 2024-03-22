@@ -13,6 +13,8 @@
     overflow-y: auto;
   }
 
+  
+
   .profile_info{
     display: flex;
     flex-direction: column;
