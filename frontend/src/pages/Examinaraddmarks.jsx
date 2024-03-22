@@ -38,7 +38,7 @@ export default function Examinarmarkadd() {
     }
 
     if (!studentId) {
-      newErrors.name = 'Student ID is required';
+      newErrors.studentId = 'Student ID is required';
       isValid = false;
     }
 

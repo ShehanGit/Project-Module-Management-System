@@ -65,7 +65,7 @@ function ExaminarTable() {
 
         <div className="col-md-9"> 
           <div className="mt-4 mx-5" style={{ marginBottom: "-40px" }}>
-            <h2>Examinar Table</h2>
+            <h2>Examinar Mark Table</h2>
           </div>
 
           <div className="exam-table-container">

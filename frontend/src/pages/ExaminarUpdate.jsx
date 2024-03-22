@@ -20,18 +20,18 @@ export default function ExaminarmarkUpdate() {
 
   const navigater = useNavigate();
 
-  useEffect(() => {
-        if(id){
-            getExamById(id).then(Response =>{
-                setName(Response.data.name);
-                setProposal(Response.data.proposal);
-                setProgress1(Response.data.progress1);
-                setProgress2(Response.data.progress2);
-            }).catch(error => {
-                console.error(error);
-            })
-        }
-  },[id])
+  // useEffect(() => {
+  //       if(id){
+  //           getExamById(id).then(Response =>{
+  //               setName(Response.data.name);
+  //               setProposal(Response.data.proposal);
+  //               setProgress1(Response.data.progress1);
+  //               setProgress2(Response.data.progress2);
+  //           }).catch(error => {
+  //               console.error(error);
+  //           })
+  //       }
+  // },[id])
 
   function saveExamDetail(e) {
     e.preventDefault();
@@ -79,11 +79,11 @@ export default function ExaminarmarkUpdate() {
 
 
 
-  const { id } = useParams(); // Get ID outside the event handler
+  // const { id } = useParams(); // Get ID outside the event handler
 
-    function pageTitlre(id){
+  //   function pageTitlre(id){
 
-    }
+  //   }
 
   return (
     <div className="container-fluid">
