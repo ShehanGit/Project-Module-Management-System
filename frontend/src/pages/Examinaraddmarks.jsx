@@ -6,14 +6,18 @@ import { useNavigate, useParams } from "react-router-dom";
 export default function Examinarmarkadd() {
   const [ID, setID] = useState('');
   const [name, setName] = useState('');
+  const [studentId, setStudentId] = useState('');
   const [proposal, setProposal] = useState('');
   const [progress1, setProgress1] = useState('');
   const [progress2, setProgress2] = useState('');
+  const [finalPresentations, setFinalPresentations] = useState('');
   const [errors, setErrors] = useState({ // State to manage errors
     name: '',
+    studentId: '',
     proposal: '', 
     progress1: '',
-    progress2: ''
+    progress2: '',
+    finalPresentations: ''
   });
 
   const navigater = useNavigate();
@@ -22,7 +26,7 @@ export default function Examinarmarkadd() {
     e.preventDefault();
 
     // Reset errors before validation
-    setErrors({ name: '', proposal: '', progress1: '', progress2: '' });
+    setErrors({ name: '', studentId: '', proposal: '', progress1: '', progress2: '', finalPresentations: '' });
 
     // Validation logic
     let isValid = true;
@@ -33,25 +37,35 @@ export default function Examinarmarkadd() {
       isValid = false;
     }
 
-    if (isNaN(proposal) || proposal < 0 || proposal > 100) {
+    if (!studentId) {
+      newErrors.name = 'Student ID is required';
+      isValid = false;
+    }
+
+    if (isNaN(proposal) || proposal < 0 || proposal > 100 || (!proposal)) {
       newErrors.proposal = 'Proposal marks must be a number between 0 and 100';
       isValid = false;
     }
 
-    if (isNaN(progress1) || progress1 < 0 || progress1 > 100) {
+    if (isNaN(progress1) || progress1 < 0 || progress1 > 100 || (!progress1)) {
       newErrors.progress1 = 'Progress 1 marks must be a number between 0 and 100';
       isValid = false;
     }
 
-    if (isNaN(progress2) || progress2 < 0 || progress2 > 100) {
+    if (isNaN(progress2) || progress2 < 0 || progress2 > 100 || (!progress2)) {
       newErrors.progress2 = 'Progress 2 marks must be a number between 0 and 100';
+      isValid = false;
+    }
+
+    if (isNaN(finalPresentations) || finalPresentations < 0 || finalPresentations > 100 || (!finalPresentations)) {
+      newErrors.finalPresentations = 'finalPresentations  marks must be a number between 0 and 100';
       isValid = false;
     }
 
     setErrors(newErrors); // Update errors state
 
     if (isValid) {
-      const exam = { name, proposal, progress1, progress2 };
+      const exam = { name, studentId, proposal, progress1, progress2, finalPresentations  };
       console.log(exam);
 
       createExam(exam).then((Response) => {
@@ -91,7 +105,27 @@ export default function Examinarmarkadd() {
               {errors.name && <div className="text-danger">{errors.name}</div>} {/* Error message display */}
             </div>
 
-             {/* ... Similar changes to proposal, progress1, progress2 */}
+
+
+
+            <div className="form-group mb-4">
+              <label htmlFor="studentID" >Student ID :</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter Student ID"
+                value={studentId}
+                onChange={(e) => setStudentId(e.target.value)}
+              />
+              {errors.studentId && <div className="text-danger">{errors.studentId}</div>} 
+            </div>
+
+
+
+
+
+
+
 
              <div className="form-group mb-4">
                 <label htmlFor="studentID">Proposal :</label>
@@ -129,7 +163,27 @@ export default function Examinarmarkadd() {
                 />
                 {errors.progress2 && <div className="text-danger">{errors.progress2}</div>} 
               </div>
+
+
+
+
+
+
+              <div className="form-group mb-4">
+                <label htmlFor="studentID">Final Presentations :</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter progress 2 Marks"
+                  value={finalPresentations}
+                  onChange={(e) => setFinalPresentations(e.target.value)}
+                />
+                {errors.finalPresentations && <div className="text-danger">{errors.finalPresentations}</div>} 
+              </div>
             
+
+
+
 
             <div className="d-flex justify-content-between">
               <button type="submit" className="btn btn-outline-info mt-3">

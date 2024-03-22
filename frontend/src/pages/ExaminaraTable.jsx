@@ -70,10 +70,12 @@ function ExaminarTable() {
               <thead>
                 <tr style={{ backgroundColor: '#ACE2E1' }}>
                   <th >ID</th>
+                  <th>Sdudent ID</th>
                   <th>Name</th>
                   <th>Proposal</th>
                   <th>Progress 1</th>
                   <th>Progress 2</th>
+                  <th>Final Presentations</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -81,10 +83,12 @@ function ExaminarTable() {
                 {exams.map((exam) => (
                   <tr key={exam.ID}>
                     <td>{exam.id}</td>
+                    <td>{exam.studentId}</td>
                     <td>{exam.name}</td> 
                     <td>{exam.proposal}</td>
                     <td>{exam.progress1}</td> 
-                    <td>{exam.progress2}</td>  
+                    <td>{exam.progress2}</td> 
+                    <td>{exam.finalPresentations}</td>   
                     <td>
                     <button className="btn btn-outline-info" onClick={()=>updateExam(exam.id)}>Update</button>
                     <button className="btn btn-outline-danger" onClick={()=>deleteExamDetails(exam.id)}>Delete</button>
