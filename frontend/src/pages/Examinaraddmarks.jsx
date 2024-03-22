@@ -81,7 +81,7 @@ export default function Examinarmarkadd() {
       <h2>Add Exam Marks</h2>
 
       <div 
-        className="shadow-sm p-10 mb-5 bg-white rounded"
+        className=""
         style={{
           marginLeft: "450px",
           width: "900px",

@@ -51,6 +51,9 @@ function ExaminarTable() {
   }
   
 
+  function addMarks(){
+
+  })
 
   return (
     <div className="container-fluid">
@@ -97,6 +100,9 @@ function ExaminarTable() {
                 ))}
               </tbody>
             </table>
+
+            <button className="btn btn-outline-info" onClick={()=>addMarks()}>Add Marks</button>
+
           </div>
 
                     
