@@ -30,7 +30,7 @@ export default function CordinatorAddMarks() {
               style={{
                 marginLeft: "350px",
                 width: "1200px",
-                height: "auto",
+                height: "150px",
                 marginTop: "50px",
               }}
             >
@@ -91,76 +91,77 @@ export default function CordinatorAddMarks() {
                   </div>
                 </div>
               </div>
-
-              <div>
-            <table class="table table-bordered w-100 mt-4">
-              <thead>
-                <tr>
-                 <th scope="col">ID Number</th>
-                  <th scope="col">Student Name</th>
-                  <th scope="col">Assignment Type</th>
-                  <th scope="col">Marks</th>
-                 
-                 
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                 
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>Mark</td>
-       
-                </tr>
-                <tr>
-                 
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>Mark</td>
-                
-                
-                </tr>
-                <tr>
-                  
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>Mark</td>
-                  
-               
-                </tr>
-                <tr>
-                
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>Mark</td>
-                  
-             
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className="d-flex justify-content-between">
-            <button type="submit" className="btn btn-outline-info mt-5  ">
-              Save
-            </button>
-
-            <button
-              type="submit"
-              className="btn btn-outline-danger mt-5 d-flex "
-            >
-              Edit
-            </button>
-          </div>
-
-              
             </div>
 
-            
+            <div
+              className="shadow-sm p-3 mb-5 bg-white rounded"
+              style={{
+                marginLeft: "350px",
+                width: "1200px",
+                height: "auto",
+              }}
+            >
+              <div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Student Id</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Project</th>
+                      <th scope="col">Marks</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>proposal</td>
+                      <td>75</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>proposal</td>
+                      <td>75</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Larry</td>
+                      <td>proposal</td>
+                      <td>75</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td>Larry</td>
+                      <td>proposal</td>
+                      <td>75</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td>Larry</td>
+                      <td>proposal</td>
+                      <td>75</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="d-flex justify-content-between">
+                <button
+                  type="submit"
+                  className="btn btn-outline-info mt-5  "
+                >
+                  Save
+                </button>
+
+                <button
+                  type="submit"
+                  className="btn btn-outline-danger mt-5 d-flex "
+                >
+                  Edit
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
