@@ -1,11 +1,51 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../component/Sidebar";
 import { deleteExamData, listExamDetails } from "../services/ExamService";
+import {searchExamByGroupId} from "../services/searchExamByGroupId";
 import { useNavigate } from 'react-router-dom';
+import SearchBar from "./SearchBar";
 
 
 function ExaminarTable() {
   const [exams, setExams] = useState([]);
+
+  const [searchTerm, setSearchTerm] = useState(""); // State to hold the search term
+
+  useEffect(() => {
+    fetchExamDetails(); // Fetching all exam details initially
+  }, []);
+
+
+  const fetchExamDetails = async () => {
+    try {
+      const response = await listExamDetails();
+      if (response.status === 200) {
+        setExams(response.data);
+      } else {
+        console.error('Error fetching exam details', response.status);
+      }
+    } catch (error) {
+      console.error("Error fetching exam details:", error);
+    }
+  };
+
+  
+
+  const searchGroupById = async () => {
+    try {
+      const response = await searchExamByGroupId(searchTerm); // Assuming this function searches exams by group ID
+      if (response.status === 200) {
+        setExams(response.data);
+      } else {
+        console.error('Error searching exam by Group ID', response.status);
+      }
+    } catch (error) {
+      console.error("Error searching exam by Group ID:", error);
+    }
+  };
+
+
+
 
 
   useEffect(() => {
@@ -67,6 +107,26 @@ function ExaminarTable() {
           <div className="mt-4 mx-5" style={{ marginBottom: "-40px" }}>
             <h2>Examinar Mark Table</h2>
           </div>
+
+
+          
+          <div className="search-bar">
+            <input
+              type="text"
+              placeholder="Enter Group ID"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <button className="btn btn-primary" onClick={searchGroupById}>
+              Search
+            </button>
+          </div>
+
+
+
+
+
+
 
           <div className="exam-table-container">
           <table class="table table-bordered"  style={{ backgroundColor: 'white', marginTop: '200px',marginLeft: '-40px', borderRadius: '10px' }}> 
