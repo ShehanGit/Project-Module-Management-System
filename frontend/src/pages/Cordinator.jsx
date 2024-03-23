@@ -6,8 +6,10 @@ export default function Cordinator() {
   return (
 
    <div className="wrapper" >
+
      <div >
       <Sidebar />
+  
 
       <div className="main-content" style={{marginBottom:"-60px" , marginLeft:"200px"}}>
         <h1 >Project Cordinator's Dashboard</h1>

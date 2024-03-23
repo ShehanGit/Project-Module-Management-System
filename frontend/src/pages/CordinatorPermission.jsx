@@ -3,6 +3,17 @@ import Sidebar from "../component/Sidebar";
 import "../css/permission.css";
 
 export default function CordinatorPermission() {
+
+  const handleSwitchChange = (event) => {
+    if (event.target.checked) {
+      const confirmed = window.confirm("Are you sure?");
+      if (!confirmed) {
+        // Revert the switch to its original state if not confirmed
+        event.target.checked = !event.target.checked;
+      }
+    }
+    // Handle the switch change here if confirmed
+  };
   return (
     <div className="wrapper">
       <Sidebar />
@@ -41,6 +52,7 @@ export default function CordinatorPermission() {
                     className="form-check-input"
                     type="checkbox"
                     id="flexSwitchCheckDefault"
+                    onChange={handleSwitchChange}
                   />
                   <label
                     className="form-check-label"
@@ -59,6 +71,8 @@ export default function CordinatorPermission() {
                     className="form-check-input"
                     type="checkbox"
                     id="flexSwitchCheckDefault"
+                    onChange={handleSwitchChange}
+
                   />
                   <label
                     className="form-check-label"
@@ -77,6 +91,8 @@ export default function CordinatorPermission() {
                     className="form-check-input"
                     type="checkbox"
                     id="flexSwitchCheckDefault"
+                    onChange={handleSwitchChange}
+
                   />
                   <label
                     className="form-check-label"
@@ -95,6 +111,8 @@ export default function CordinatorPermission() {
                     className="form-check-input"
                     type="checkbox"
                     id="flexSwitchCheckDefault"
+                    onChange={handleSwitchChange}
+
                   />
                   <label
                     className="form-check-label"
@@ -113,6 +131,8 @@ export default function CordinatorPermission() {
                     className="form-check-input"
                     type="checkbox"
                     id="flexSwitchCheckDefault"
+                    onChange={handleSwitchChange}
+
                   />
                   <label
                     className="form-check-label"
@@ -131,6 +151,8 @@ export default function CordinatorPermission() {
                     className="form-check-input"
                     type="checkbox"
                     id="flexSwitchCheckDefault"
+                    onChange={handleSwitchChange}
+
                   />
                   <label
                     className="form-check-label"
@@ -150,6 +172,7 @@ export default function CordinatorPermission() {
                     className="form-check-input"
                     type="checkbox"
                     id="flexSwitchCheckDefault"
+                    onChange={handleSwitchChange}
                   />
                   <label
                     className="form-check-label"
@@ -169,6 +192,7 @@ export default function CordinatorPermission() {
                     className="form-check-input"
                     type="checkbox"
                     id="flexSwitchCheckDefault"
+                    onChange={handleSwitchChange}
                   />
                   <label
                     className="form-check-label"
@@ -188,6 +212,7 @@ export default function CordinatorPermission() {
                     className="form-check-input"
                     type="checkbox"
                     id="flexSwitchCheckDefault"
+                    onChange={handleSwitchChange}
                   />
                   <label
                     className="form-check-label"
@@ -225,6 +250,7 @@ export default function CordinatorPermission() {
                     className="form-check-input"
                     type="checkbox"
                     id="flexSwitchCheckDefault"
+                    onChange={handleSwitchChange}
                   />
                   <label
                     className="form-check-label"
@@ -243,6 +269,8 @@ export default function CordinatorPermission() {
                     className="form-check-input"
                     type="checkbox"
                     id="flexSwitchCheckDefault"
+                    onChange={handleSwitchChange}
+
                   />
                   <label
                     className="form-check-label"
@@ -261,6 +289,8 @@ export default function CordinatorPermission() {
                     className="form-check-input"
                     type="checkbox"
                     id="flexSwitchCheckDefault"
+                    onChange={handleSwitchChange}
+
                   />
                   <label
                     className="form-check-label"
@@ -279,6 +309,7 @@ export default function CordinatorPermission() {
                     className="form-check-input"
                     type="checkbox"
                     id="flexSwitchCheckDefault"
+                    onChange={handleSwitchChange}
                   />
                   <label
                     className="form-check-label"
@@ -297,6 +328,7 @@ export default function CordinatorPermission() {
                     className="form-check-input"
                     type="checkbox"
                     id="flexSwitchCheckDefault"
+                    onChange={handleSwitchChange}
                   />
                   <label
                     className="form-check-label"
@@ -315,6 +347,7 @@ export default function CordinatorPermission() {
                     className="form-check-input"
                     type="checkbox"
                     id="flexSwitchCheckDefault"
+                    onChange={handleSwitchChange}
                   />
                   <label
                     className="form-check-label"
@@ -334,6 +367,7 @@ export default function CordinatorPermission() {
                     className="form-check-input"
                     type="checkbox"
                     id="flexSwitchCheckDefault"
+                    onChange={handleSwitchChange}
                   />
                   <label
                     className="form-check-label"
@@ -353,6 +387,7 @@ export default function CordinatorPermission() {
                     className="form-check-input"
                     type="checkbox"
                     id="flexSwitchCheckDefault"
+                    onChange={handleSwitchChange}
                   />
                   <label
                     className="form-check-label"
@@ -372,6 +407,7 @@ export default function CordinatorPermission() {
                     className="form-check-input"
                     type="checkbox"
                     id="flexSwitchCheckDefault"
+                    onChange={handleSwitchChange}
                   />
                   <label
                     className="form-check-label"

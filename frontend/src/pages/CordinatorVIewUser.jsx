@@ -45,7 +45,7 @@ export default function CoordinatorViewUser() {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Group number"
+                  placeholder="user name"
                   aria-label="Search"
                   aria-describedby="basic-addon2"
                   style={{

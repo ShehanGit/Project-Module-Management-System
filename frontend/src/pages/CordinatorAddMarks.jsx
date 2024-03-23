@@ -48,17 +48,7 @@ export default function CordinatorAddMarks() {
                   </div>
 
                   <div className="form-group col-md-4 p-2">
-                    <select className="form-control" id="yearSelect">
-                      <option value="">Specialization</option>
-                      <option value="">IT</option>
-                      <option value="">SE</option>
-                      <option value="">DS</option>
-                      <option value="">CSNE</option>
-                    </select>
-                  </div>
-
-                  <div className="form-group col-md-4 p-2">
-                    <select className="form-control" id="yearSelect">
+                  <select className="form-control" id="yearSelect">
                       <option value="">Project Type</option>
                       <option value="">proposal</option>
                       <option value="">progress 1</option>
@@ -66,9 +56,17 @@ export default function CordinatorAddMarks() {
                       <option value="">final project</option>
                     </select>
                   </div>
+
+                  <div className="form-group col-md-4 p-2">
+                  <select className="form-control" id="yearSelect">
+                      <option value="">Semester</option>
+                      <option value="">1</option>
+                      <option value="">2</option>
+                    </select>
+                  </div>
                 </div>
 
-                <div className="d-flex justify-content-between">
+                <div className="d-flex ">
                   <div className="form-group col-md-4 p-2">
                     <input
                       type="text"
@@ -78,17 +76,9 @@ export default function CordinatorAddMarks() {
                       aria-describedby="basic-addon2"
                     />
                   </div>
-
-                  <div
-                    className="form-group col-4  p-2"
-                    style={{ marginRight: "600px" }}
-                  >
-                    <select className="form-control" id="yearSelect">
-                      <option value="">Semester</option>
-                      <option value="">1</option>
-                      <option value="">2</option>
-                    </select>
-                  </div>
+                  <div className="mt-2 " style={{ marginLeft: "10px" }}>
+                <button className="btn btn-info">Search</button>
+              </div>
                 </div>
               </div>
 
@@ -98,7 +88,7 @@ export default function CordinatorAddMarks() {
                 <tr>
                  <th scope="col">ID Number</th>
                   <th scope="col">Student Name</th>
-                  <th scope="col">Assignment Type</th>
+                  <th scope="col">Specialization</th>
                   <th scope="col">Marks</th>
                  
                  
@@ -107,39 +97,41 @@ export default function CordinatorAddMarks() {
               <tbody>
                 <tr>
                  
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>Mark</td>
+                  <td>001</td>
+                  <td>Anjana</td>
+                  <td>IT</td>
+                  <td>85</td>
        
                 </tr>
                 <tr>
                  
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>Mark</td>
+                  <td>002</td>
+                  <td>Pasandu</td>
+                  <td>SE</td>
+                  <td>68</td>
                 
                 
                 </tr>
                 <tr>
                   
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>Mark</td>
+                  <td>003</td>
+                  <td>Chathuni</td>
+                  <td>CSNE</td>
+                  <td>78</td>
                   
                
                 </tr>
                 <tr>
                 
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>Mark</td>
+                  <td>004</td>
+                  <td>Shehan</td>
+                  <td>DS</td>
+                  <td>85</td>
                   
              
                 </tr>
+
+                
               </tbody>
             </table>
           </div>

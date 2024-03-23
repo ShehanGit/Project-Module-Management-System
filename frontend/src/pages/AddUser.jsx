@@ -19,7 +19,14 @@ export default function AddUser() {
   const { name, userName, userType, email, contactNumber, password } = user;
 
   const onInputChange = (e) => {
-    setUser({...user, [e.target.name]: e.target.value});
+    let value = e.target.value;
+
+    // If it's the contactNumber field, limit input to 10 characters
+    if (e.target.name === 'contactNumber') {
+      value = value.slice(0, 10); // Only take the first 10 characters
+    }
+
+    setUser({...user, [e.target.name]: value});
   };
 
   const onSubmit = async (e) => {

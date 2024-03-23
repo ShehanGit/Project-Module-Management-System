@@ -11,7 +11,7 @@ export default function Sidebar() {
     <div className="">
 
     
-    <nav className="sidebar  shadow p-3 mb-5 bg-dark rounded" style={{width:"270px"}}>
+    <nav className="sidebar  bg-dark " style={{width:"270px"}}>
    
       <div>
         <header className="">
@@ -20,8 +20,8 @@ export default function Sidebar() {
            
             </span>
             <div className="text logo-text ">
-              <span className="sidebar-title text-uppercase text-truncate app-brand-text demo menu-text fw-bold ms-2 fs-1 " style={{color:"white"}}>
-                PMS
+              <span className="sidebar-title text-uppercase text-truncate app-brand-text demo menu-text fw-bold ms-2 fs-3 " style={{color:"white"}}>
+                Course Craft
               </span>
             </div>
           </div>
@@ -31,7 +31,8 @@ export default function Sidebar() {
         <div>
           <div className="menu " style={{marginTop:"-20px"}}>
             <ul >
-
+              
+              <Link to="/">
               <li className="home mb-4 mt-4 " >
                 <a className="d-inline-flex align-items-center rounded border-0 collapsed d-flex p-2">
                   <i className="menu-icon tf-icons bx bx-home-circle " style={{marginLeft:"-60px",color:"white"}} />
@@ -40,6 +41,7 @@ export default function Sidebar() {
                   </div>
                 </a>
               </li>
+              </Link>
 
                <Link to="/addusers" style={{ textDecoration: 'none', color: 'inherit' }}>
               <li className="home mb-4">

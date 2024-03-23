@@ -14,7 +14,7 @@ export default function CordinatorAssesment() {
         </div>
 
         <div
-          className="shadow-sm p-3 mb-5 bg-white rounded"
+          className="shadow-sm p-4 mb-5 bg-white rounded"
           style={{
             marginLeft: "450px",
             width: "900px",
@@ -26,12 +26,17 @@ export default function CordinatorAssesment() {
             <form className="p-4">
               <div className="form-group mb-4">
                 <select className="form-control">
-                  <option>sepecialization</option>
-                  <option>IT</option>
-                  <option>DS</option>
-                  <option>CS</option>
-                  <option>IS</option>
-                  <option>CSNE</option>
+                  <option>project type</option>
+                  <option>proposal</option>
+                  <option>progress 1</option>
+                  <option>progress 2</option>
+                  <option>final presentation</option>
+                  <option>status document 1</option>
+                  <option>log book</option>
+                  <option>proposal document</option>
+                  <option>status document 2</option>
+                  <option>final thesis</option>
+
                 </select>
               </div>
 
