@@ -11,7 +11,7 @@ export default function Sidebar() {
     <div className="">
 
     
-    <nav className="sidebar  shadow p-3 mb-5 bg-white rounded" style={{width:"270px"}}>
+    <nav className="sidebar  shadow p-3 mb-5 bg-dark rounded" style={{width:"270px"}}>
    
       <div>
         <header className="">
