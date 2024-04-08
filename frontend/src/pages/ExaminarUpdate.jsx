@@ -11,6 +11,8 @@ export default function Examinarmarkadd() {
   const [progress1, setProgress1] = useState('');
   const [progress2, setProgress2] = useState('');
   const [finalPresentations, setFinalPresentations] = useState('');
+  //
+  const [name2, setName2] = useState('');
   const [errors, setErrors] = useState({ // State to manage errors
     name: '',
     studentId: '',
@@ -36,6 +38,15 @@ export default function Examinarmarkadd() {
 
   //   })
   // }
+
+  if (id){
+    getExamById(id).then((response)=>{
+      setName2(response.data.name);
+
+    })
+  }
+
+
 
   function saveExamDetail(e) {
 
@@ -124,7 +135,7 @@ export default function Examinarmarkadd() {
                 type="text"f
                 className="form-control"
                 placeholder="Enter Student Name"
-                defaultValue={name}
+                defaultValue={name2}
                 // value={name} 
                 onChange={(e) => setName(e.target.value)}
               />
