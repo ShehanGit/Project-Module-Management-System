@@ -10,6 +10,14 @@ export default function Examinarmarkadd() {
   const [progress1, setProgress1] = useState('');
   const [progress2, setProgress2] = useState('');
   const [finalPresentations, setFinalPresentations] = useState('');
+  //For sho in update field
+  const [name2, setName2] = useState('');
+  const [studentId2, setStudentId2] = useState('');
+  const [proposal2, setProposal2] = useState('');
+  const [progress12, setProgress12] = useState('');
+  const [progress22, setProgress22] = useState('');
+  const [finalPresentations2, setFinalPresentations2] = useState('');
+
   const [errors, setErrors] = useState({ // State to manage errors
     name: '',
     studentId: '',
@@ -35,6 +43,18 @@ export default function Examinarmarkadd() {
 
   //   })
   // }
+
+
+  if (id){
+    getExamById(id).then((response)=>{
+      setName2(response.data.name);
+      setStudentId2(response.data.studentId );
+      setProposal2(response.data.proposal );
+      setProgress12(response.data.progress1 );
+      setProgress22(response.data.progress2 );
+      setFinalPresentations2(response.data.finalPresentations);
+    })
+  }
 
   function saveExamDetail(e) {
 
@@ -123,7 +143,7 @@ export default function Examinarmarkadd() {
                 type="text"f
                 className="form-control"
                 placeholder="Enter Student Name"
-                defaultValue={name}
+                defaultValue={name2}
                 // value={name} 
                 onChange={(e) => setName(e.target.value)}
               />
@@ -137,7 +157,7 @@ export default function Examinarmarkadd() {
                 type="text"
                 className="form-control"
                 placeholder="Enter Student ID"
-                value={studentId}
+                defaultValue={studentId2}
                 onChange={(e) => setStudentId(e.target.value)}
               />
               {errors.studentId && <div className="text-danger">{errors.studentId}</div>} 
@@ -150,7 +170,7 @@ export default function Examinarmarkadd() {
                   type="text"
                   className="form-control"
                   placeholder="Enter Proposal Marks"
-                  value={proposal}
+                  defaultValue={proposal2}
                   onChange={(e) => setProposal(e.target.value)}
                 />
                 {errors.proposal && <div className="text-danger">{errors.proposal}</div>} 
@@ -163,7 +183,7 @@ export default function Examinarmarkadd() {
                   type="text"
                   className="form-control"
                   placeholder="Enter progress 1 Marks"
-                  value={progress1}
+                  defaultValue={progress12}
                   onChange={(e) => setProgress1(e.target.value)}
                 />
                 {errors.progress1 && <div className="text-danger">{errors.progress1}</div>} 
@@ -175,7 +195,7 @@ export default function Examinarmarkadd() {
                   type="text"
                   className="form-control"
                   placeholder="Enter progress 2 Marks"
-                  value={progress2}
+                  defaultValue={progress22}
                   onChange={(e) => setProgress2(e.target.value)}
                 />
                 {errors.progress2 && <div className="text-danger">{errors.progress2}</div>} 
@@ -188,7 +208,7 @@ export default function Examinarmarkadd() {
                   type="text"
                   className="form-control"
                   placeholder="Enter progress 2 Marks"
-                  value={finalPresentations}
+                  defaultValue={finalPresentations2}
                   onChange={(e) => setFinalPresentations(e.target.value)}
                 />
                 {errors.finalPresentations && <div className="text-danger">{errors.finalPresentations}</div>} 
