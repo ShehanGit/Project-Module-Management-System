@@ -55,6 +55,16 @@ function ExaminarTable() {
     navigater(`/examinaraddmark`)
   }
 
+  function addProposalMarks(){
+    navigater(`/addProposal`)
+  }
+
+  
+
+  function addProgress(){
+    navigater(`/addProgress`)
+  }
+
   return (
     <div className="container-fluid">
       
@@ -102,8 +112,13 @@ function ExaminarTable() {
             </table>
 
             <button className="btn btn-outline-info" style={{ float: 'right', marginRight: '40px' }}  onClick={()=>addMarks()  }>Add Marks</button>
+            </div>
 
-          </div>
+            <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+            <button className="btn btn-outline-danger" style={{ float: 'right', marginRight: '40px' }}  onClick={()=>addProposalMarks()  }>Add Proposal Marks</button>
+            <button className="btn btn-outline-danger" style={{ float: 'right', marginRight: '40px' }}  onClick={()=>addProgress()  }>Add Progress Marks</button>
+
+
 
                     
         </div>

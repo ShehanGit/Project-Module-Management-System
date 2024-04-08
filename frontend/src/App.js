@@ -7,6 +7,8 @@ import AddUser2 from './pages/ExaminaraTable';
 import Examinarmarkadd from './pages/Examinaraddmarks';
 import CordinatorAddMarks from './pages/CordinatorAddMarks';
 import ExaminarmarkUpdate from './pages/ExaminarUpdate';
+import AddProposal from './pages/AddProposal';
+import AddProgress from './pages/AddProgress';
 
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
           <Route exact path="/examinartable" element={<AddUser2/>} />
           <Route exact path="/examinaraddmark" element={<Examinarmarkadd/>} />
           <Route exact path="/examinarupdatemark/:id" element={<ExaminarmarkUpdate/>} />
+          <Route exact path="/addProposal" element={<AddProposal/>} />
+          <Route exact path="/addprogress" element={<AddProgress/>} />
           
  
 

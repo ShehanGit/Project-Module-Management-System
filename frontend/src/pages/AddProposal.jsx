@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../component/Sidebar";
 
 
-export default function Examinarmarkadd() {
+export default function AddProposal() {
   const [ID, setID] = useState('');
   const [name, setName] = useState('');
   const [studentId, setStudentId] = useState('');
@@ -78,10 +78,9 @@ export default function Examinarmarkadd() {
 
   return (
     <div >
-
-    <Sidebar />
+        <Sidebar />
       {/* ... Sidebar & Other Components ... */}
-      <h2>Add Exam Marks</h2>
+      <h2>Add Proposal Marks</h2>
 
       <div 
         className=""
