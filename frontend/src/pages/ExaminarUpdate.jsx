@@ -1,6 +1,7 @@
-import React, { useState } from "react";
 import { createExam, getExamById, updateExamData } from "../services/ExamService";
 import { useNavigate, useParams } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+
 
 export default function Examinarmarkadd() {
   const [ID, setID] = useState('');
@@ -102,6 +103,13 @@ export default function Examinarmarkadd() {
     setErrors(newErrors); // Update errors state
 
     if (isValid) {
+
+      //
+      console.log(finalPresentations);
+      setFinalPresentations(finalPresentations*2)
+      console.log(finalPresentations);
+
+
       const exam = { name, studentId, proposal, progress1, progress2, finalPresentations  };
       console.log(exam);
 
