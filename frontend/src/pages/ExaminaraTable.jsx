@@ -3,7 +3,7 @@ import Sidebar from "../component/Sidebar";
 import { deleteExamData, listExamDetails } from "../services/ExamService";
 import {searchExamByGroupId} from "../services/searchExamByGroupId";
 import { useNavigate } from 'react-router-dom';
-import SearchBar from "./SearchBar";
+
 
 
 function ExaminarTable() {
