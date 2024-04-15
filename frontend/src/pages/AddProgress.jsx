@@ -97,7 +97,7 @@ export default function AddProgress() {
             {/* ... Other input fields */}
 
             <div className="form-group mb-4">
-              <label htmlFor="studentID" >Student ID :</label>
+              <label htmlFor="functionality" >Functionality :</label>
               <input
                 type="text"
                 className="form-control"
@@ -110,7 +110,7 @@ export default function AddProgress() {
 
 
             <div className="form-group mb-4">
-              <label htmlFor="studentID" >Group ID :</label>
+              <label htmlFor="studentID" >Design and User Experience :</label>
               <input
                 type="text"
                 className="form-control"
@@ -123,7 +123,7 @@ export default function AddProgress() {
 
 
              <div className="form-group mb-4">
-                <label htmlFor="studentID">Proposal :</label>
+                <label htmlFor="studentID">Responsiveness :</label>
                 <input
                   type="text"
                   className="form-control"
@@ -136,7 +136,7 @@ export default function AddProgress() {
               </div>
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">Progress 1 :</label>
+                <label htmlFor="studentID">Deployment :</label>
                 <input
                   type="text"
                   className="form-control"
@@ -148,7 +148,7 @@ export default function AddProgress() {
               </div>
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">Progress 2 :</label>
+                <label htmlFor="studentID">Version Control :</label>
                 <input
                   type="text"
                   className="form-control"
@@ -159,19 +159,6 @@ export default function AddProgress() {
                 {errors.progress2 && <div className="text-danger">{errors.progress2}</div>} 
               </div>
 
-
-              <div className="form-group mb-4">
-                <label htmlFor="studentID">Final Presentation :</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter progress 2 Marks"
-                  value={finalPresentations}
-                  onChange={(e) => setFinalPresentations(e.target.value)}
-                />
-                {errors.finalPresentations && <div className="text-danger">{errors.finalPresentations}</div>} 
-              </div>
-            
 
 
 
