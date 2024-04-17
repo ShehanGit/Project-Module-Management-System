@@ -99,9 +99,9 @@ export default function AddProgress() {
             <div className="form-group mb-4">
               <label htmlFor="functionality" >Functionality :</label>
               <input
-                type="text"
+                type="number"
                 className="form-control"
-                placeholder="Enter Student ID"
+                placeholder="Enter marks for Functionality"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -112,9 +112,9 @@ export default function AddProgress() {
             <div className="form-group mb-4">
               <label htmlFor="studentID" >Design and User Experience :</label>
               <input
-                type="text"
+                type="number"
                 className="form-control"
-                placeholder="Enter Group ID"
+                placeholder="Enter marks for Design and User Experience"
                 value={studentId}
                 onChange={(e) => setStudentId(e.target.value)}
               />
@@ -125,9 +125,9 @@ export default function AddProgress() {
              <div className="form-group mb-4">
                 <label htmlFor="studentID">Responsiveness :</label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
-                  placeholder="Enter Proposal Marks"
+                  placeholder="Enter marks for Responsiveness"
                   value={proposal}
                   onChange={(e) => setProposal(e.target.value)}
                 />
@@ -138,9 +138,9 @@ export default function AddProgress() {
               <div className="form-group mb-4">
                 <label htmlFor="studentID">Deployment :</label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
-                  placeholder="Enter progress 1 Marks"
+                  placeholder="Enter marks for Deployment"
                   value={progress1}
                   onChange={(e) => setProgress1(e.target.value)}
                 />
@@ -150,9 +150,9 @@ export default function AddProgress() {
               <div className="form-group mb-4">
                 <label htmlFor="studentID">Version Control :</label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
-                  placeholder="Enter progress 2 Marks"
+                  placeholder="Enter marks for Version Control"
                   value={progress2}
                   onChange={(e) => setProgress2(e.target.value)}
                 />
