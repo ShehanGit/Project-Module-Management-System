@@ -1,97 +1,163 @@
-import React from 'react'
-import Sidebar from '../component/Sidebar'
+import React, { useState } from 'react';
+import axios from 'axios';
+import '../css/mempresen.css';
+import Sidebar2 from '../component/Sidebar2';
+import { Link } from 'react-router-dom'; 
 
-export default function MemberPresentation() {
+const PresentationSchedule = () => {
+  const [projectGroup, setProjectGroup] = useState('');
+  const [title, setTitle] = useState('');
+  const [presentationDate, setPresentationDate] = useState('');
+  const [presentationTime, setPresentationTime] = useState('');
+  const [Venue, setVenue] = useState('');
+  const [examiner1, setExaminer1] = useState('');
+  const [examiner2, setExaminer2] = useState('');
+  const [examiner3, setExaminer3] = useState('');
+
+  const examiners = ['Mr lalith', 'Mr sunil', 'Mr sahan']; // Sample list of examiners
+  const titles=['proposal','progress 1','progress 2','final']
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    if (
+      !projectGroup ||
+      !title ||
+      !presentationDate ||
+      !presentationTime ||
+      !Venue ||
+      !examiner1 ||
+      !examiner2 ||
+      !examiner3
+    ) {
+      alert('Please fill in all fields.');
+      return; // Prevent form submission if any field is empty
+    }
+    const presentationData = {
+      projectgroup: projectGroup,
+      tital: title,
+      date: presentationDate,
+      time: presentationTime,
+      venue: Venue,
+      examinar1: examiner1,
+      examinar2: examiner2,
+      examinar3: examiner3
+    };
+
+    axios.post('http://localhost:8080/api/v1/presentationshedu', presentationData)
+      .then(response => {
+        console.log(response.data);
+        // Optionally, you can reset the form fields after successful submission
+        setProjectGroup('');
+        setTitle('');
+        setPresentationDate('');
+        setPresentationTime('');
+        setVenue('');
+        setExaminer1('');
+        setExaminer2('');
+        setExaminer3('');
+      })
+      .catch(error => {
+        console.error('Error saving presentation:', error);
+      });
+    // Handle form submission logic here
+  };
+  const getCurrentDate = () => {
+    const now = new Date();
+    const year = now.getFullYear();
+    let month = (now.getMonth() + 1).toString();
+    if (month.length === 1) {
+      month = '0' + month;
+    }
+    let day = now.getDate().toString();
+    if (day.length === 1) {
+      day = '0' + day;
+    }
+    return `${year}-${month}-${day}`;
+  };
+
   return (
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-md-3">
-          <Sidebar />
-        </div>
-
-        <div className="mt-4 mx-5" style={{ marginBottom: "-40px" }}>
-          <h2>member presentation</h2>
-        </div>
-
-        <div
-          className="shadow-sm p-3 mb-5 bg-white rounded"
-          style={{
-            marginLeft: "450px",
-            width: "900px",
-            height: "500px",
-            marginTop: "90px",
-          }}
-        >
-          <div>
-            <form className="p-4">
-              <div className="form-group">
-                <input
-                  type="email"
-                  className="form-control mb-4"
-                  placeholder="enter name"
-                />
-              </div>
-
-              <div className="form-group">
-                <input
-                  type="password"
-                  className="form-control mb-4"
-                  placeholder="enter username"
-                />
-              </div>
-
-              <div className="form-group mb-4">
-                <select className="form-control">
-                  <option>examiner</option>
-                  <option>project member</option>
-                  <option>supervisor</option>
-                  <option>co-supervisor</option>
-                </select>
-              </div>
-
-              <div className="form-group mb-4">
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="enter email"
-                />
-              </div>
-
-              <div className="form-group mb-4">
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="enter mobile"
-                />
-              </div>
-
-              <div className="form-group">
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="Password"
-                />
-              </div>
-
-              <div className="d-flex justify-content-between">
-                <button
-                  type="submit"
-                  className="btn btn-outline-info mt-5  "
-                >
-                  Submit
-                </button>
-
-                <button
-                  type="submit"
-                  className="btn btn-outline-danger mt-5 d-flex "
-                >
-                  cancle
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+    <div className="form-container">
+      <Sidebar2 />
+      <h1 className="form-title">Presentation Schedule</h1>
+      
+        
+    <form onSubmit={handleSubmit}>
+      <label>
+        Project group:
+        <input
+          type="text"
+          value={projectGroup}
+          onChange={(e) => setProjectGroup(e.target.value)}
+        />
+      </label>
+      <label>
+        Presentation Title:
+        <select value={title} onChange={(e) => setTitle(e.target.value)}>
+          <option value="">Select Title</option>
+          {titles.map((title, index) => (
+            <option key={index} value={title}>{title}</option>
+          ))}
+        </select>
+      </label>
+      <label>
+        Presentation Date:
+        <input
+            type="date"
+            value={presentationDate}
+            min={getCurrentDate()} // Set minimum date to current date
+            onChange={(e) => setPresentationDate(e.target.value)}
+          />
+      </label>
+      <label>
+        Presentation time:
+        <input
+          type="time"
+          value={presentationTime}
+          onChange={(e) => setPresentationTime(e.target.value)}
+        />
+      </label>
+      <label>
+        Venue:
+        <input
+          type="text"
+          value={Venue}
+          onChange={(e) => setVenue(e.target.value)}
+        />
+      </label>
+      <label>
+        Select examiner 1:
+        <select value={examiner1} onChange={(e) => setExaminer1(e.target.value)}>
+          <option value="">Select Examiner 1</option>
+          {examiners.map((examiner, index) => (
+            <option key={index} value={examiner}>{examiner}</option>
+          ))}
+        </select>
+      </label>
+      <label>
+        Select examiner 2:
+        <select value={examiner2} onChange={(e) => setExaminer2(e.target.value)}>
+          <option value="">Select Examiner 2</option>
+          {examiners.map((examiner, index) => (
+            <option key={index} value={examiner}>{examiner}</option>
+          ))}
+        </select>
+      </label>
+      <label>
+        Select examiner 3:
+        <select value={examiner3} onChange={(e) => setExaminer3(e.target.value)}>
+          <option value="">Select Examiner 3</option>
+          {examiners.map((examiner, index) => (
+            <option key={index} value={examiner}>{examiner}</option>
+          ))}
+        </select>
+      </label>
+      <button type="submit">Save</button>
+      <Link to="/presentations">
+      <button type="button" className="view-button">View</button>
+      </Link>
+    </form>
     </div>
-  )
-}
+  );
+};
+
+export default PresentationSchedule;

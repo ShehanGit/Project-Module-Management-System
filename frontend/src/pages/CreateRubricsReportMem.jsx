@@ -5,6 +5,7 @@ import Sidebar2 from '../component/Sidebar2';
 export default function CreateRubricsReportMem() {
   
  const [selectedAcademicYear, setSelectedAcademicYear] = useState('');
+ const [selectedCalenderYear, setSelectedCalenderYear] = useState('');
   const [selectedSemester, setSelectedSemester] = useState('');
   const [selectedReportType, setSelectedReportType] = useState('');
   const [error, setError] = useState('');
@@ -20,7 +21,7 @@ export default function CreateRubricsReportMem() {
   };
 
   const handleCreate = () => {
-    if (!selectedAcademicYear || !selectedSemester || !selectedReportType) {
+    if (!selectedAcademicYear ||!selectedCalenderYear|| !selectedSemester || !selectedReportType) {
       setError('Please fill out all fields');
       return;
     }
@@ -48,6 +49,19 @@ export default function CreateRubricsReportMem() {
               </option>
               <option>Year 3</option>
               <option>Year 4</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <select
+              className="form-control"
+              value={selectedCalenderYear}
+              onChange={(e) => setSelectedCalenderYear(e.target.value)}
+            >
+              <option disabled value="">
+                Select calender Year
+              </option>
+              <option>2023</option>
+              <option>2024</option>
             </select>
           </div>
           <div className="form-group">

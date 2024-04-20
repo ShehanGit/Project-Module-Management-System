@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Cordinator from './pages/Cordinator';
@@ -9,6 +9,9 @@ import ProjectMember from './pages/ProjectMember';
 import CreateRubricsforPres from './pages/CreateRubricsforPres';
 import CreateRubricsReportMem from './pages/CreateRubricsReportMem';
 import MemberAssessment from './pages/MemberAssessment';
+import Plist from './pages/Plist';
+import UpdatePresentation from './pages/UpdatePresentation';
+import DeletePresentation from './pages/DeletePresentation';
 
 
 
@@ -27,6 +30,9 @@ function App() {
           <Route exact path="/member-rubrics" element={<CreateRubricsforPres/>} />
           <Route exact path="/member-reportrubrics" element={<CreateRubricsReportMem/>} />
           <Route exact path="/member-assessment" element={<MemberAssessment/>} />
+          <Route path="/presentations" element={<Plist/>}/>
+          <Route path="/update/:id" element={<UpdatePresentation/>}/>
+          <Route path="/delete/:id" element={<DeletePresentation/>} />
 
 
  

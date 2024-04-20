@@ -6,7 +6,7 @@ export default function Sidebar2() {
         <div className="">
 
     
-<nav className="sidebar  shadow p-3 mb-5 bg-white rounded" style={{width:"270px"}}>
+<nav className="sidebar  shadow p-3 mb-5 bg-dark rounded" style={{width:"270px"}}>
 
   <div>
     <header className="">
@@ -29,7 +29,7 @@ export default function Sidebar2() {
 
           <li className="home mb-4 mt-4 " >
             <a className="d-inline-flex align-items-center rounded border-0 collapsed d-flex p-2">
-              <i className="menu-icon tf-icons bx bx-home-circle " style={{marginLeft:"-60px"}} />
+              <i className="menu-icon tf-icons bx bx-home-circle " style={{marginLeft:"-90px"}} />
               <div className=" " data-i18n="Dashboard" style={{paddingLeft:"20px"}} >
                 Home
               </div>
@@ -40,7 +40,7 @@ export default function Sidebar2() {
           <li className="home mb-4">
             <div>
               <div className="d-inline-flex align-items-center d-flex p-2">
-               <i class='bx bxs-user-plus ' style={{marginLeft:"-20px"}}></i>   
+               <i class='bx bxs-user-plus ' style={{marginLeft:"2px"}}></i>   
                 <div className="text-truncate ml-3 mx-2" data-i18n="Employee" style={{paddingLeft:"12px"}}>
                   Project Member
                   <i />
@@ -55,7 +55,7 @@ export default function Sidebar2() {
           <li className="home mb-4">
             <div>
               <div className="d-inline-flex align-items-center d-flex p-2">
-                <i className="menu-icon tf-icons bx bx-book" style={{marginLeft:"-70px"}}></i>
+                <i className="menu-icon tf-icons bx bx-book" style={{marginLeft:"-40px"}}></i>
                 <div className="text-truncate ml-3" data-i18n="Employee" style={{paddingLeft:"12px"}}>
                  Presentation
                 </div>
@@ -69,7 +69,7 @@ export default function Sidebar2() {
           <li className="home mb-4">
             <div>
               <div className="d-inline-flex align-items-center d-flex p-2">
-              <i className='bx bx-slideshow' style={{marginLeft:"-10px"}}></i>   
+              <i className='bx bx-slideshow' style={{marginLeft:"-70px"}}></i>   
              <div className="text-truncate ml-3  mx-2" data-i18n="Employee" style={{paddingLeft:"12px"}}>
                   Rubrics
                 </div>
