@@ -6,6 +6,8 @@ export default function CordinatorGroupSearch() {
   const [groupId, setGroupId] = useState("");
   const [marks, setMarks] = useState([]);
   const [error, setError] = useState(null);
+  const [selectedExaminerModule, setSelectedExaminerModule] = useState("");
+  const [selectedSupervisorModule, setSelectedSupervisorModule] = useState("");
 
   const handleSearch = () => {
     // Check if groupId is empty
@@ -13,7 +15,7 @@ export default function CordinatorGroupSearch() {
       setError("Please enter a group number.");
       return;
     }
-  
+
     axios
       .get(`http://localhost:8080/marks/${groupId}`)
       .then((response) => {
@@ -26,7 +28,41 @@ export default function CordinatorGroupSearch() {
         setError("Error fetching marks data. Please try again."); // Set error state
       });
   };
-  
+
+  const handleExaminerModuleChange = (event) => {
+    setSelectedExaminerModule(event.target.value);
+  };
+
+  const handleSupervisorModuleChange = (event) => {
+    setSelectedSupervisorModule(event.target.value);
+  };
+
+  const getExaminerComment = (mark) => {
+    const comment = mark.commentExaminers.find(
+      (c) =>
+        (selectedExaminerModule === "Proposal" && c.proposal) ||
+        (selectedExaminerModule === "Progress 1" && c.progress1) ||
+        (selectedExaminerModule === "Progress 2" && c.progress2) ||
+        (selectedExaminerModule === "Final Presentation" && c.finalPresentation)
+    );
+
+    return comment ? comment[selectedExaminerModule.toLowerCase()] || "" : "";
+  };
+
+  const getSupervisorComment = (mark) => {
+    const comment = mark.commentSupervisors.find(
+      (c) =>
+        (selectedSupervisorModule === "Status Document 1" && c.statusDoc1) ||
+        (selectedSupervisorModule === "Log Book" && c.logBook) ||
+        (selectedSupervisorModule === "Proposal Document" && c.proposalDoc) ||
+        (selectedSupervisorModule === "Status Document 2" && c.statusDoc2) ||
+        (selectedSupervisorModule === "Final Thesis" && c.finalThesis)
+    );
+
+    return comment
+      ? comment[selectedSupervisorModule.replace(" ", "").toLowerCase()] || ""
+      : "";
+  };
 
   return (
     <div className="container-fluid">
@@ -38,8 +74,8 @@ export default function CordinatorGroupSearch() {
         <div
           className="shadow-sm p-5 mb-5 bg-white rounded mt-5"
           style={{
-            marginLeft: "320px",
-            width: "1300px",
+            marginLeft: "300px",
+            width: "1350px",
             height: "auto",
           }}
         >
@@ -85,25 +121,30 @@ export default function CordinatorGroupSearch() {
                   <th scope="col">Proposal Document</th>
                   <th scope="col">Status Doc 2</th>
                   <th scope="col">Final Thesis</th>
+                  <th scope="col">Total Marks</th>
                   <th scope="col">Pass/Fail</th>
                 </tr>
               </thead>
               <tbody>
                 {marks.map((mark, index) => (
-                  <tr key={index}>
-                    <td>{mark.id}</td>
-                    <td>{mark.studentName}</td>
-                    <td>{mark.proposal}</td>
-                    <td>{mark.progress1}</td>
-                    <td>{mark.progress2}</td>
-                    <td>{mark.finalPresentation}</td>
-                    <td>{mark.statusDoc}</td>
-                    <td>{mark.logBook}</td>
-                    <td>{mark.proposalDocument}</td>
-                    <td>{mark.statusDoc2}</td>
-                    <td>{mark.finalThesis}</td>
-                    <td>{mark.passFailStatus}</td>
-                  </tr>
+                  <React.Fragment key={index}>
+                    <tr>
+                      <td>{mark.id}</td>
+                      <td>{mark.studentName}</td>
+                      <td>{mark.proposal}</td>
+                      <td>{mark.progress1}</td>
+                      <td>{mark.progress2}</td>
+                      <td>{mark.finalPresentation}</td>
+                      <td>{mark.statusDoc}</td>
+                      <td>{mark.logBook}</td>
+                      <td>{mark.proposalDocument}</td>
+                      <td>{mark.statusDoc2}</td>
+                      <td>{mark.finalThesis}</td>
+                      <td>{mark.totalMarks}</td>
+                      <td>{mark.passFailStatus}</td>
+                    </tr>
+                    <tr></tr>
+                  </React.Fragment>
                 ))}
               </tbody>
             </table>
@@ -121,7 +162,6 @@ export default function CordinatorGroupSearch() {
               Edit
             </button>
           </div>
-
           
         </div>
 
@@ -137,24 +177,40 @@ export default function CordinatorGroupSearch() {
             <div className="">
               <h5 style={{ marginTop: "-30px" }}>Comments by Examiner</h5>
             </div>
-            <div className="form-group col-6 p-2" style={{ marginRight: "300px" }}>
-              <select className="form-control" id="yearSelect">
-                <option value="">Project Type</option>
-                <option value="">Proposal</option>
-                <option value="">Progress 1</option>
-                <option value="">Progress 2</option>
-                <option value="">Final Presentation</option>
-              </select>
+
+            <div
+              className="form-group col-6 p-2"
+              style={{ marginRight: "300px" }}
+            >
+               <select
+                  className="form-control"
+                  value={selectedExaminerModule}
+                  onChange={handleExaminerModuleChange}
+                >
+                  <option value="">Select Module</option>
+                  <option value="Proposal">Proposal</option>
+                  <option value="Progress 1">Progress 1</option>
+                  <option value="Progress 2">Progress 2</option>
+                  <option value="Final Presentation">Final Presentation</option>
+                </select>
 
               <div>
-            <textarea class="form-control mt-5"  rows="3" style={{width:"500px" , height:"300px"}}></textarea>
-
-            </div>
+                  {marks.map((mark, index) => (
+                    <textarea
+                      key={index}
+                      className="form-control mt-5"
+                      rows="3"
+                      style={{ width: "500px", height: "300px" }}
+                      value={getExaminerComment(mark)}
+                      readOnly
+                    />
+                  ))}
+                </div>
             </div>
           </div>
 
           <div
-            className="shadow-sm p-5 mb-5 bg-white rounded mt-5 "
+            className="shadow-sm p-5 mb-5 bg-white rounded mt-5"
             style={{
               marginLeft: "100px",
               width: "600px",
@@ -164,24 +220,36 @@ export default function CordinatorGroupSearch() {
             <div className="">
               <h5 style={{ marginTop: "-30px" }}>Comments by Supervisors</h5>
             </div>
+
             <div
-              className="form-group col-6  p-2"
+              className="form-group col-6 p-2"
               style={{ marginRight: "300px" }}
             >
-              <select className="form-control" id="yearSelect">
-                <option value="">Project Type</option>
-                <option value="">Status Document 1</option>
-                <option value="">Log Book</option>
-                <option value="">Proposal Document</option>
-                <option value="">Status Document 2</option>
-                <option value="">Final Thesis</option>
-              </select>
+             <select
+                  className="form-control"
+                  value={selectedSupervisorModule}
+                  onChange={handleSupervisorModuleChange}
+                >
+                  <option value="">Select Module</option>
+                  <option value="Status Document 1">Status Document 1</option>
+                  <option value="Log Book">Log Book</option>
+                  <option value="Proposal Document">Proposal Document</option>
+                  <option value="Status Document 2">Status Document 2</option>
+                  <option value="Final Thesis">Final Thesis</option>
+                </select>
 
-            <div>
-            <textarea class="form-control mt-5"  rows="3" style={{width:"500px" , height:"300px"}}></textarea>
-
-            </div>
-
+                <div>
+                  {marks.map((mark, index) => (
+                    <textarea
+                      key={index}
+                      className="form-control mt-5"
+                      rows="3"
+                      style={{ width: "500px", height: "300px" }}
+                      value={getSupervisorComment(mark)}
+                      readOnly
+                    />
+                  ))}
+                </div>
             </div>
           </div>
         </div>
