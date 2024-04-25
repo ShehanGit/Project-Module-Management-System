@@ -1,7 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../component/Sidebar";
+import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function CordinatorAssesment() {
+  const [projectType, setProjectType] = useState("");
+  const [assesmentName, setAssesmentName] = useState("");
+  const [assesmentFile, setAssesmentFile] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("projectType", projectType);
+    formData.append("assesmentName", assesmentName);
+    formData.append("assesment", assesmentFile);
+
+    try {
+      const response = await axios.post("http://localhost:8080/assessment", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log(response.data);
+      toast.success('Assessment uploaded successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error('Error uploading assessment!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    }
+  };
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -10,7 +56,7 @@ export default function CordinatorAssesment() {
         </div>
 
         <div className="mt-5 mx-5" style={{ marginBottom: "-40px" }}>
-          <h2>Add Assesment</h2>
+          <h2>Add Assessment</h2>
         </div>
 
         <div
@@ -23,9 +69,9 @@ export default function CordinatorAssesment() {
           }}
         >
           <div>
-            <form className="p-4">
+            <form className="p-4" onSubmit={handleSubmit}>
               <div className="form-group mb-4">
-                <select className="form-control">
+                <select className="form-control" onChange={(e) => setProjectType(e.target.value)}>
                   <option>project type</option>
                   <option>proposal</option>
                   <option>progress 1</option>
@@ -36,21 +82,27 @@ export default function CordinatorAssesment() {
                   <option>proposal document</option>
                   <option>status document 2</option>
                   <option>final thesis</option>
-
                 </select>
               </div>
 
               <div className="form-group">
                 <input
-                  type="password"
+                  type="text"
                   className="form-control mb-4"
-                  placeholder="name"
+                  placeholder="Assessment Name"
+                  value={assesmentName}
+                  onChange={(e) => setAssesmentName(e.target.value)}
                 />
               </div>
 
               <div className="form-group mb-4">
-                <div class="mb-3">
-                  <input class="form-control" type="file" id="formFile" />
+                <div className="mb-3">
+                  <input
+                    type="file"
+                    className="form-control"
+                    id="formFile"
+                    onChange={(e) => setAssesmentFile(e.target.files[0])}
+                  />
                 </div>
               </div>
 
@@ -59,17 +111,26 @@ export default function CordinatorAssesment() {
                   Submit
                 </button>
 
-                <button
-                  type="submit"
-                  className="btn btn-outline-danger mt-5 d-flex "
-                >
-                  cancle
+                <button type="reset" className="btn btn-outline-danger mt-5 d-flex ">
+                  Cancel
                 </button>
               </div>
             </form>
           </div>
         </div>
       </div>
+
+      {/* Toast Container for displaying notifications */}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+        progress={undefined}
+        theme="colored"
+      />
     </div>
   );
 }

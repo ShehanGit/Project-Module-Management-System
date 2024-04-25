@@ -1,6 +1,7 @@
 import React from "react";
 import Sidebar from "../component/Sidebar";
 import '../css/home.css'
+import '../images/img1.jpg'
 
 export default function Cordinator() {
   return (
@@ -24,7 +25,11 @@ export default function Cordinator() {
               height: "540px",
               width: "600px",
             }}
-          ></div>
+          >
+             <img src="./assests/img/chart.jpg"
+             style={{height:"540px"}}
+            />
+          </div>
 
           <div
             className="card shadow p-3 mb-5 bg-white rounded"
@@ -34,7 +39,11 @@ export default function Cordinator() {
               width: "600px",
               marginLeft:"100px"
             }}
-          ></div>
+          >
+            <img src="./assests/img/chart3.jpg"
+             style={{height:"520px"}}
+            />
+          </div>
 
 
         </div>
