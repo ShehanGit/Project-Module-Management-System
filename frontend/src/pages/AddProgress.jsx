@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createExam } from "../services/ExamService";
+import { creatcceWorkout } from "../services/ExamService";
 import { useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../component/Sidebar";
 

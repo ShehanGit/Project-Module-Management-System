@@ -14,6 +14,7 @@ function ExaminarTable() {
         const response = await listExamDetails();
         if (response.status === 200) { // Check for success
           setExams(response.data);
+          
         } else {
           console.error('Error fetching exam details', response.status);
         }
