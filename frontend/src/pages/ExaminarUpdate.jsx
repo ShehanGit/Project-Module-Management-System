@@ -117,11 +117,6 @@ export default function Examinarmarkadd() {
         console.log(response.data);
         navigater('/examinartable');
       })
-
-      // createExam(exam).then((Response) => {
-      //   console.log(Response.data);
-      //   navigater('/examinartable');
-      // });
     }
 
   }
@@ -148,7 +143,7 @@ export default function Examinarmarkadd() {
             <div className="form-group mb-4">
               <label htmlFor="studentID" >Student ID :</label>
               <input
-                type="text"f
+                type="text"
                 className="form-control"
                 placeholder="Enter Student Name"
                 defaultValue={name2}
@@ -221,10 +216,6 @@ export default function Examinarmarkadd() {
                 />
                 {errors.finalPresentations && <div className="text-danger">{errors.finalPresentations}</div>} 
               </div>
-            
-
-
-
 
             <div className="d-flex justify-content-between">
               <button type="submit" className="btn btn-outline-info mt-3">

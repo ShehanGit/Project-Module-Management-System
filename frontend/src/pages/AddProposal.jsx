@@ -69,7 +69,7 @@ export default function AddProposal() {
       console.log(exam);
 
         navigater('/examinartable');
-      });
+      };
     }
   }
 
@@ -182,5 +182,5 @@ export default function AddProposal() {
       </div>
     </div>
   );
-}
+
 
