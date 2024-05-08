@@ -10,6 +10,9 @@ import CordinatorGroupSearch from './pages/CordinatorGroupSearch';
 import CordinatorAssesment from './pages/CordinatorAssesment';
 import CordinatorRubrics from './pages/CordinatorRubrics';
 import CordinatorVIewUser from './pages/CordinatorVIewUser';
+import ViewAssesment from './pages/ViewAssesment';
+import ViewPresentation from './pages/ViewPresentation';
+import ViewRubrics from './pages/ViewRubrics';
 
 
 function App() {
@@ -28,6 +31,12 @@ function App() {
           <Route exact path="/assesment" element={<CordinatorAssesment/>} />
           <Route exact path="/rubrics" element={<CordinatorRubrics/>} />
           <Route exact path="/viewuser" element={<CordinatorVIewUser/>} />
+          <Route exact path="/view-assesment" element={<ViewAssesment/>} />
+          <Route exact path="/view-presentation" element={<ViewPresentation/>} />
+          <Route exact path="/view-rubrics" element={<ViewRubrics/>} />
+
+
+
 
 
         </Routes>

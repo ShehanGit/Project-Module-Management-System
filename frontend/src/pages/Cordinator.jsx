@@ -2,6 +2,7 @@ import React from "react";
 import Sidebar from "../component/Sidebar";
 import '../css/home.css'
 import '../images/img1.jpg'
+import { Link } from "react-router-dom";
 
 export default function Cordinator() {
   return (
@@ -12,8 +13,19 @@ export default function Cordinator() {
       <Sidebar />
   
 
-      <div className="main-content" style={{marginBottom:"-60px" , marginLeft:"200px"}}>
-        <h1 >Project Cordinator's Dashboard</h1>
+      <div className="main-content " style={{marginBottom:"-60px" , marginLeft:"200px"}}>
+        <Link to="/view-assesment">
+        <button className="btn btn-info btn-lg shadow" style={{marginRight:"20px"}}>Assesment</button>
+        </Link>
+
+        <Link to="/view-presentation">
+        <button className="btn btn-info btn-lg shadow">Presentation</button>
+        </Link>
+
+        <Link to="/view-rubrics">
+        <button className="btn btn-info btn-lg shadow" style={{marginLeft:"20px"}}>Rubrics</button>
+        </Link>
+
       </div>
 
       <div className=" p-4 card-container" style={{ marginLeft: "300px", marginTop: "100px" }}>

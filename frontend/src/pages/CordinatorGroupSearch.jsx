@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import Sidebar from "../component/Sidebar";
 import axios from "axios";
+import CommentModal from "../component/CommentModal";
+import EditModal from "../component/EditModal";
+import '../css/EditModal.css';
 
 export default function CordinatorGroupSearch() {
   const [groupId, setGroupId] = useState("");
   const [marks, setMarks] = useState([]);
   const [error, setError] = useState(null);
-  const [selectedExaminerModule, setSelectedExaminerModule] = useState("");
-  const [selectedSupervisorModule, setSelectedSupervisorModule] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [selectedGroup, setSelectedGroup] = useState(null);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [editedMarks, setEditedMarks] = useState([]);
 
   const handleSearch = () => {
     // Check if groupId is empty
@@ -29,39 +34,56 @@ export default function CordinatorGroupSearch() {
       });
   };
 
-  const handleExaminerModuleChange = (event) => {
-    setSelectedExaminerModule(event.target.value);
+  const handleViewComments = (group) => {
+    setSelectedGroup(group);
+    setShowModal(true);
   };
 
-  const handleSupervisorModuleChange = (event) => {
-    setSelectedSupervisorModule(event.target.value);
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedGroup(null);
   };
 
-  const getExaminerComment = (mark) => {
-    const comment = mark.commentExaminers.find(
-      (c) =>
-        (selectedExaminerModule === "Proposal" && c.proposal) ||
-        (selectedExaminerModule === "Progress 1" && c.progress1) ||
-        (selectedExaminerModule === "Progress 2" && c.progress2) ||
-        (selectedExaminerModule === "Final Presentation" && c.finalPresentation)
-    );
-
-    return comment ? comment[selectedExaminerModule.toLowerCase()] || "" : "";
+  const getPassFailStatusColor = (status) => {
+    return status.toLowerCase() === "pass" ? "bg-success text-white" : "bg-danger text-white";
   };
 
-  const getSupervisorComment = (mark) => {
-    const comment = mark.commentSupervisors.find(
-      (c) =>
-        (selectedSupervisorModule === "Status Document 1" && c.statusDoc1) ||
-        (selectedSupervisorModule === "Log Book" && c.logBook) ||
-        (selectedSupervisorModule === "Proposal Document" && c.proposalDoc) ||
-        (selectedSupervisorModule === "Status Document 2" && c.statusDoc2) ||
-        (selectedSupervisorModule === "Final Thesis" && c.finalThesis)
-    );
+  const handleEditMarks = () => {
+    setEditedMarks(marks);
+    setShowEditModal(true);
+  };
 
-    return comment
-      ? comment[selectedSupervisorModule.replace(" ", "").toLowerCase()] || ""
-      : "";
+  const handleSaveMarks = (updatedMarks) => {
+    handleUpdateMarks(updatedMarks);
+  };
+
+  const handleUpdateMarks = (updatedMarks) => {
+    const groupId = updatedMarks[0].groupId;
+    const studentId = updatedMarks[0].studentId;
+  
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+  
+    axios
+      .put(`http://localhost:8080/marks/${groupId}/${studentId}`, updatedMarks, config)
+      .then((response) => {
+        console.log("Marks updated successfully:", response.data);
+        setMarks(updatedMarks);
+        setEditedMarks([]);
+        setShowEditModal(false);
+      })
+      .catch((error) => {
+        console.error("Error updating marks:", error);
+        // Handle error scenario
+      });
+  };
+
+  const handleCloseEditModal = () => {
+    setShowEditModal(false);
+    setEditedMarks([]);
   };
 
   return (
@@ -141,7 +163,7 @@ export default function CordinatorGroupSearch() {
                       <td>{mark.statusDoc2}</td>
                       <td>{mark.finalThesis}</td>
                       <td>{mark.totalMarks}</td>
-                      <td>{mark.passFailStatus}</td>
+                      <td className={getPassFailStatusColor(mark.passFailStatus)}>{mark.passFailStatus}</td>
                     </tr>
                     <tr></tr>
                   </React.Fragment>
@@ -151,108 +173,35 @@ export default function CordinatorGroupSearch() {
           </div>
 
           <div className="d-flex justify-content-between">
-            <button type="submit" className="btn btn-outline-info mt-5">
-              Save
-            </button>
-
             <button
               type="submit"
-              className="btn btn-outline-danger mt-5 d-flex"
+              className="btn btn-outline-info mt-5"
+              onClick={() => handleViewComments(marks[0])}
             >
+              View Comments
+            </button>
+
+            <button type="submit" className="btn btn-outline-danger mt-5 d-flex" onClick={handleEditMarks}>
               Edit
             </button>
           </div>
-          
         </div>
 
-        <div className="d-flex justify-content-between">
-          <div
-            className="shadow-sm p-5 mb-5 bg-white rounded mt-5"
-            style={{
-              marginLeft: "300px",
-              width: "600px",
-              height: "auto",
-            }}
-          >
-            <div className="">
-              <h5 style={{ marginTop: "-30px" }}>Comments by Examiner</h5>
-            </div>
+        {showModal && (
+          <CommentModal
+            group={selectedGroup}
+            onClose={handleCloseModal}
+          />
+        )}
 
-            <div
-              className="form-group col-6 p-2"
-              style={{ marginRight: "300px" }}
-            >
-               <select
-                  className="form-control"
-                  value={selectedExaminerModule}
-                  onChange={handleExaminerModuleChange}
-                >
-                  <option value="">Select Module</option>
-                  <option value="Proposal">Proposal</option>
-                  <option value="Progress 1">Progress 1</option>
-                  <option value="Progress 2">Progress 2</option>
-                  <option value="Final Presentation">Final Presentation</option>
-                </select>
-
-              <div>
-                  {marks.map((mark, index) => (
-                    <textarea
-                      key={index}
-                      className="form-control mt-5"
-                      rows="3"
-                      style={{ width: "500px", height: "300px" }}
-                      value={getExaminerComment(mark)}
-                      readOnly
-                    />
-                  ))}
-                </div>
-            </div>
-          </div>
-
-          <div
-            className="shadow-sm p-5 mb-5 bg-white rounded mt-5"
-            style={{
-              marginLeft: "100px",
-              width: "600px",
-              height: "500px",
-            }}
-          >
-            <div className="">
-              <h5 style={{ marginTop: "-30px" }}>Comments by Supervisors</h5>
-            </div>
-
-            <div
-              className="form-group col-6 p-2"
-              style={{ marginRight: "300px" }}
-            >
-             <select
-                  className="form-control"
-                  value={selectedSupervisorModule}
-                  onChange={handleSupervisorModuleChange}
-                >
-                  <option value="">Select Module</option>
-                  <option value="Status Document 1">Status Document 1</option>
-                  <option value="Log Book">Log Book</option>
-                  <option value="Proposal Document">Proposal Document</option>
-                  <option value="Status Document 2">Status Document 2</option>
-                  <option value="Final Thesis">Final Thesis</option>
-                </select>
-
-                <div>
-                  {marks.map((mark, index) => (
-                    <textarea
-                      key={index}
-                      className="form-control mt-5"
-                      rows="3"
-                      style={{ width: "500px", height: "300px" }}
-                      value={getSupervisorComment(mark)}
-                      readOnly
-                    />
-                  ))}
-                </div>
-            </div>
-          </div>
-        </div>
+        {showEditModal && (
+          <EditModal
+            marks={editedMarks}
+            onSave={handleSaveMarks}
+            onClose={handleCloseEditModal}
+            onUpdateMarks={handleUpdateMarks}
+          />
+        )}
       </div>
     </div>
   );
