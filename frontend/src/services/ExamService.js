@@ -4,7 +4,7 @@ const REST_API_BASE_URL = "http://localhost:8080/api/v1/exams";
 
 export const listExamDetails = () => axios.get(REST_API_BASE_URL);
 
-export const creatcceWorkout = (workout) => axios.post(REST_API_BASE_URL, workout);
+export const createWorkout = (workout) => axios.post(REST_API_BASE_URL, workout);
 
 export const getExamById = (examId) => axios.get(REST_API_BASE_URL + '/' + examId); 
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { creatcceWorkout } from "../services/ExamService";
+import { createWorkout } from "../services/ExamService";
 import { useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../component/Sidebar";
 
@@ -66,10 +66,10 @@ export default function AddProgress() {
     setErrors(newErrors); // Update errors state
 
     if (isValid) {
-      const exam = { name, studentId, proposal, progress1, progress2, finalPresentations  };
-      console.log(exam);
+      const workout = { name, studentId, proposal, progress1, progress2, finalPresentations  };
+      console.log(workout);
 
-      createExam(exam).then((Response) => {
+      createWorkout(workout).then((Response) => {
         console.log(Response.data);
         navigater('/examinartable');
       });

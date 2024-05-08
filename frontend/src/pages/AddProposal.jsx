@@ -71,7 +71,7 @@ export default function AddProposal() {
         navigater('/examinartable');
       };
     }
-  }
+  
 
   return (
     <div >
@@ -183,4 +183,4 @@ export default function AddProposal() {
     </div>
   );
 
-
+}

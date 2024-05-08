@@ -82,7 +82,7 @@ function ExaminarTable() {
           <div className="exam-table-container">
           <table class="table table-bordered"  style={{ backgroundColor: 'white', marginTop: '200px',marginLeft: '-40px', borderRadius: '10px' }}> 
               <thead>
-                <tr style={{ backgroundColor: '#ACE2E1' }}>
+                <tr style={{ backgroundColor: 'rgb(35, 52, 70)' }}>
                   <th >ID</th>
                   <th>Sdudent ID</th>
                   <th>Group ID</th>
