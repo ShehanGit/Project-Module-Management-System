@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { createWorkout } from "../../services/ExamService";
 import { useNavigate, useParams } from "react-router-dom";
-import Sidebar from "../component/Sidebar";
+import Sidebar from "../../component/Sidebar";
 
 
-export default function AddProposal() {
+export default function AddFinalPracentation() {
   const [ID, setID] = useState('');
   const [name, setName] = useState('');
   const [studentId, setStudentId] = useState('');
@@ -65,19 +66,22 @@ export default function AddProposal() {
     setErrors(newErrors); // Update errors state
 
     if (isValid) {
-      const exam = { name, studentId, proposal, progress1, progress2, finalPresentations  };
-      console.log(exam);
+      const workout = { name, studentId, proposal, progress1, progress2, finalPresentations  };
+      console.log(workout);
 
+      createWorkout(workout).then((Response) => {
+        console.log(Response.data);
         navigater('/examinartable');
-      };
+      });
     }
-  
+  }
 
   return (
     <div >
-        <Sidebar />
+
+    <Sidebar />
       {/* ... Sidebar & Other Components ... */}
-      <h2>Add Proposal Marks</h2>
+      <h2>Add Add Final Pracentation Marks</h2>
 
       <div 
         className=""
@@ -89,13 +93,13 @@ export default function AddProposal() {
         }}
       >
         <div>
-          <form className="p-4" onSubmit={saveExamDetail}>
+        <form className="p-4" onSubmit={saveExamDetail}>
             {/* ... Other input fields */}
 
             <div className="form-group mb-4">
-              <label htmlFor="studentID" >Student ID :</label>
+              <label htmlFor="studentID" >Project overview and objectives (20 Marks) :</label>
               <input
-                type="text"
+                type="number"
                 className="form-control"
                 placeholder="Enter Student ID"
                 value={name}
@@ -106,9 +110,9 @@ export default function AddProposal() {
 
 
             <div className="form-group mb-4">
-              <label htmlFor="studentID" >Group ID :</label>
+              <label htmlFor="studentID" >Functionality demonstration (10 Marks) :</label>
               <input
-                type="text"
+                type="number"
                 className="form-control"
                 placeholder="Enter Group ID"
                 value={studentId}
@@ -119,9 +123,9 @@ export default function AddProposal() {
 
 
              <div className="form-group mb-4">
-                <label htmlFor="studentID">Proposal :</label>
+                <label htmlFor="studentID">Technical aspects (20 Marks) :</label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   placeholder="Enter Proposal Marks"
                   value={proposal}
@@ -132,9 +136,9 @@ export default function AddProposal() {
               </div>
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">Progress 1 :</label>
+                <label htmlFor="studentID">Presentation style (10 Marks) :</label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   placeholder="Enter progress 1 Marks"
                   value={progress1}
@@ -144,9 +148,9 @@ export default function AddProposal() {
               </div>
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">Progress 2 :</label>
+                <label htmlFor="studentID">Q&A session (20 Marks) :</label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   placeholder="Enter progress 2 Marks"
                   value={progress2}
@@ -157,9 +161,9 @@ export default function AddProposal() {
 
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">Final Presentation :</label>
+                <label htmlFor="studentID">Teamwork (20 Marks) :</label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   placeholder="Enter progress 2 Marks"
                   value={finalPresentations}
@@ -182,5 +186,5 @@ export default function AddProposal() {
       </div>
     </div>
   );
-
 }
+

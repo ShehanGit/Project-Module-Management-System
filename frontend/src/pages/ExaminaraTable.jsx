@@ -66,6 +66,14 @@ function ExaminarTable() {
     navigater(`/addProgress`)
   }
 
+  function addProgress2(){
+    navigater(`/addProgress2`)
+  }
+
+  function addFinal(){
+    navigater(`/add-final-pracentation`)
+  }
+
   return (
     <div className="container-fluid">
       
@@ -118,6 +126,8 @@ function ExaminarTable() {
             <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
             <button className="btn btn-outline-danger" style={{ float: 'right', marginRight: '40px' }}  onClick={()=>addProposalMarks()  }>Add Proposal Marks</button>
             <button className="btn btn-outline-danger" style={{ float: 'right', marginRight: '40px' }}  onClick={()=>addProgress()  }>Add Progress Marks</button>
+            <button className="btn btn-outline-danger" style={{ float: 'right', marginRight: '40px' }}  onClick={()=>addProgress2()  }>Add Progress 2 Marks</button>
+            <button className="btn btn-outline-danger" style={{ float: 'right', marginRight: '40px' }}  onClick={()=>addFinal()  }>Add Final Prasantation Marks</button>
 
 
 

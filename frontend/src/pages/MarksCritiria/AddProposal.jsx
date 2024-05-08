@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { createWorkout } from "../services/ExamService";
 import { useNavigate, useParams } from "react-router-dom";
-import Sidebar from "../component/Sidebar";
+import Sidebar from "../../component/Sidebar";
 
 
-export default function AddProgress() {
+export default function AddProposal() {
   const [ID, setID] = useState('');
   const [name, setName] = useState('');
   const [studentId, setStudentId] = useState('');
@@ -66,22 +65,19 @@ export default function AddProgress() {
     setErrors(newErrors); // Update errors state
 
     if (isValid) {
-      const workout = { name, studentId, proposal, progress1, progress2, finalPresentations  };
-      console.log(workout);
+      const exam = { name, studentId, proposal, progress1, progress2, finalPresentations  };
+      console.log(exam);
 
-      createWorkout(workout).then((Response) => {
-        console.log(Response.data);
         navigater('/examinartable');
-      });
+      };
     }
-  }
+  
 
   return (
     <div >
-
-    <Sidebar />
+        <Sidebar />
       {/* ... Sidebar & Other Components ... */}
-      <h2>Add Progress Marks</h2>
+      <h2>Add Proposal Marks</h2>
 
       <div 
         className=""
@@ -97,7 +93,7 @@ export default function AddProgress() {
             {/* ... Other input fields */}
 
             <div className="form-group mb-4">
-              <label htmlFor="studentID" >Student ID :</label>
+              <label htmlFor="studentID" >Completion of core functionalities (20 Marks) :</label>
               <input
                 type="text"
                 className="form-control"
@@ -110,7 +106,7 @@ export default function AddProgress() {
 
 
             <div className="form-group mb-4">
-              <label htmlFor="studentID" >Group ID :</label>
+              <label htmlFor="studentID" >Implementation of additional functionalities (10 Marks)</label>
               <input
                 type="text"
                 className="form-control"
@@ -123,7 +119,7 @@ export default function AddProgress() {
 
 
              <div className="form-group mb-4">
-                <label htmlFor="studentID">Proposal :</label>
+                <label htmlFor="studentID">Error handling and edge cases (10 Marks) :</label>
                 <input
                   type="text"
                   className="form-control"
@@ -136,7 +132,7 @@ export default function AddProgress() {
               </div>
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">Progress 1 :</label>
+                <label htmlFor="studentID">User Interface (UI) design (15 Marks) :</label>
                 <input
                   type="text"
                   className="form-control"
@@ -148,7 +144,7 @@ export default function AddProgress() {
               </div>
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">Progress 2 :</label>
+                <label htmlFor="studentID">Code structure and organization (15 Marks) :</label>
                 <input
                   type="text"
                   className="form-control"
@@ -161,7 +157,7 @@ export default function AddProgress() {
 
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">Final Presentation :</label>
+                <label htmlFor="studentID">Documentation and comments (30 Marks):</label>
                 <input
                   type="text"
                   className="form-control"
@@ -186,5 +182,5 @@ export default function AddProgress() {
       </div>
     </div>
   );
-}
 
+}
