@@ -1,124 +1,54 @@
-import { createExam, getExamById, updateExamData } from "../../services/ExamService";
+import { createReport, getReportById, updateReportData } from "../../services/ReportService";
 import { useNavigate, useParams } from "react-router-dom";
 import React, { useState } from 'react';
 
 
 export default function ReportMarksUpdate() {
-  const [name, setName] = useState('');
-  const [studentId, setStudentId] = useState('');
+  const [studentID, setStudentID] = useState('');
+  const [groupId, setGroupId] = useState('');
+  const [statusdocument1, setStatusdocument1] = useState('');
+  const [logbook, setLogbook] = useState('');
   const [proposal, setProposal] = useState('');
-  const [progress1, setProgress1] = useState('');
-  const [progress2, setProgress2] = useState('');
-  const [finalPresentations, setFinalPresentations] = useState('');
-  //For sho in update field
-  const [name2, setName2] = useState('');
-  const [studentId2, setStudentId2] = useState('');
-  const [proposal2, setProposal2] = useState('');
-  const [progress12, setProgress12] = useState('');
-  const [progress22, setProgress22] = useState('');
-  const [finalPresentations2, setFinalPresentations2] = useState('');
-
-  const [errors, setErrors] = useState({ // State to manage errors
-    name: '',
-    studentId: '',
-    proposal: '', 
-    progress1: '',
-    progress2: '',
-    finalPresentations: ''
-  });
+  const [statusdocument2, setStatusdocument2] = useState('');
+  const [finalthesis, setFinalthesis] = useState('');
+  
+  //For show in update field
+  const [studentID1, setStudentID1] = useState('');
+  const [groupId1, setGroupId1] = useState('');
+  const [statusdocument11, setStatusdocument11] = useState('');
+  const [logbook1, setLogbook1] = useState('');
+  const [proposal1, setProposal1] = useState('');
+  const [statusdocument21, setStatusdocument21] = useState('');
+  const [finalthesis1, setFinalthesis1] = useState('');
 
   const navigater = useNavigate();
 
   const {id} = useParams();
 
-  // if (id){
-  //   getExamById(id).then((response)=>{
-  //     setName(response.data.name);
-  //     setStudentId(response.data.studentId );
-  //     setProposal(response.data.proposal );
-  //     setProgress1(response.data.progress1 );
-  //     setProgress2(response.data.progress2 );
-  //     setFinalPresentations(response.data.finalPresentations);
-
-
-  //   })
-  // }
-
 
   if (id){
-    getExamById(id).then((response)=>{
-      setName2(response.data.name);
-      setStudentId2(response.data.studentId );
-      setProposal2(response.data.proposal );
-      setProgress12(response.data.progress1 );
-      setProgress22(response.data.progress2 );
-      setFinalPresentations2(response.data.finalPresentations);
+      getReportById(id).then((response)=>{
+        setStudentID1(response.data.studentID1);
+        setGroupId1(response.data.groupId1 );
+        setStatusdocument11(response.data.statusdocument11 );
+        setLogbook1(response.data.logbook1 );
+        setProposal1(response.data.proposal1 );
+        setStatusdocument21(response.data.setStatusdocument21);
+        setFinalthesis1(response.data.setFinalthesis1);
+
     })
   }
 
   function saveExamDetail(e) {
 
+      const reports = { studentID, groupId, statusdocument1, logbook, proposal, statusdocument2, finalthesis  };
+      console.log(reports);
 
-
-    e.preventDefault();
-
-    // Reset errors before validation
-    setErrors({ name: '', studentId: '', proposal: '', progress1: '', progress2: '', finalPresentations: '' });
-
-    // Validation logic
-    let isValid = true;
-    const newErrors = {...errors}; // Duplicate errors object
-
-    if (!name) {
-      newErrors.name = 'Student ID is required';
-      isValid = false;
-    }
-
-    if (!studentId) {
-      newErrors.studentId = 'Group ID is required';
-      isValid = false;
-    }
-
-    if (isNaN(proposal) || proposal < 0 || proposal > 100 || (!proposal)) {
-      newErrors.proposal = 'Proposal marks must be a number between 0 and 100';
-      isValid = false;
-    }
-
-    if (isNaN(progress1) || progress1 < 0 || progress1 > 100 || (!progress1)) {
-      newErrors.progress1 = 'Progress 1 marks must be a number between 0 and 100';
-      isValid = false;
-    }
-
-    if (isNaN(progress2) || progress2 < 0 || progress2 > 100 || (!progress2)) {
-      newErrors.progress2 = 'Progress 2 marks must be a number between 0 and 100';
-      isValid = false;
-    }
-
-    if (isNaN(finalPresentations) || finalPresentations < 0 || finalPresentations > 100 || (!finalPresentations)) {
-      newErrors.finalPresentations = 'finalPresentations  marks must be a number between 0 and 100';
-      isValid = false;
-    }
-
-    setErrors(newErrors); // Update errors state
-
-    if (isValid) {
-
-      //
-      console.log(finalPresentations);
-      setFinalPresentations(finalPresentations*2)
-      console.log(finalPresentations);
-
-
-      const exam = { name, studentId, proposal, progress1, progress2, finalPresentations  };
-      console.log(exam);
-
-      updateExamData(id, exam).then((response)=> {
+      updateReportData(id, reports).then((response)=> {
         console.log(response.data);
-        navigater('/examinartable');
+        navigater('/report-marks');
       })
     }
-
-  }
 
   
   return (
@@ -145,11 +75,11 @@ export default function ReportMarksUpdate() {
                 type="text"
                 className="form-control"
                 placeholder="Enter Student Name"
-                defaultValue={name2}
+                defaultValue={studentID1}
                 // value={name} 
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => setStudentID(e.target.value)}
               />
-              {errors.name && <div className="text-danger">{errors.name}</div>} {/* Error message display */}
+              {/* {errors.name && <div className="text-danger">{errors.name}</div>} Error message display */}
             </div>
 
 
@@ -159,10 +89,10 @@ export default function ReportMarksUpdate() {
                 type="text"
                 className="form-control"
                 placeholder="Enter Student ID"
-                defaultValue={studentId2}
-                onChange={(e) => setStudentId(e.target.value)}
+                defaultValue={groupId1}
+                onChange={(e) => setGroupId(e.target.value)}
               />
-              {errors.studentId && <div className="text-danger">{errors.studentId}</div>} 
+              {/* {errors.studentId && <div className="text-danger">{errors.studentId}</div>}  */}
             </div>
 
 
@@ -172,10 +102,10 @@ export default function ReportMarksUpdate() {
                   type="text"
                   className="form-control"
                   placeholder="Enter Proposal Marks"
-                  defaultValue={proposal2}
-                  onChange={(e) => setProposal(e.target.value)}
+                  defaultValue={statusdocument11}
+                  onChange={(e) => setStatusdocument1(e.target.value)}
                 />
-                {errors.proposal && <div className="text-danger">{errors.proposal}</div>} 
+                {/* {errors.proposal && <div className="text-danger">{errors.proposal}</div>}  */}
 
               </div>
 
@@ -185,10 +115,10 @@ export default function ReportMarksUpdate() {
                   type="text"
                   className="form-control"
                   placeholder="Enter progress 1 Marks"
-                  defaultValue={progress12}
-                  onChange={(e) => setProgress1(e.target.value)}
+                  defaultValue={logbook1}
+                  onChange={(e) => setLogbook(e.target.value)}
                 />
-                {errors.progress1 && <div className="text-danger">{errors.progress1}</div>} 
+                {/* {errors.progress1 && <div className="text-danger">{errors.progress1}</div>}  */}
               </div>
 
               <div className="form-group mb-4">
@@ -197,10 +127,10 @@ export default function ReportMarksUpdate() {
                   type="text"
                   className="form-control"
                   placeholder="Enter progress 2 Marks"
-                  defaultValue={progress22}
-                  onChange={(e) => setProgress2(e.target.value)}
+                  defaultValue={proposal1}
+                  onChange={(e) => setProposal(e.target.value)}
                 />
-                {errors.progress2 && <div className="text-danger">{errors.progress2}</div>} 
+                {/* {errors.progress2 && <div className="text-danger">{errors.progress2}</div>}  */}
               </div>
 
 
@@ -210,10 +140,23 @@ export default function ReportMarksUpdate() {
                   type="text"
                   className="form-control"
                   placeholder="Enter progress 2 Marks"
-                  defaultValue={finalPresentations2}
-                  onChange={(e) => setFinalPresentations(e.target.value)}
+                  defaultValue={statusdocument21}
+                  onChange={(e) => setStatusdocument2(e.target.value)}
                 />
-                {errors.finalPresentations && <div className="text-danger">{errors.finalPresentations}</div>} 
+                {/* {errors.finalPresentations && <div className="text-danger">{errors.finalPresentations}</div>}  */}
+              </div>
+
+
+              <div className="form-group mb-4">
+                <label htmlFor="studentID">Final Presentation :</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter progress 2 Marks"
+                  defaultValue={finalthesis1}
+                  onChange={(e) => setFinalthesis(e.target.value)}
+                />
+                {/* {errors.finalPresentations && <div className="text-danger">{errors.finalPresentations}</div>}  */}
               </div>
 
             <div className="d-flex justify-content-between">

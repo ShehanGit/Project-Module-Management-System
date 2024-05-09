@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../../component/Sidebar";
-import { deleteExamData, listExamDetails } from "../../services/ExamService";
+import { deleteReportData, listReportDetails } from "../../services/ReportService";
 import { useNavigate } from 'react-router-dom';
 
 
 function ReportMarksTable() {
-  const [exams, setExams] = useState([]);
+  const [reports, setReports] = useState([]);
 
 
   useEffect(() => {
     const fetchExamDetails = async () => {
       try {
-        const response = await listExamDetails();
+        const response = await listReportDetails();
         if (response.status === 200) { // Check for success
-          setExams(response.data);
+          setReports(response.data);
           
         } else {
-          console.error('Error fetching exam details', response.status);
+          console.error('Error fetching report details', response.status);
         }
       } catch (error) {
-        console.error("Error fetching exam details:", error);
+        console.error("Error fetching report details:", error);
       }
     };
   
@@ -29,20 +29,20 @@ function ReportMarksTable() {
   const navigater = useNavigate();
 
 
-  function updateExam(id){
-    navigater(`/examinarupdatemark/${id}`)
+  function updateReport(id){
+    navigater(`/report-marks-update/${id}`)
   }
 
   async function deleteExamDetails(id) {
     console.log(id);
   
     try {
-      await deleteExamData(id);  // Call your delete API endpoint
+      await deleteReportData(id);  // Call your delete API endpoint
       
       // Refetch updated data
-      const response = await listExamDetails(); 
+      const response = await listReportDetails(); 
       if (response.status === 200) {   
-        setExams(response.data);  // Update the exams state
+        setReports(response.data);  // Update the exams state
       } else {
         console.error('Error refetching exams after deletion', response.status);
       }
@@ -102,18 +102,18 @@ function ReportMarksTable() {
                 </tr>
               </thead>
               <tbody>
-                {exams.map((exam) => (
-                  <tr key={exam.ID}>
-                    <td>{exam.id}</td>
-                    <td>{exam.name}</td> 
-                    <td>{exam.studentId}</td>
-                    <td>{exam.proposal}</td>
-                    <td>{exam.progress1}</td> 
-                    <td>{exam.progress2}</td> 
-                    <td>{exam.finalPresentations}</td>   
+                {reports.map((report) => (
+                  <tr key={report.ID}>
+                    <td>{report.studentID}</td>
+                    <td>{report.groupId}</td> 
+                    <td>{report.statusdocument1}</td>
+                    <td>{report.logbook}</td>
+                    <td>{report.proposal}</td> 
+                    <td>{report.statusdocument2}</td> 
+                    <td>{report.finalthesis}</td>   
                     <td>
-                    <button className="btn btn-outline-info" style={{marginRight: '40px' }} onClick={()=>updateExam(exam.id)}>Update</button>
-                    <button className="btn btn-outline-danger" onClick={()=>deleteExamDetails(exam.id)}>Delete</button>
+                    <button className="btn btn-outline-info" style={{marginRight: '40px' }} onClick={()=>updateReport(report.id)}>Update</button>
+                    <button className="btn btn-outline-danger" onClick={()=>deleteExamDetails(report.id)}>Delete</button>
                     </td> 
                   </tr>
                 ))}

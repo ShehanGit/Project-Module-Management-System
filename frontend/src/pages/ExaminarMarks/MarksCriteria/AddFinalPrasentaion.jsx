@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createWorkout } from "../../../services/ExamService";
+import { createExam } from "../../../services/ExamService";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../../component/Sidebar";
 
@@ -68,7 +68,7 @@ export default function AddFinalPracentation() {
       const workout = { name, studentId, proposal, progress1, progress2, finalPresentations  };
       console.log(workout);
 
-      createWorkout(workout).then((Response) => {
+      createExam(workout).then((Response) => {
         console.log(Response.data);
         navigater('/examinartable');
       });

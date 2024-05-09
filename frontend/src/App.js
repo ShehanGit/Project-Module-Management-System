@@ -44,7 +44,7 @@ function App() {
 
           <Route exact path="/report-marks" element={<ReportMarksTable/>} />
           <Route exact path="/report-marks-add" element={<ReportMarksAdd/>} />
-          <Route exact path="/report-marks-update" element={<ReportMarksUpdate/>} />
+          <Route exact path="/report-marks-update/:id" element={<ReportMarksUpdate/>} />
 
 
           
