@@ -1,10 +1,9 @@
-import { createExam, getExamById, updateExamData } from "../services/ExamService";
+import { createExam, getExamById, updateExamData } from "../../services/ExamService";
 import { useNavigate, useParams } from "react-router-dom";
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 
-export default function Examinarmarkadd() {
-  const [ID, setID] = useState('');
+export default function ReportMarksUpdate() {
   const [name, setName] = useState('');
   const [studentId, setStudentId] = useState('');
   const [proposal, setProposal] = useState('');
@@ -125,7 +124,7 @@ export default function Examinarmarkadd() {
   return (
     <div >
       {/* ... Sidebar & Other Components ... */}
-      <h2>Add Exam Marks</h2>
+      <h2>Update Report Marks</h2>
 
       <div 
         className=""

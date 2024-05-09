@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../../component/Sidebar";
-import { deleteExamData, listExamDetails } from "../../services/ReportService";
+import { deleteExamData, listExamDetails } from "../../services/ExamService";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -53,7 +53,7 @@ function ReportMarksTable() {
   
 
   function addMarks(){
-    navigater(`/examinaraddmark`)
+    navigater(`/report-marks-add`)
   }
 
   function addProposalMarks(){
@@ -120,7 +120,7 @@ function ReportMarksTable() {
               </tbody>
             </table>
 
-            <button className="btn btn-outline-info" style={{ float: 'right', marginRight: '40px' }}  onClick={()=>addMarks()  }>Add Marks</button>
+            <button className="btn btn-outline-info" style={{ float: 'right', marginRight: '40px' }}  onClick={()=>addMarks()  }>Add Report Marks</button>
             </div>
 
             <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>

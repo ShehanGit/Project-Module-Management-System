@@ -1,14 +1,14 @@
 import axios from "axios";
 
-const REST_API_BASE_URL = "http://localhost:8080/api/v1/exams";
+const REST_API_BASE_URL = "http://localhost:8080/report";
 
-export const listExamDetails = () => axios.get(REST_API_BASE_URL);
+export const listReportDetails = () => axios.get(REST_API_BASE_URL);
 
-export const createWorkout = (workout) => axios.post(REST_API_BASE_URL, workout);
+export const createReport = (report) => axios.post(REST_API_BASE_URL, report);
 
-export const getExamById = (examId) => axios.get(REST_API_BASE_URL + '/' + examId); 
+export const getReportById = (reportId) => axios.get(REST_API_BASE_URL + '/' + reportId); 
 
-export const deleteExamData = (examId) => axios.delete(REST_API_BASE_URL + '/' + examId);
+export const deleteReportData = (reportId) => axios.delete(REST_API_BASE_URL + '/' + reportId);
 
-export const updateExamData = (examId, exam) => axios.put(REST_API_BASE_URL + '/' + examId, exam);
+export const updateReportData = (reportId, report) => axios.put(REST_API_BASE_URL + '/' + reportId, report);
 

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { createWorkout } from "../services/ExamService";
-import { useNavigate, useParams } from "react-router-dom";
-import Sidebar from "../component/Sidebar";
+import { createWorkout } from "../../services/ExamService";
+import { useNavigate } from "react-router-dom";
+import Sidebar from "../../component/Sidebar";
 
 
-export default function Examinarmarkadd() {
-  const [ID, setID] = useState('');
+export default function ReportMarksAdd() {
   const [name, setName] = useState('');
   const [studentId, setStudentId] = useState('');
   const [proposal, setProposal] = useState('');
@@ -81,7 +80,7 @@ export default function Examinarmarkadd() {
 
     <Sidebar />
       {/* ... Sidebar & Other Components ... */}
-      <h2>Add Exam Marks</h2>
+      <h2>Add Report Marks</h2>
 
       <div 
         className=""

@@ -12,6 +12,8 @@ import AddProgress2 from './pages/ExaminarMarks/MarksCriteria/AddProgress2';
 import AddFinalPracentation from './pages/ExaminarMarks/MarksCriteria/AddFinalPrasentaion';
 
 import ReportMarksTable from './pages/ReportMarks/ReportMarksTable';
+import ReportMarksAdd from './pages/ReportMarks/ReportMarksAdd';
+import ReportMarksUpdate from './pages/ReportMarks/ReportMarksUpdate';
 
 
 
@@ -38,11 +40,14 @@ function App() {
           <Route exact path="/addprogress2" element={<AddProgress2/>} />
           <Route exact path="/add-final-pracentation" element={<AddFinalPracentation/>} />
 
-          //report Marks
-          <Route exact path="/rreport-marks" element={<ReportMarksTable/>} />
 
 
+          <Route exact path="/report-marks" element={<ReportMarksTable/>} />
+          <Route exact path="/report-marks-add" element={<ReportMarksAdd/>} />
+          <Route exact path="/report-marks-update" element={<ReportMarksUpdate/>} />
 
+
+          
 
           
  

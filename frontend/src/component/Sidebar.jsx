@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "../css/sidebar.css";
 import "../css/home.css"
 import { Link } from "react-router-dom";
@@ -111,14 +110,20 @@ export default function Sidebar() {
                 </a>
               </li>
 
-              <li className="home">
-                <a className="d-inline-flex align-items-center rounded border-0 collapsed d-flex p-2 ">
-                <i className='bx bxs-group ' style={{marginLeft:"-55px"}}></i>
-                  <div className="text-truncate ml-3  mx-2" data-i18n="Dashboard" style={{paddingLeft:"12px"}}>
-                    Groups
+              
+              <Link to="/report-marks" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <li className="home mb-4">
+                <div>
+                  <div className="d-inline-flex align-items-center d-flex p-2">
+                   <i class='bx bxs-user-plus ' style={{marginLeft:"-38px"}}></i>   
+                    <div className="text-truncate ml-3 mx-2" data-i18n="Employee" style={{paddingLeft:"12px"}}>
+                      Reports  
+                      <i />
+                    </div>
                   </div>
-                </a>
+                </div>
               </li>
+              </Link>
 
               <Link to="/examinartable" style={{ textDecoration: 'none', color: 'inherit' }}>
               <li className="home mb-4">
@@ -135,19 +140,7 @@ export default function Sidebar() {
               </Link>
 
 
-              <Link to="/examinaraddmark" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <li className="home mb-4">
-                <div>
-                  <div className="d-inline-flex align-items-center d-flex p-2">
-                   <i class='bx bxs-user-plus ' style={{marginLeft:"-38px"}}></i>   
-                    <div className="text-truncate ml-3 mx-2" data-i18n="Employee" style={{paddingLeft:"12px"}}>
-                      Add Marks
-                      <i />
-                    </div>
-                  </div>
-                </div>
-              </li>
-              </Link>
+          
 
             </ul>
           </div>
