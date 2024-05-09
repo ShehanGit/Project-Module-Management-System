@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import Sidebar from "../../component/Sidebar";
+import { createWorkout } from "../../../services/ExamService";
+import { useNavigate } from "react-router-dom";
+import Sidebar from "../../../component/Sidebar";
 
 
-export default function AddProposal() {
-  const [ID, setID] = useState('');
+export default function AddFinalPracentation() {
   const [name, setName] = useState('');
   const [studentId, setStudentId] = useState('');
   const [proposal, setProposal] = useState('');
@@ -65,19 +65,22 @@ export default function AddProposal() {
     setErrors(newErrors); // Update errors state
 
     if (isValid) {
-      const exam = { name, studentId, proposal, progress1, progress2, finalPresentations  };
-      console.log(exam);
+      const workout = { name, studentId, proposal, progress1, progress2, finalPresentations  };
+      console.log(workout);
 
+      createWorkout(workout).then((Response) => {
+        console.log(Response.data);
         navigater('/examinartable');
-      };
+      });
     }
-  
+  }
 
   return (
     <div >
-        <Sidebar />
+
+    <Sidebar />
       {/* ... Sidebar & Other Components ... */}
-      <h2>Add Proposal Marks</h2>
+      <h2>Add Add Final Pracentation Marks</h2>
 
       <div 
         className=""
@@ -89,13 +92,13 @@ export default function AddProposal() {
         }}
       >
         <div>
-          <form className="p-4" onSubmit={saveExamDetail}>
+        <form className="p-4" onSubmit={saveExamDetail}>
             {/* ... Other input fields */}
 
             <div className="form-group mb-4">
-              <label htmlFor="studentID" >Completion of core functionalities (20 Marks) :</label>
+              <label htmlFor="studentID" >Project overview and objectives (20 Marks) :</label>
               <input
-                type="text"
+                type="number"
                 className="form-control"
                 placeholder="Enter Student ID"
                 value={name}
@@ -106,9 +109,9 @@ export default function AddProposal() {
 
 
             <div className="form-group mb-4">
-              <label htmlFor="studentID" >Implementation of additional functionalities (10 Marks)</label>
+              <label htmlFor="studentID" >Functionality demonstration (10 Marks) :</label>
               <input
-                type="text"
+                type="number"
                 className="form-control"
                 placeholder="Enter Group ID"
                 value={studentId}
@@ -119,9 +122,9 @@ export default function AddProposal() {
 
 
              <div className="form-group mb-4">
-                <label htmlFor="studentID">Error handling and edge cases (10 Marks) :</label>
+                <label htmlFor="studentID">Technical aspects (20 Marks) :</label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   placeholder="Enter Proposal Marks"
                   value={proposal}
@@ -132,9 +135,9 @@ export default function AddProposal() {
               </div>
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">User Interface (UI) design (15 Marks) :</label>
+                <label htmlFor="studentID">Presentation style (10 Marks) :</label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   placeholder="Enter progress 1 Marks"
                   value={progress1}
@@ -144,9 +147,9 @@ export default function AddProposal() {
               </div>
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">Code structure and organization (15 Marks) :</label>
+                <label htmlFor="studentID">Q&A session (20 Marks) :</label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   placeholder="Enter progress 2 Marks"
                   value={progress2}
@@ -157,9 +160,9 @@ export default function AddProposal() {
 
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">Documentation and comments (30 Marks):</label>
+                <label htmlFor="studentID">Teamwork (20 Marks) :</label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   placeholder="Enter progress 2 Marks"
                   value={finalPresentations}
@@ -182,5 +185,5 @@ export default function AddProposal() {
       </div>
     </div>
   );
-
 }
+

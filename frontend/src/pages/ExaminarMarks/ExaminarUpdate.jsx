@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { createWorkout } from "../../services/ExamService";
+import { createExam, getExamById, updateExamData } from "../../services/ExamService";
 import { useNavigate, useParams } from "react-router-dom";
-import Sidebar from "../../component/Sidebar";
+import React, { useState, useEffect } from 'react';
 
 
-export default function AddProgress() {
+export default function Examinarmarkadd() {
   const [ID, setID] = useState('');
   const [name, setName] = useState('');
   const [studentId, setStudentId] = useState('');
@@ -12,6 +11,14 @@ export default function AddProgress() {
   const [progress1, setProgress1] = useState('');
   const [progress2, setProgress2] = useState('');
   const [finalPresentations, setFinalPresentations] = useState('');
+  //For sho in update field
+  const [name2, setName2] = useState('');
+  const [studentId2, setStudentId2] = useState('');
+  const [proposal2, setProposal2] = useState('');
+  const [progress12, setProgress12] = useState('');
+  const [progress22, setProgress22] = useState('');
+  const [finalPresentations2, setFinalPresentations2] = useState('');
+
   const [errors, setErrors] = useState({ // State to manage errors
     name: '',
     studentId: '',
@@ -23,7 +30,37 @@ export default function AddProgress() {
 
   const navigater = useNavigate();
 
+  const {id} = useParams();
+
+  // if (id){
+  //   getExamById(id).then((response)=>{
+  //     setName(response.data.name);
+  //     setStudentId(response.data.studentId );
+  //     setProposal(response.data.proposal );
+  //     setProgress1(response.data.progress1 );
+  //     setProgress2(response.data.progress2 );
+  //     setFinalPresentations(response.data.finalPresentations);
+
+
+  //   })
+  // }
+
+
+  if (id){
+    getExamById(id).then((response)=>{
+      setName2(response.data.name);
+      setStudentId2(response.data.studentId );
+      setProposal2(response.data.proposal );
+      setProgress12(response.data.progress1 );
+      setProgress22(response.data.progress2 );
+      setFinalPresentations2(response.data.finalPresentations);
+    })
+  }
+
   function saveExamDetail(e) {
+
+
+
     e.preventDefault();
 
     // Reset errors before validation
@@ -66,22 +103,29 @@ export default function AddProgress() {
     setErrors(newErrors); // Update errors state
 
     if (isValid) {
-      const workout = { name, studentId, proposal, progress1, progress2, finalPresentations  };
-      console.log(workout);
 
-      createWorkout(workout).then((Response) => {
-        console.log(Response.data);
+      //
+      console.log(finalPresentations);
+      setFinalPresentations(finalPresentations*2)
+      console.log(finalPresentations);
+
+
+      const exam = { name, studentId, proposal, progress1, progress2, finalPresentations  };
+      console.log(exam);
+
+      updateExamData(id, exam).then((response)=> {
+        console.log(response.data);
         navigater('/examinartable');
-      });
+      })
     }
+
   }
 
+  
   return (
     <div >
-
-    <Sidebar />
       {/* ... Sidebar & Other Components ... */}
-      <h2>Add Progress Marks </h2>
+      <h2>Add Exam Marks</h2>
 
       <div 
         className=""
@@ -93,16 +137,17 @@ export default function AddProgress() {
         }}
       >
         <div>
-        <form className="p-4" onSubmit={saveExamDetail}>
+          <form className="p-4" onSubmit={saveExamDetail}>
             {/* ... Other input fields */}
 
             <div className="form-group mb-4">
-              <label htmlFor="studentID" >Completion of core functionalities (20 Marks) :</label>
+              <label htmlFor="studentID" >Student ID :</label>
               <input
-                type="number"
+                type="text"
                 className="form-control"
-                placeholder="Enter Student ID"
-                value={name}
+                placeholder="Enter Student Name"
+                defaultValue={name2}
+                // value={name} 
                 onChange={(e) => setName(e.target.value)}
               />
               {errors.name && <div className="text-danger">{errors.name}</div>} {/* Error message display */}
@@ -110,12 +155,12 @@ export default function AddProgress() {
 
 
             <div className="form-group mb-4">
-              <label htmlFor="studentID" >Implementation of additional functionalities (10 Marks)</label>
+              <label htmlFor="studentID" >Group ID :</label>
               <input
-                type="number"
+                type="text"
                 className="form-control"
-                placeholder="Enter Group ID"
-                value={studentId}
+                placeholder="Enter Student ID"
+                defaultValue={studentId2}
                 onChange={(e) => setStudentId(e.target.value)}
               />
               {errors.studentId && <div className="text-danger">{errors.studentId}</div>} 
@@ -123,12 +168,12 @@ export default function AddProgress() {
 
 
              <div className="form-group mb-4">
-                <label htmlFor="studentID">Error handling and edge cases (10 Marks) :</label>
+                <label htmlFor="studentID">Proposal :</label>
                 <input
-                  type="number"
+                  type="text"
                   className="form-control"
                   placeholder="Enter Proposal Marks"
-                  value={proposal}
+                  defaultValue={proposal2}
                   onChange={(e) => setProposal(e.target.value)}
                 />
                 {errors.proposal && <div className="text-danger">{errors.proposal}</div>} 
@@ -136,24 +181,24 @@ export default function AddProgress() {
               </div>
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">User Interface (UI) design (15 Marks) :</label>
+                <label htmlFor="studentID">Progress 1 :</label>
                 <input
-                  type="number"
+                  type="text"
                   className="form-control"
                   placeholder="Enter progress 1 Marks"
-                  value={progress1}
+                  defaultValue={progress12}
                   onChange={(e) => setProgress1(e.target.value)}
                 />
                 {errors.progress1 && <div className="text-danger">{errors.progress1}</div>} 
               </div>
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">Code structure and organization (15 Marks) :</label>
+                <label htmlFor="studentID">Progress 2 :</label>
                 <input
-                  type="number"
+                  type="text"
                   className="form-control"
                   placeholder="Enter progress 2 Marks"
-                  value={progress2}
+                  defaultValue={progress22}
                   onChange={(e) => setProgress2(e.target.value)}
                 />
                 {errors.progress2 && <div className="text-danger">{errors.progress2}</div>} 
@@ -161,20 +206,16 @@ export default function AddProgress() {
 
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">Documentation and comments (30 Marks):</label>
+                <label htmlFor="studentID">Final Presentation :</label>
                 <input
-                  type="number"
+                  type="text"
                   className="form-control"
                   placeholder="Enter progress 2 Marks"
-                  value={finalPresentations}
+                  defaultValue={finalPresentations2}
                   onChange={(e) => setFinalPresentations(e.target.value)}
                 />
                 {errors.finalPresentations && <div className="text-danger">{errors.finalPresentations}</div>} 
               </div>
-            
-
-
-
 
             <div className="d-flex justify-content-between">
               <button type="submit" className="btn btn-outline-info mt-3">
@@ -187,4 +228,7 @@ export default function AddProgress() {
     </div>
   );
 }
+
+
+
 

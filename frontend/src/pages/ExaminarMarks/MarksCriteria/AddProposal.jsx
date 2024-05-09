@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { createWorkout } from "../../services/ExamService";
-import { useNavigate, useParams } from "react-router-dom";
-import Sidebar from "../../component/Sidebar";
+import { useNavigate } from "react-router-dom";
+import Sidebar from "../../../component/Sidebar";
 
 
-export default function AddProgress2() {
-  const [ID, setID] = useState('');
+export default function AddProposal() {
+  // const [ID, setID] = useState('');
   const [name, setName] = useState('');
   const [studentId, setStudentId] = useState('');
   const [proposal, setProposal] = useState('');
@@ -66,22 +65,19 @@ export default function AddProgress2() {
     setErrors(newErrors); // Update errors state
 
     if (isValid) {
-      const workout = { name, studentId, proposal, progress1, progress2, finalPresentations  };
-      console.log(workout);
+      const exam = { name, studentId, proposal, progress1, progress2, finalPresentations  };
+      console.log(exam);
 
-      createWorkout(workout).then((Response) => {
-        console.log(Response.data);
         navigater('/examinartable');
-      });
+      };
     }
-  }
+  
 
   return (
     <div >
-
-    <Sidebar />
+        <Sidebar />
       {/* ... Sidebar & Other Components ... */}
-      <h2>Add Progress 2 Marks</h2>
+      <h2>Add Proposal Marks</h2>
 
       <div 
         className=""
@@ -93,13 +89,13 @@ export default function AddProgress2() {
         }}
       >
         <div>
-        <form className="p-4" onSubmit={saveExamDetail}>
+          <form className="p-4" onSubmit={saveExamDetail}>
             {/* ... Other input fields */}
 
             <div className="form-group mb-4">
               <label htmlFor="studentID" >Completion of core functionalities (20 Marks) :</label>
               <input
-                type="number"
+                type="text"
                 className="form-control"
                 placeholder="Enter Student ID"
                 value={name}
@@ -112,7 +108,7 @@ export default function AddProgress2() {
             <div className="form-group mb-4">
               <label htmlFor="studentID" >Implementation of additional functionalities (10 Marks)</label>
               <input
-                type="number"
+                type="text"
                 className="form-control"
                 placeholder="Enter Group ID"
                 value={studentId}
@@ -125,7 +121,7 @@ export default function AddProgress2() {
              <div className="form-group mb-4">
                 <label htmlFor="studentID">Error handling and edge cases (10 Marks) :</label>
                 <input
-                  type="number"
+                  type="text"
                   className="form-control"
                   placeholder="Enter Proposal Marks"
                   value={proposal}
@@ -138,7 +134,7 @@ export default function AddProgress2() {
               <div className="form-group mb-4">
                 <label htmlFor="studentID">User Interface (UI) design (15 Marks) :</label>
                 <input
-                  type="number"
+                  type="text"
                   className="form-control"
                   placeholder="Enter progress 1 Marks"
                   value={progress1}
@@ -150,7 +146,7 @@ export default function AddProgress2() {
               <div className="form-group mb-4">
                 <label htmlFor="studentID">Code structure and organization (15 Marks) :</label>
                 <input
-                  type="number"
+                  type="text"
                   className="form-control"
                   placeholder="Enter progress 2 Marks"
                   value={progress2}
@@ -163,7 +159,7 @@ export default function AddProgress2() {
               <div className="form-group mb-4">
                 <label htmlFor="studentID">Documentation and comments (30 Marks):</label>
                 <input
-                  type="number"
+                  type="text"
                   className="form-control"
                   placeholder="Enter progress 2 Marks"
                   value={finalPresentations}
@@ -186,5 +182,5 @@ export default function AddProgress2() {
       </div>
     </div>
   );
-}
 
+}

@@ -1,16 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Cordinator from './pages/Cordinator';
 import AddUser from './pages/AddUser';
-import AddUser2 from './pages/ExaminaraTable';
-import Examinarmarkadd from './pages/Examinaraddmarks';
+import AddUser2 from './pages/ExaminarMarks/ExaminaraTable';
+import Examinarmarkadd from './pages/ExaminarMarks/Examinaraddmarks';
 import CordinatorAddMarks from './pages/CordinatorAddMarks';
-import ExaminarmarkUpdate from './pages/ExaminarUpdate';
-import AddProposal from './pages/MarksCritiria/AddProposal';
-import AddProgress from './pages/MarksCritiria/AddProgress';
-import AddProgress2 from './pages/MarksCritiria/AddProgress2';
-import AddFinalPracentation from './pages/MarksCritiria/AddFinalPrasentaion';
+import ExaminarmarkUpdate from './pages/ExaminarMarks/ExaminarUpdate';
+import AddProposal from './pages/ExaminarMarks/MarksCriteria/AddProposal';
+import AddProgress from './pages/ExaminarMarks/MarksCriteria/AddProgress';
+import AddProgress2 from './pages/ExaminarMarks/MarksCriteria/AddProgress2';
+import AddFinalPracentation from './pages/ExaminarMarks/MarksCriteria/AddFinalPrasentaion';
+
+import ReportMarksTable from './pages/ReportMarks/ReportMarksTable';
+
+
 
 
 
@@ -34,6 +37,12 @@ function App() {
           <Route exact path="/addprogress" element={<AddProgress/>} />
           <Route exact path="/addprogress2" element={<AddProgress2/>} />
           <Route exact path="/add-final-pracentation" element={<AddFinalPracentation/>} />
+
+          //report Marks
+          <Route exact path="/rreport-marks" element={<ReportMarksTable/>} />
+
+
+
 
           
  

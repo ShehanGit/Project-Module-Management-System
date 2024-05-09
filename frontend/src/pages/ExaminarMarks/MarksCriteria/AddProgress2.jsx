@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { createWorkout } from "../../services/ExamService";
+import { createWorkout } from "../../../services/ExamService";
 import { useNavigate, useParams } from "react-router-dom";
-import Sidebar from "../../component/Sidebar";
+import Sidebar from "../../../component/Sidebar";
 
 
-export default function AddFinalPracentation() {
-  const [ID, setID] = useState('');
+export default function AddProgress2() {
+  // const [ID, setID] = useState('');
   const [name, setName] = useState('');
   const [studentId, setStudentId] = useState('');
   const [proposal, setProposal] = useState('');
@@ -81,7 +81,7 @@ export default function AddFinalPracentation() {
 
     <Sidebar />
       {/* ... Sidebar & Other Components ... */}
-      <h2>Add Add Final Pracentation Marks</h2>
+      <h2>Add Progress 2 Marks</h2>
 
       <div 
         className=""
@@ -97,7 +97,7 @@ export default function AddFinalPracentation() {
             {/* ... Other input fields */}
 
             <div className="form-group mb-4">
-              <label htmlFor="studentID" >Project overview and objectives (20 Marks) :</label>
+              <label htmlFor="studentID" >Completion of core functionalities (20 Marks) :</label>
               <input
                 type="number"
                 className="form-control"
@@ -110,7 +110,7 @@ export default function AddFinalPracentation() {
 
 
             <div className="form-group mb-4">
-              <label htmlFor="studentID" >Functionality demonstration (10 Marks) :</label>
+              <label htmlFor="studentID" >Implementation of additional functionalities (10 Marks)</label>
               <input
                 type="number"
                 className="form-control"
@@ -123,7 +123,7 @@ export default function AddFinalPracentation() {
 
 
              <div className="form-group mb-4">
-                <label htmlFor="studentID">Technical aspects (20 Marks) :</label>
+                <label htmlFor="studentID">Error handling and edge cases (10 Marks) :</label>
                 <input
                   type="number"
                   className="form-control"
@@ -136,7 +136,7 @@ export default function AddFinalPracentation() {
               </div>
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">Presentation style (10 Marks) :</label>
+                <label htmlFor="studentID">User Interface (UI) design (15 Marks) :</label>
                 <input
                   type="number"
                   className="form-control"
@@ -148,7 +148,7 @@ export default function AddFinalPracentation() {
               </div>
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">Q&A session (20 Marks) :</label>
+                <label htmlFor="studentID">Code structure and organization (15 Marks) :</label>
                 <input
                   type="number"
                   className="form-control"
@@ -161,7 +161,7 @@ export default function AddFinalPracentation() {
 
 
               <div className="form-group mb-4">
-                <label htmlFor="studentID">Teamwork (20 Marks) :</label>
+                <label htmlFor="studentID">Documentation and comments (30 Marks):</label>
                 <input
                   type="number"
                   className="form-control"

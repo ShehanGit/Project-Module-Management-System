@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Sidebar from "../component/Sidebar";
-import { deleteExamData, listExamDetails } from "../services/ExamService";
+import Sidebar from "../../component/Sidebar";
+import { deleteExamData, listExamDetails } from "../../services/ExamService";
 import { useNavigate } from 'react-router-dom';
 
 
