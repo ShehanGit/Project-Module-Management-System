@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../../component/Sidebar";
+import "../../css/reportTable.css";
 import { deleteReportData, listReportDetails } from "../../services/ReportService";
 import { useNavigate } from 'react-router-dom';
 
 
 function ReportMarksTable() {
   const [reports, setReports] = useState([]);
+  const [searchStudentID, setSearchStudentID] = useState("");
+  const [searchGroupID, setSearchGroupID] = useState("");
 
 
   useEffect(() => {
@@ -50,6 +53,18 @@ function ReportMarksTable() {
       console.error(error);
     }
   }
+
+
+
+  function searchMarks() {
+    // Filter reports based on search criteria
+    const filteredReports = reports.filter(report =>
+      report.studentID.includes(searchStudentID) &&
+      report.groupId.includes(searchGroupID)
+    );
+    return filteredReports;
+  }
+
   
 
   function addMarks(){
@@ -83,22 +98,44 @@ function ReportMarksTable() {
         </div>
 
         <div className="col-md-9"> 
-          <div className="mt-4 mx-5" style={{ marginBottom: "-40px" }}>
-            <h2>Report Mark Table</h2>
+        <div className="title">
+          <div className="mt-1 " style={{ marginBottom: "-40px" }}>
+            <h2 className="tital-h1">Report Mark Table</h2>
           </div>
-
+          </div>
           <div className="exam-table-container">
-          <table class="table table-bordered"  style={{ backgroundColor: 'white', marginTop: '200px',marginLeft: '-40px', borderRadius: '10px' }}> 
-              <thead>
+
+        <div className="search">
+          <input
+                type="text"
+                placeholder="Search by Student ID"
+                value={searchStudentID}
+                onChange={(e) => setSearchStudentID(e.target.value)}
+                className="search-input"
+              />
+              <input
+                type="text"
+                placeholder="Search by Group ID"
+                value={searchGroupID}
+                onChange={(e) => setSearchGroupID(e.target.value)}
+                className="search-input"
+              />
+              <button className="search-btn"  onClick={() => setReports(searchMarks())}>
+                Search
+              </button>
+            </div>
+
+          <table class="table table-bordered"  style={{ backgroundColor: 'white', marginTop: '2px',marginLeft: '-40px', borderRadius: '10px' }}> 
+              <thead >
                 <tr style={{ backgroundColor: 'rgb(35, 52, 70)' }}>
-                  <th >ID</th>
-                  <th>Sdudent ID</th>
-                  <th>Group ID</th>
-                  <th>Proposal</th>
-                  <th>Progress 1</th>
-                  <th>Progress 2</th>
-                  <th>Final Presentations</th>
-                  <th>Action</th>
+                  <th style={{ fontSize: '15px' , color: 'white'}}>ID</th>
+                  <th style={{ fontSize: '15px', color: 'white' }}>Sdudent ID</th>
+                  <th style={{ fontSize: '15px', color: 'white' }}>Group ID</th>
+                  <th style={{ fontSize: '15px', color: 'white' }}>Proposal</th>
+                  <th style={{ fontSize: '15px', color: 'white' }}>Progress 1</th>
+                  <th style={{ fontSize: '15px', color: 'white' }}>Progress 2</th>
+                  <th style={{ fontSize: '15px', color: 'white' }}>Final Presentations</th>
+                  <th style={{ fontSize: '15px', color: 'white' }}>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -120,7 +157,7 @@ function ReportMarksTable() {
               </tbody>
             </table>
 
-            <button className="btn btn-outline-info" style={{ float: 'right', marginRight: '40px' }}  onClick={()=>addMarks()  }>Add Report Marks</button>
+            <button className="addreport" style={{ float: 'right', marginRight: '40px' }}  onClick={()=>addMarks()  }>Add Report Marks</button>
             </div>
 
             <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
@@ -134,6 +171,9 @@ function ReportMarksTable() {
                     
         </div>
       </div>
+
+              
+
     </div>
   );
 }

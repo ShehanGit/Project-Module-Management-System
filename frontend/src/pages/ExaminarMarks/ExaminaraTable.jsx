@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 
 function ExaminarTable() {
   const [exams, setExams] = useState([]);
+  const [searchStudentID, setSearchStudentID] = useState("");
+  const [searchGroupID, setSearchGroupID] = useState("");
 
 
   useEffect(() => {
@@ -74,6 +76,19 @@ function ExaminarTable() {
     navigater(`/add-final-pracentation`)
   }
 
+
+  function searchMarks() {
+    // Filter reports based on search criteria
+    const filteredReports = exams.filter(exam =>
+      String(exam.id).includes(searchStudentID) && // Convert exam.id to string
+      String(exam.name).includes(searchGroupID)
+    );
+    return filteredReports;
+  }
+  
+
+
+
   return (
     <div className="container-fluid">
       
@@ -87,12 +102,33 @@ function ExaminarTable() {
             <h2>Examinar Mark Table</h2>
           </div>
 
+          <div className="search">
+          <input
+                type="text"
+                placeholder="Search by Student ID"
+                value={searchStudentID}
+                onChange={(e) => setSearchStudentID(e.target.value)}
+                className="search-input"
+              />
+              <input
+                type="text"
+                placeholder="Search by Group ID"
+                value={searchGroupID}
+                onChange={(e) => setSearchGroupID(e.target.value)}
+                className="search-input"
+              />
+              <button className="search-btn"  onClick={() => setExams(searchMarks())}>
+                Search
+              </button>
+            </div>
+
+
           <div className="exam-table-container">
           <table class="table table-bordered"  style={{ backgroundColor: 'white', marginTop: '200px',marginLeft: '-40px', borderRadius: '10px' }}> 
               <thead>
                 <tr style={{ backgroundColor: 'rgb(35, 52, 70)' }}>
                   <th >ID</th>
-                  <th>Sdudent ID</th>
+                  <th>Student ID</th>
                   <th>Group ID</th>
                   <th>Proposal</th>
                   <th>Progress 1</th>

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { createExam } from "../../services/ExamService";
 import { useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../../component/Sidebar";
+import "../../css/reportTable.css";
+
 
 
 export default function Examinarmarkadd() {

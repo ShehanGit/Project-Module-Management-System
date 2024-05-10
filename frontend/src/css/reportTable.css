@@ -1,0 +1,53 @@
+.search{
+    margin-top: 90px;
+    margin-bottom: 40px;
+    margin-right: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-input {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid rgb(35, 52, 70);
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .search-btn {
+    padding: 10px 60px;
+    background-color: rgb(35, 52, 70);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  /* Hover effect for the button */
+  .search-btn:hover {
+    background-color: #0056b3;
+  }
+
+  .addreport{
+    margin-top: 40px;
+    padding: 10px 60px;
+    background-color: rgb(35, 52, 70);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+ .title{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+  
+  }
+
+  .tital-h1{
+    font-size: 38px;
+  }
+
