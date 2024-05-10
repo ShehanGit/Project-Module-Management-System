@@ -98,24 +98,18 @@ function ExaminarTable() {
         </div>
 
         <div className="col-md-9"> 
+        <div className="title">
           <div className="mt-4 mx-5" style={{ marginBottom: "-40px" }}>
             <h2>Examinar Mark Table</h2>
           </div>
-
+          </div>
           <div className="search">
-          <input
-                type="text"
-                placeholder="Search by Student ID"
-                value={searchStudentID}
-                onChange={(e) => setSearchStudentID(e.target.value)}
-                className="search-input"
-              />
-              <input
+              <input 
                 type="text"
                 placeholder="Search by Group ID"
                 value={searchGroupID}
                 onChange={(e) => setSearchGroupID(e.target.value)}
-                className="search-input"
+                className="search-input1"
               />
               <button className="search-btn"  onClick={() => setExams(searchMarks())}>
                 Search
@@ -124,17 +118,17 @@ function ExaminarTable() {
 
 
           <div className="exam-table-container">
-          <table class="table table-bordered"  style={{ backgroundColor: 'white', marginTop: '200px',marginLeft: '-40px', borderRadius: '10px' }}> 
+          <table class="table table-bordered"  style={{ backgroundColor: 'white', marginTop: '50px',marginLeft: '-40px', borderRadius: '10px' }}> 
               <thead>
                 <tr style={{ backgroundColor: 'rgb(35, 52, 70)' }}>
-                  <th >ID</th>
-                  <th>Student ID</th>
-                  <th>Group ID</th>
-                  <th>Proposal</th>
-                  <th>Progress 1</th>
-                  <th>Progress 2</th>
-                  <th>Final Presentations</th>
-                  <th>Action</th>
+                  <th style={{ fontSize: '15px' , color: 'white'}}>ID</th>
+                  <th style={{ fontSize: '15px' , color: 'white'}}>Student ID</th>
+                  <th style={{ fontSize: '15px' , color: 'white'}}>Group ID</th>
+                  <th style={{ fontSize: '15px' , color: 'white'}}>Proposal</th>
+                  <th style={{ fontSize: '15px' , color: 'white'}}>Progress 1</th>
+                  <th style={{ fontSize: '15px' , color: 'white'}}>Progress 2</th>
+                  <th style={{ fontSize: '15px' , color: 'white'}}>Final Presentations</th>
+                  <th style={{ fontSize: '15px' , color: 'white'}}>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -156,7 +150,7 @@ function ExaminarTable() {
               </tbody>
             </table>
 
-            <button className="btn btn-outline-info" style={{ float: 'right', marginRight: '40px' }}  onClick={()=>addMarks()  }>Add Marks</button>
+            <button className="addreport" style={{ float: 'right', marginRight: '40px' }}  onClick={()=>addMarks()  }>Add Marks</button>
             </div>
 
             <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>

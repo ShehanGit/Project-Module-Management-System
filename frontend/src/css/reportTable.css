@@ -14,6 +14,17 @@
     font-size: 16px;
   }
   
+  .search-input1 {
+    padding: 10px;
+    padding-left: 90px;
+    padding-right: 90px;
+    margin-right: 10px;
+    border: 1px solid rgb(35, 52, 70);
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+
   .search-btn {
     padding: 10px 60px;
     background-color: rgb(35, 52, 70);
