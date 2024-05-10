@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { createReport } from "../../services/ReportService";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../component/Sidebar";
+import "../../css/reportTable.css";
+
 
 
 export default function ReportMarksAdd() {
@@ -97,7 +99,9 @@ export default function ReportMarksAdd() {
             {/* ... Other input fields */}
 
             <div className="form-group mb-4">
+            <div className="lablecenter">
               <label htmlFor="studentID" >Student ID :</label>
+              </div>
               <input
                 type="text"
                 className="form-control"
@@ -109,7 +113,10 @@ export default function ReportMarksAdd() {
 
 
             <div className="form-group mb-4">
+            <div className="lablecenter">
+
               <label htmlFor="studentID" >Group ID :</label>
+              </div>
               <input
                 type="text"
                 className="form-control"
@@ -121,7 +128,10 @@ export default function ReportMarksAdd() {
 
 
              <div className="form-group mb-4">
+             <div className="lablecenter">
+
                 <label htmlFor="studentID">Proposal :</label>
+                </div>
                 <input
                   type="text"
                   className="form-control"
@@ -133,7 +143,10 @@ export default function ReportMarksAdd() {
               </div>
 
               <div className="form-group mb-4">
+              <div className="lablecenter">
+
                 <label htmlFor="studentID">Progress 1 :</label>
+                </div>
                 <input
                   type="text"
                   className="form-control"
@@ -144,7 +157,10 @@ export default function ReportMarksAdd() {
               </div>
 
               <div className="form-group mb-4">
+              <div className="lablecenter">
+
                 <label htmlFor="studentID">Progress 2 :</label>
+                </div>
                 <input
                   type="text"
                   className="form-control"
@@ -156,7 +172,10 @@ export default function ReportMarksAdd() {
 
 
               <div className="form-group mb-4">
+              <div className="lablecenter">
+
                 <label htmlFor="studentID">Final Presentation :</label>
+                </div>
                 <input
                   type="text"
                   className="form-control"
@@ -168,7 +187,10 @@ export default function ReportMarksAdd() {
 
 
               <div className="form-group mb-4">
+              <div className="lablecenter">
+
                 <label htmlFor="studentID">Final Presentation :</label>
+                </div>
                 <input
                   type="text"
                   className="form-control"
