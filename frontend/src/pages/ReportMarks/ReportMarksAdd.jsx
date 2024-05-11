@@ -133,7 +133,7 @@ export default function ReportMarksAdd() {
                 <label htmlFor="studentID">Proposal :</label>
                 </div>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   placeholder="Enter Proposal Marks"
                   onChange={(e) => setStatusdocument1(e.target.value)}
@@ -148,7 +148,7 @@ export default function ReportMarksAdd() {
                 <label htmlFor="studentID">Progress 1 :</label>
                 </div>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   placeholder="Enter progress 1 Marks"
                   onChange={(e) => setLogbook(e.target.value)}
@@ -162,7 +162,7 @@ export default function ReportMarksAdd() {
                 <label htmlFor="studentID">Progress 2 :</label>
                 </div>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   placeholder="Enter progress 2 Marks"
                   onChange={(e) => setProposal(e.target.value)}
@@ -177,7 +177,7 @@ export default function ReportMarksAdd() {
                 <label htmlFor="studentID">Final Presentation :</label>
                 </div>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   placeholder="Enter progress 2 Marks"
                   onChange={(e) => setStatusdocument2(e.target.value)}
@@ -192,7 +192,7 @@ export default function ReportMarksAdd() {
                 <label htmlFor="studentID">Final Presentation :</label>
                 </div>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   placeholder="Enter progress 2 Marks"
                   onChange={(e) => setFinalthesis(e.target.value)}
