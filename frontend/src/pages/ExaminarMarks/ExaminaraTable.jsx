@@ -4,10 +4,13 @@ import { deleteExamData, listExamDetails } from "../../services/ExamService";
 import { useNavigate } from 'react-router-dom';
 
 
+
 function ExaminarTable() {
   const [exams, setExams] = useState([]);
   const [searchStudentID, setSearchStudentID] = useState("");
   const [searchGroupID, setSearchGroupID] = useState("");
+
+
 
 
   useEffect(() => {
@@ -85,6 +88,11 @@ function ExaminarTable() {
     );
     return filteredReports;
   }
+  
+
+  
+  
+  
   
 
 
